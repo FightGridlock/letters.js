@@ -17,4 +17,8 @@ angular.module('letterApp',[])
       ward: 1
     }
 
+    letter.setWard = function (wardChosen) {
+      letter.info.ward = wardChosen;
+    }
+
   }]);
