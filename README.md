@@ -1,6 +1,17 @@
 # letters.js 0.0.1
 A Letter Writing Campaign for the LRT Route in Brampton
 
+### Technologies
+
+- Back End
+   - [NodeJS](https://nodejs.org/)
+   - [ExpressJS](expressjs.com/)
+   - [MongoDB](https://www.mongodb.org/)
+   - [Mongoose](mongoosejs.com/)
+- Front End
+   - [Materialize](materializecss.com/)
+   - [AngularJS](https://angularjs.org/)
+
 ## Todo List
 
 ### Front End
