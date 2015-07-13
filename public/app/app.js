@@ -1,4 +1,5 @@
 //letters.js Angular App
+'use strict';
 
 angular.module('letterApp',[])
   .controller('letterController', [ '$scope', function (){
