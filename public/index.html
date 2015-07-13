@@ -9,35 +9,95 @@
 
   </head>
   <body>
+    <!--Heading-->
+    <header>
+      <div class="valign-demo valign-wrapper">
+        <h5 class="valign center" style="width: 100%;">CRASHING THIS VOTE</h5>
+
+      </div>
+    </header>
     <section ng-controller="letterController as letter">
       <!-- Ward Select -->
       <div class="container">
         <div class="col s12">
-          <div class="valign-demo valign-wrapper">
-            <h5 class="valign center" style="width: 100%;">This should be vertically aligned</h5>
-          </div>
-          {{letter.info.city}}
+          <h1>Choose Your Ward: {{ letter.wardList[letter.info.ward][1] }}</h1>
+
+            <form action="#">
+              <div class="col l6">
+                <p>
+                  <input name="ward" type="radio" id="ward1" ng-click="letter.setWard(1)"/>
+                  <label for="ward1">Ward 1</label>
+                </p>
+                <p>
+                  <input name="ward" type="radio" id="ward2" ng-click="letter.setWard(2)" />
+                  <label for="ward2">Ward 2</label>
+                </p>
+                <p>
+                  <input name="ward" type="radio" id="ward3" ng-click="letter.setWard(3)" />
+                  <label for="ward3">Ward 3</label>
+                </p>
+                <p>
+                  <input name="ward" type="radio" id="ward4" ng-click="letter.setWard(4)" />
+                  <label for="ward4">Ward 4</label>
+                </p>
+                <p>
+                  <input name="ward" type="radio" id="ward5" ng-click="letter.setWard(5)" />
+                  <label for="ward5">Ward 5</label>
+                </p>
+              </div>
+              <div class="col l6">
+                <p>
+                  <input name="ward" type="radio" id="ward6" ng-click="letter.setWard(6)" />
+                  <label for="ward6">Ward 6</label>
+                </p>
+                <p>
+                  <input name="ward" type="radio" id="ward7" ng-click="letter.setWard(7)" />
+                  <label for="ward7">Ward 7</label>
+                </p>
+                <p>
+                  <input name="ward" type="radio" id="ward8" ng-click="letter.setWard(8)" />
+                  <label for="ward8">Ward 8</label>
+                </p>
+                <p>
+                  <input name="ward" type="radio" id="ward9" ng-click="letter.setWard(9)" />
+                  <label for="ward9">Ward 9</label>
+                </p>
+                <p>
+                  <input name="ward" type="radio" id="ward10" ng-click="letter.setWard(10)" />
+                  <label for="ward10">Ward 10</label>
+                </p>
+              </div>
+            </form>
         </div>
+        <hr />
       </div>
 
       <!-- Input Fields -->
-          <div class="container">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s12 m12 l4">
-                  <input id="first_name" type="text" class="validate" placeholder="First Name">
-                </div>
-                <div class="input-field col s12 m12 l4">
-                  <input id="last_name" type="text" class="validate" placeholder="Last Name">
-                </div>
-                <div class="input-field col s12 m12 l4">
-                  <input id="email" type="email" class="validate" placeholder="Email">
-                </div>
-              </div>
-            </form>
+      <div class="container">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12 m12 l4">
+              <input id="first_name" type="text" class="validate" placeholder="First Name">
+            </div>
+            <div class="input-field col s12 m12 l4">
+              <input id="last_name" type="text" class="validate" placeholder="Last Name">
+            </div>
+            <div class="input-field col s12 m12 l4">
+              <input id="email" type="email" class="validate" placeholder="Email">
+            </div>
           </div>
+        </form>
+      </div>
 
       <!-- Letter Content -->
+      <article>
+        <div class="container">
+          <h4>Dear {{ letter.councillors[letter.wardList[letter.info.ward][0]].regional.name }}</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </article>
 
       <!-- Submit Option -->
   </section>
