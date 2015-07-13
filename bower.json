@@ -1,0 +1,8 @@
+{
+  "name": "Santa-Spy",
+  "version": "0.0.1",
+  "dependencies": {
+    "foundation": "latest",
+    "angular": "latest"
+  }
+}

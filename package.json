@@ -1,0 +1,16 @@
+
+{
+    "name": "letters",
+    "version": "0.0.1",
+    "main": "server.js",
+    "scripts": {
+        "start": "node ./server.js"
+  },
+    "dependencies": {
+        "express": "~4.0.0",
+        "mongoose": "~3.6.13",
+        "ejs": "latest",
+        "body-parser": "~1.0.1",
+        "nodemailer": "~1.0"
+    }
+}
