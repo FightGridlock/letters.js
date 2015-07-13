@@ -5,7 +5,6 @@ var router      = express.Router();
 
 // require the model JS file for users
 var User        = require('../models/user');
-var Email       = require('../models/email');
 
 // middleware specific to this router
 router.use(function timeLog(req, res, next) {
@@ -15,7 +14,7 @@ router.use(function timeLog(req, res, next) {
 // define the home page route
 router.get('/', function(req, res) {
   res.json({
-       message: "Welcome to SantaSpy API"
+       message: "Welcome to Letters API"
    }) 
 });
 
@@ -37,8 +36,14 @@ router.route('/users')
     .post(function(req, res) {
         
     var user = new User();          // create new instance of the User model
-    user.fName = req.body.fName;    // set the user's first name
-    user.lName = req.body.lName;    // set the user's last name
+    user.firstName = req.body.firstName;    // set the user's first name
+    user.lastName = req.body.lastName;    // set the user's last name
+    user.email = req.body.email;
+    user.address = req.body.address;
+    if (req.body.city) { user.city = req.body.city; }
+    if (req.body.province) { user.province = req.body.province; }
+    user.postalCode = req.body.postalCode;
+    user.ward = req.body.ward;
     
     // save the User and check for errors
     user.save(function(err){
@@ -71,12 +76,24 @@ router.route('/users/:user_id')
                res.send(err);
            }
            // place params into variables
-           var fName = req.body.fName; 
-           var lName = req.body.lName;
+           var firstName = req.body.firstName; 
+           var lastName = req.body.lastName;
+           var email = req.body.email;
+           var address = req.body.address;
+           var city = req.body.city;
+           var province = req.body.province;
+           var postalCode = req.body.postalCode;
+           var ward = req.body.ward;
            
            // check if param exists, then update
-           if (fName){ user.fName = fName; } // update user info 
-           if (lName){ user.lName = lName; } // update user info
+           if (firstName)   { user.firstName = firstName; } // update user info 
+           if (lastName)    { user.lastName = lastName; }
+           if (email)       { user.email = email; }
+           if (address)     { user.address = address; }
+           if (city)        { user.city = city; }
+           if (province)    { user.province = province; }
+           if (postalCode)  { user.postalCode = postalCode; }
+           if (ward)        { user.ward = ward; }
            
            // save the user
            user.save(function(err, user){
@@ -84,9 +101,9 @@ router.route('/users/:user_id')
                   res.send(err);
               } 
               res.json({
-                  message: "User Updated: " + user.fName + " " + user.lName
+                  message: "User Updated: " + user.email
               });
-              console.log('User Updated: ' + user.fName + " " + user.lName)
+              console.log('User Updated: ' + user.email)
            });
         });
     })
@@ -97,16 +114,17 @@ router.route('/users/:user_id')
             if (err){
                 res.send(err);
             }
-            var fName = user.fName;
-            var lName = user.lName;
+            var firstName = user.firstName;
+            var lastName = user.lastName;
+            var email = user.email;
             user.remove(function(err, user){
                 if (err){
                     res.send(err);
                 }
                 res.json({
-                    message: "Deleted User: " + fName + " " + lName
+                    message: "Deleted User: " + email
                 });
-                console.log("Deleted User: " + fName + " " + lName)
+                console.log("Deleted User: " + email)
             });
         });
     });

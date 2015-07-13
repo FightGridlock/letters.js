@@ -2,7 +2,7 @@
   "name": "Santa-Spy",
   "version": "0.0.1",
   "dependencies": {
-    "foundation": "latest",
+    "materialize": "latest",
     "angular": "latest"
   }
 }
