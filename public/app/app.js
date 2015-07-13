@@ -10,7 +10,7 @@ angular.module('letterApp',[])
       firstName: "",
       lastName: "",
       email: "",
-      options: [],
+      settings: [],
       address: "",
       city: "Brampton",
       province: "ON",
