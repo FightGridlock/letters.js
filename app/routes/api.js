@@ -78,11 +78,12 @@ router.route('/users/:user_id')
            // place params into variables
            var firstName = req.body.firstName; 
            var lastName = req.body.lastName;
-           var email;
-           var address;
-           var city;
-           var province;
-           var postalCode;
+           var email = req.body.email;
+           var address = req.body.address;
+           var city = req.body.city;
+           var province = req.body.province;
+           var postalCode = req.body.postalCode;
+           var ward = req.body.ward;
            
            // check if param exists, then update
            if (firstName)   { user.firstName = firstName; } // update user info 
@@ -92,6 +93,7 @@ router.route('/users/:user_id')
            if (city)        { user.city = city; }
            if (province)    { user.province = province; }
            if (postalCode)  { user.postalCode = postalCode; }
+           if (ward)        { user.ward = ward; }
            
            // save the user
            user.save(function(err, user){
