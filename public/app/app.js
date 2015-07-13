@@ -37,6 +37,10 @@ angular.module('letterApp',[])
       "1n5" : {
         regional: { name: "Elaine Moore", email: "email@email.com", phone: "416-970-8902" },
         city: { name: "Grant Gibson", email: "email@email.com", phone: "416-970-8902" }
+      },
+      "2n6" : {
+        regional: { name: "Michael Palleschi", email: "email@email.com", phone: "905-495-5559"},
+        city:   { name: "Doug Whillans", email: "email@gmail.com", phone: "905-416-8989"}
       }
     }
 
