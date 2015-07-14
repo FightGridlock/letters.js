@@ -77,16 +77,18 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12 m12 l4">
-              <input id="first_name" type="text" class="validate" placeholder="First Name">
+              <input id="first_name" type="text" class="validate" placeholder="First Name" ng-model="fName">
             </div>
             <div class="input-field col s12 m12 l4">
-              <input id="last_name" type="text" class="validate" placeholder="Last Name">
+              <input id="last_name" type="text" class="validate" placeholder="Last Name" ng-model="lName">
             </div>
             <div class="input-field col s12 m12 l4">
-              <input id="email" type="email" class="validate" placeholder="Email">
+              <input id="email" type="email" class="validate" placeholder="Email" ng-model="email">
             </div>
           </div>
         </form>
+        <button class="waves-effect waves-light btn" ng-click="letter.saveUser(fName,lName, email)">Save</button>
+        <hr />
       </div>
 
       <!-- Letter Content -->
@@ -96,6 +98,18 @@
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <h4>Sincerely,</h4>
+          <h5>{{ letter.info.firstName }} {{ letter.info.lastName }}</h5>
+          <p>{{ letter.info.email }}</p>
         </div>
       </article>
 
