@@ -48,5 +48,10 @@ angular.module('letterApp',[])
       letter.info.ward = wardChosen.toString();
       selectedWard = letter.wardList[letter.info.ward][0];
     }
+    letter.saveUser = function (fName, lName, email) {
+      letter.info.firstName = fName;
+      letter.info.lastName = lName;
+      letter.info.email = email;
+    }
 
   }]);
