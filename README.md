@@ -17,8 +17,8 @@ A Letter Writing Campaign for the LRT Route in Brampton
 ### Front End
 
 * Build Clickable Ward Map. Clicking on your ward should fill in your form with the following information:
-    * Ward Numbers (Ward 1 => Wards 1 & 5)
-    * Name of City & Regional Councillors (Ward 2 => Doug Whillans & Michael Pallesci)
+    * ~~Ward Numbers (Ward 1 => Wards 1 & 5)~~ DONE
+    * ~~Name of City & Regional Councillors (Ward 2 => Doug Whillans & Michael Pallesci)~~ DONE
     * Emails of Councillors
     * Phone Numbers of Councillors (to display on "Call Your Councillor Now!" screen)
 
@@ -29,7 +29,7 @@ A Letter Writing Campaign for the LRT Route in Brampton
    - Prevent foul play on the front end
    - Make sure only valid wards come in
    - Allow for non-brampton residents (no ward)
-   - Make sure requests do not attempt to 
+   - Make sure requests do not attempt to
 - Authentication (API Key)
 - Email system
    - Recieve email content from front end
@@ -45,6 +45,11 @@ A Letter Writing Campaign for the LRT Route in Brampton
 
 
 ## Done List
+
+### Front End
+
+* ~~Ward Numbers (Ward 1 => Wards 1 & 5)~~ DONE
+* ~~Name of City & Regional Councillors (Ward 2 => Doug Whillans & Michael Pallesci)~~ DONE
 
 ### Back End
 
