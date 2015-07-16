@@ -1,18 +1,18 @@
 // send.js in /app/routes/
 
-var express         = require('express');
-var router          = express.Router();
-var nodemailer      = require("nodemailer");
-var sgTransport     = require('nodemailer-sendgrid-transport');
+var express     = require('express');
+var router      = express.Router();
+var nodemailer  = require("nodemailer");
+var sg          = require("nodemailer-mailgun-transport");
 
 var options = {
   auth: {
-    api_user: "fightgridlock",
-    api_key: "F1ghtGr1dl0ck"
+    api_key: "key-dcbd608a9ee026a1db30c148bca371ee",
+    domain: "fightgridlock.anxgroup.com"
   }
 };
 
-var mailer = nodemailer.createTransport(sgTransport(options));
+var mailer = nodemailer.createTransport(sg(options));
 
 
 // require the model JS files
