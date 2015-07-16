@@ -9,12 +9,8 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 // define the home page route
-router.get('/', function(req, res) {
-  res.send('Index home page');
-});
-// define the about route
-router.get('/users', function(req, res) {
-  res.send('Index Users');
-});
+// router.get('/', function(req, res) {
+//   res.render('Index home page');
+// });
 
 module.exports = router;

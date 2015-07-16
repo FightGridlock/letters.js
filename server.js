@@ -21,6 +21,7 @@ mongoose.connect(mongoURI); // connect to our database
 // BodyParser lets us get data from POST
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 // set port
 var port = process.env.PORT || 3000;
@@ -31,7 +32,7 @@ var router = require("./app/routes/index");
 var emails = require("./app/routes/email");
 
 app.use("/api/emails", emails);
-//app.use("/api", api);
+app.use("/api", api);
 app.use("/", router);
 
 // START THE SERVER
