@@ -72,7 +72,9 @@ _Assignee_: Diogo Pinto
 - User schema and non-auth API
 - Basic routing ("/api", "/api/users", and "/")
 
+
 ## API Documentation
+
 
 ### Users
 
@@ -122,4 +124,143 @@ _Assignee_: Diogo Pinto
 
 #### Deleting a User
 - __URL__: http://example.com/users/:user_id
+- __Method__: DELETE
+
+
+### Representatives
+
+#### Retrieving all Representatives
+- __URL__: http://example.com/reps
+- __Method__: GET
+
+#### Adding a Representative
+
+- __URL__: http://example.com/reps
+- __Method__: POST
+- Parameters:
+```javascript
+{
+   firstName: String
+   lastName: String
+   email: String
+   address: String
+   city: { type: String, default: "Brampton" },
+   province: { type: String, default: "ON" },
+   postalCode: String,
+   wardId: String,
+   regionalRep: Boolean,
+   cityRep: Boolean
+}
+```
+
+#### Retrieving a Representative
+- __URL__: http://example.com/rep/:rep_id
+- __Method__: GET
+
+#### Updating a Representative
+
+- __URL__: http://example.com/rep/:rep_id
+- __Method__: PUT
+- Parameters:
+```javascript
+{
+   firstName: String
+   lastName: String
+   email: String
+   address: String
+   city: { type: String, default: "Brampton" },
+   province: { type: String, default: "ON" },
+   postalCode: String,
+   wardId: String,
+   regionalRep: Boolean,
+   cityRep: Boolean
+}
+```
+
+#### Deleting a Representative
+- __URL__: http://example.com/rep/:rep_id
+- __Method__: DELETE
+
+
+### Wards
+
+#### Retrieving all Wards
+- __URL__: http://example.com/wards
+- __Method__: GET
+
+#### Adding a Ward
+
+- __URL__: http://example.com/wards
+- __Method__: POST
+- Parameters:
+```javascript
+{
+   name: String,
+   numbers: [String]
+}
+```
+
+#### Retrieving a Ward
+- __URL__: http://example.com/wards/:ward_id
+- __Method__: GET
+
+#### Updating a Ward
+
+- __URL__: http://example.com/wards/:ward_id
+- __Method__: PUT
+- Parameters:
+```javascript
+{
+   name: String,
+   numbers: [String]
+}
+```
+
+#### Deleting a Ward
+- __URL__: http://example.com/wards/:ward_id
+- __Method__: DELETE
+
+
+### Emails
+
+#### Retrieving all Emails
+- __URL__: http://example.com/emails
+- __Method__: GET
+
+#### Adding an Email
+
+- __URL__: http://example.com/emails
+- __Method__: POST
+- Parameters:
+```javascript
+{
+   from: String,
+   to: [String],
+   bcc: [String],
+   body: String,
+   sent: { type: Boolean, default: false }
+}
+```
+
+#### Retrieving an Email
+- __URL__: http://example.com/emails/:email_id
+- __Method__: GET
+
+#### Updating an Email
+
+- __URL__: http://example.com/emails/:email_id
+- __Method__: PUT
+- Parameters:
+```javascript
+{
+   from: String,
+   to: [String],
+   bcc: [String],
+   body: String,
+   sent: { type: Boolean, default: false }
+}
+```
+
+#### Deleting an Email
+- __URL__: http://example.com/emails/:email_id
 - __Method__: DELETE
