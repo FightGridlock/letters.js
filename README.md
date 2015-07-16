@@ -40,22 +40,22 @@ _Assignee_: Sushil Tailor
 
 _Assignee_: Diogo Pinto
 
-- Validation for API requests
+- Validation for API requests __(Backburner until post-beta)__
    - Appropriate non-cryptic error messages & codes
    - Prevent foul play on the front end
    - Make sure only valid wards come in
    - Allow for non-brampton residents (no ward)
    - Make sure requests do not attempt to
-- Authentication (API Key)
+- Authentication (API Key) __(Backburner until post-beta)__
 - Email system
-   - Recieve email content from front end
+   - ~~Recieve email content from front end~~ **DONE**
    - Validate
       - Has a body
       - Has associated UserID
          - UserID exists in the DB
       - Has Subject Line ("Hurontario-Mail LRT")
-   - Send to both regional and city councillor in the appropriate wards
-   - BCC city clerk, swing votes, and mayor
+   - ~~Send to both regional and city councillor in the appropriate wards~~ **DONE**
+   - ~~BCC city clerk, swing votes, and mayor~~ **DONE**
 
 ## In Progress
 
