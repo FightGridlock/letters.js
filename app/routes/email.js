@@ -1,4 +1,4 @@
-// api.js in /app/routes/
+// email.js in /app/routes/
 
 var express     = require('express');
 var router      = express.Router();
@@ -38,12 +38,13 @@ router.route('/')
         email.bcc = req.body.bcc;
         if(email.sent) { email.sent = req.body.sent; }
         
-        email.save(function(err){
+        email.save(function(err, email){
            if (err){
                res.send(err);
            }
            res.json({
-               message: 'Email Saved.'
+               message: 'Email Saved.',
+               email_id: email._id
            });
         });
     });

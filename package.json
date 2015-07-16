@@ -11,6 +11,7 @@
         "mongoose": "~3.6.13",
         "ejs": "latest",
         "body-parser": "~1.0.1",
-        "nodemailer": "~1.0"
+        "nodemailer": "~1.0",
+        "nodemailer-sendgrid-transport": "~0.2.0"
     }
 }
