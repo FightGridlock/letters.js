@@ -234,11 +234,11 @@ _Assignee_: Diogo Pinto
 - Parameters:
 ```javascript
 {
-   from: String,
-   to: [String],
-   bcc: [String],
-   body: String,
-   sent: { type: Boolean, default: false }
+   from: String,     // Email address
+   to: [String],     // Array of email addresses
+   bcc: [String],    // Array of email addresses
+   body: String,     // Email body -> plaintext
+   sent: { type: Boolean, default: false } // Backend use only
 }
 ```
 
@@ -253,11 +253,11 @@ _Assignee_: Diogo Pinto
 - Parameters:
 ```javascript
 {
-   from: String,
-   to: [String],
-   bcc: [String],
-   body: String,
-   sent: { type: Boolean, default: false }
+   from: String,     // Email address
+   to: [String],     // Array of email addresses
+   bcc: [String],    // Array of email addresses
+   body: String,     // Email body -> plaintext
+   sent: { type: Boolean, default: false } // Backend use only
 }
 ```
 
