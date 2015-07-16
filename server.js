@@ -28,8 +28,10 @@ var port = process.env.PORT || 3000;
 // configure routes
 var api = require("./app/routes/api");
 var router = require("./app/routes/index");
+var emails = require("./app/routes/email");
 
-app.use("/api", api);
+app.use("/api/emails", emails);
+//app.use("/api", api);
 app.use("/", router);
 
 // START THE SERVER

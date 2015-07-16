@@ -3,7 +3,7 @@
 var express     = require('express');
 var router      = express.Router();
 
-// require the model JS file for users
+// require the model JS files
 var User        = require('../models/user');
 var Rep         = require('../models/rep');
 var Ward        = require('../models/ward');
@@ -14,18 +14,10 @@ router.use(function timeLog(req, res, next) {
   console.log('Time: ', Date.now());
   next();
 });
-// define the home page route
-router.get('/', function(req, res) {
-  res.json({
-       message: "Welcome to Letters API"
-   }) 
-});
-
-
 
 
 // Define the email route
-router.route('/emails')
+router.route('/')
     
     .get(function(req, res) {
         Email.find(function(err, emails) {
@@ -44,6 +36,7 @@ router.route('/emails')
         email.from = req.body.from;
         email.to = req.body.to;
         email.bcc = req.body.bcc;
+        if(email.sent) { email.sent = req.body.sent; }
         
         email.save(function(err){
            if (err){
@@ -55,7 +48,7 @@ router.route('/emails')
         });
     });
 
-router.route('/emails/:email_id')
+router.route('/:email_id')
 
     .get(function(req, res){
         Email.findById(req.params.email_id, function(err, email){
@@ -74,24 +67,28 @@ router.route('/emails/:email_id')
            if (err){
                res.send(err);
            }
-           // place params into variables
-           var name = req.body.name; 
-           var numbers = req.body.numbers;
-           
+            // place params into variables
+            var body = req.body.body;
+            var from = req.body.from;
+            var to = req.body.to;
+            var bcc = req.body.bcc;
+            var sent = req.body.sent;
            
            // check if param exists, then update
-           if (name)        { email.name = name; } // update user info 
-           if (numbers)     { email.numbers = numbers; }
+           if (body)        { email.body = body; } // update email info 
+           if (from)        { email.from = from; }
+           if (to)          { email.to = to; }
+           if (bcc)         { email.bcc = bcc; }
            
-           // save the user
+           // save the email
            email.save(function(err, email){
               if (err){
                   res.send(err);
               } 
               res.json({
-                  message: "Email Updated: " + email.name
+                  message: "Email Updated: " + email._id
               });
-              console.log('Email Updated: ' + email.name)
+              console.log('Email Updated: ' + email._id)
            });
         });
     })
@@ -102,15 +99,15 @@ router.route('/emails/:email_id')
             if (err){
                 res.send(err);
             }
-            var name = req.body.name;
-            email.remove(function(err, rep){
+            var email_id = req.params.email_id;
+            email.remove(function(err, email){
                 if (err){
                     res.send(err);
                 }
                 res.json({
-                    message: "Deleted Email(s): " + name
+                    message: "Deleted Email: " + email_id
                 });
-                console.log("Deleted Email(s): " + name)
+                console.log("Deleted Email: " + email_id)
             });
         });
     });

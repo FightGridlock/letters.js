@@ -45,7 +45,7 @@ router.route('/users')
         if (req.body.city) { user.city = req.body.city; }
         if (req.body.province) { user.province = req.body.province; }
         user.postalCode = req.body.postalCode;
-        user.ward = req.body.ward;
+        user.wardId = req.body.wardId;
         
         // save the User and check for errors
         user.save(function(err){
@@ -85,7 +85,7 @@ router.route('/users/:user_id')
            var city = req.body.city;
            var province = req.body.province;
            var postalCode = req.body.postalCode;
-           var ward = req.body.ward;
+           var wardId = req.body.wardId;
            
            // check if param exists, then update
            if (firstName)   { user.firstName = firstName; } // update user info 
@@ -95,7 +95,7 @@ router.route('/users/:user_id')
            if (city)        { user.city = city; }
            if (province)    { user.province = province; }
            if (postalCode)  { user.postalCode = postalCode; }
-           if (ward)        { user.ward = ward; }
+           if (wardId)        { user.wardId = wardId; }
            
            // save the user
            user.save(function(err, user){
@@ -321,15 +321,15 @@ router.route('/wards/:ward_id')
             if (err){
                 res.send(err);
             }
-            var name = req.body.name;
-            ward.remove(function(err, rep){
+            var name = ward.name;
+            ward.remove(function(err, ward){
                 if (err){
                     res.send(err);
                 }
                 res.json({
-                    message: "Deleted Ward(s): " + name
+                    message: "Deleted Ward: " + name
                 });
-                console.log("Deleted Ward(s): " + name)
+                console.log("Deleted Ward: " + name)
             });
         });
     });
