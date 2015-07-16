@@ -71,3 +71,55 @@ _Assignee_: Diogo Pinto
 
 - User schema and non-auth API
 - Basic routing ("/api", "/api/users", and "/")
+
+## API Documentation
+
+### Users
+
+#### Retrieving all Users
+- __URL__: http://example.com/users
+- __Method__: GET
+
+#### Adding a User
+
+- __URL__: http://example.com/users
+- __Method__: POST
+- Parameters:
+```javascript
+{
+   firstName: String
+   lastName: String
+   email: String
+   address: String
+   city: { type: String, default: "Brampton" },
+   province: { type: String, default: "ON" },
+   postalCode: String,
+   wardId: String
+}
+```
+
+#### Retrieving a User
+- __URL__: http://example.com/users/:user_id
+- __Method__: GET
+
+#### Updating a User
+
+- __URL__: http://example.com/users/:user_id
+- __Method__: PUT
+- Parameters:
+```javascript
+{
+   firstName: String
+   lastName: String
+   email: String
+   address: String
+   city: { type: String, default: "Brampton" },
+   province: { type: String, default: "ON" },
+   postalCode: String,
+   wardId: String
+}
+```
+
+#### Deleting a User
+- __URL__: http://example.com/users/:user_id
+- __Method__: DELETE
