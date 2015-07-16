@@ -7,8 +7,8 @@ var sg          = require("nodemailer-mailgun-transport");
 
 var options = {
   auth: {
-    api_key: "key-dcbd608a9ee026a1db30c148bca371ee",
-    domain: "fightgridlock.anxgroup.com"
+    api_key: process.env.MG_API || "55a73537240bfd4648000001",
+    domain: process.env.MG_DOMAIN || "fightgridlock.anxgroup.com"
   }
 };
 
@@ -61,6 +61,13 @@ router.route('/:email_id')
                     res.send(err);
                 }
                 else {
+                    email.sent = true;
+                    email.save(function(err){
+                       if (err){
+                           res.send(err);
+                       }
+                       res.send(info.response);
+                    });
                     res.send(info);
                 }
             });
