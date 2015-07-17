@@ -271,6 +271,6 @@ _Assignee_: Diogo Pinto
 #### Sending an Email
 
 - __URL__: http://example.com/send/:email_id
-- __Method__: POST
+- __Method__: GET
 
 __Note: Check to make sure the email has not been sent before sending it. This can be done by retrieving the email to send and checking the returned JSON object: "sent"__
