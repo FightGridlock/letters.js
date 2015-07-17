@@ -53,12 +53,14 @@ _Assignee_: Diogo Pinto
       - Has a body
       - Has associated UserID
          - UserID exists in the DB
-      - Has Subject Line ("Hurontario-Mail LRT")
+      - ~~Has Subject Line ("Hurontario-Mail LRT")~~ **DONE**
+   - Validate
    - ~~Send to both regional and city councillor in the appropriate wards~~ **DONE**
    - ~~BCC city clerk, swing votes, and mayor~~ **DONE**
 
 ## In Progress
 
+- Authentication (API Key) __(Backburner until post-beta)__
 
 ## Done List
 
@@ -264,3 +266,11 @@ _Assignee_: Diogo Pinto
 #### Deleting an Email
 - __URL__: http://example.com/emails/:email_id
 - __Method__: DELETE
+
+
+#### Sending an Email
+
+- __URL__: http://example.com/send/:email_id
+- __Method__: POST
+
+__Note: Check to make sure the email has not been sent before sending it. This can be done by retrieving the email to send and checking the returned JSON object: "sent"__

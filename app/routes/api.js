@@ -9,7 +9,7 @@ var Rep         = require('../models/rep');
 var Ward        = require('../models/ward');
 
 // middleware specific to this router
-router.use(function timeLog(req, res, next) {
+router.use(function (req, res, next) {
     var auth = req.headers['authorization'];  // auth is in base64(username:password)  so we need to decode the base64
     console.log("Authorization Header is: ", auth);
     var tmp = auth.split(' ');
@@ -18,8 +18,8 @@ router.use(function timeLog(req, res, next) {
     var creds = plain_auth.split(':');      // split on a ':'
     var username = creds[0];
     var password = creds[1];
-    console.log("Username: " + username)
-    console.log("Password: " + password)
+    console.log("Username: " + username);
+    console.log("Password: " + password);
     console.log('Time: ', Date.now());
     next();
 });
@@ -27,7 +27,7 @@ router.use(function timeLog(req, res, next) {
 router.get('/', function(req, res) {
   res.json({
        message: "Welcome to Letters API"
-   }) 
+   }) ;
 });
 
 
@@ -37,7 +37,7 @@ router.route('/users')
     .get(function(req, res) {
       User.find(function(err, users){
             if (err){
-                res.send(err)
+                res.send(err);
             }
             
             res.json(users);
@@ -115,7 +115,7 @@ router.route('/users/:user_id')
               res.json({
                   message: "User Updated: " + user.email
               });
-              console.log('User Updated: ' + user.email)
+              console.log('User Updated: ' + user.email);
            });
         });
     })
@@ -126,8 +126,6 @@ router.route('/users/:user_id')
             if (err){
                 res.send(err);
             }
-            var firstName = user.firstName;
-            var lastName = user.lastName;
             var email = user.email;
             user.remove(function(err, user){
                 if (err){
@@ -136,7 +134,7 @@ router.route('/users/:user_id')
                 res.json({
                     message: "Deleted User: " + email
                 });
-                console.log("Deleted User: " + email)
+                console.log("Deleted User: " + email);
             });
         });
     });
@@ -147,7 +145,7 @@ router.route('/reps')
     .get(function(req, res) {
         Rep.find(function(err, reps) {
             if (err){
-                res.send(err)
+                res.send(err);
             }
             
             res.json(reps);
@@ -229,7 +227,7 @@ router.route('/reps/:rep_id')
               res.json({
                   message: "Representative Updated: " + rep.email
               });
-              console.log('Representative Updated: ' + rep.email)
+              console.log('Representative Updated: ' + rep.email);
            });
         });
     })
@@ -240,8 +238,6 @@ router.route('/reps/:rep_id')
             if (err){
                 res.send(err);
             }
-            var firstName = rep.firstName;
-            var lastName = rep.lastName;
             var email = rep.email;
             rep.remove(function(err, rep){
                 if (err){
