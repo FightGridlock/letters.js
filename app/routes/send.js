@@ -20,7 +20,9 @@ var Email       = require('../models/email');
 
 // middleware specific to this router
 router.use(function timeLog(req, res, next) {
-  console.log('Time: ', Date.now());
+    var auth = req.headers['authorization'];  // auth is in base64(username:password)  so we need to decode the base64
+    console.log("Authorization Header is: ", auth);
+    console.log('Time: ', Date.now());
   next();
 });
 
