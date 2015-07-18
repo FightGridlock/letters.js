@@ -12,7 +12,7 @@ var UserSchema      = new Schema({
     city: { type: String, default: "Brampton" },
     province: { type: String, default: "ON" },
     postalCode: String,
-    ward: String
+    wardId: String
 });
 
 module.exports = mongoose.model('User', UserSchema);

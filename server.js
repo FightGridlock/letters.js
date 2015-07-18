@@ -16,19 +16,26 @@ if (devel)
     mongoURI = "productionURI goes here"
 }
 
+
+
 mongoose.connect(mongoURI); // connect to our database
 
 // BodyParser lets us get data from POST
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 // set port
 var port = process.env.PORT || 3000;
 
 // configure routes
 var api = require("./app/routes/api");
-var router = require("./app/routes/index");
+var router  = require("./app/routes/index");
+var emails  = require("./app/routes/email");
+var send    = require("./app/routes/send");
 
+app.use("/api/send", send);
+app.use("/api/emails", emails);
 app.use("/api", api);
 app.use("/", router);
 

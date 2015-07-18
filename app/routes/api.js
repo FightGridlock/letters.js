@@ -6,18 +6,28 @@ var router      = express.Router();
 // require the model JS file for users
 var User        = require('../models/user');
 var Rep         = require('../models/rep');
-var Ward         = require('../models/ward');
+var Ward        = require('../models/ward');
 
 // middleware specific to this router
-router.use(function timeLog(req, res, next) {
-  console.log('Time: ', Date.now());
-  next();
+router.use(function (req, res, next) {
+    var auth = req.headers['authorization'];  // auth is in base64(username:password)  so we need to decode the base64
+    console.log("Authorization Header is: ", auth);
+    var tmp = auth.split(' ');
+    var buf = new Buffer(tmp[1], 'base64'); // create a buffer and tell it the data coming in is base64
+    var plain_auth = buf.toString();        // read it back out as a string
+    var creds = plain_auth.split(':');      // split on a ':'
+    var username = creds[0];
+    var password = creds[1];
+    console.log("Username: " + username);
+    console.log("Password: " + password);
+    console.log('Time: ', Date.now());
+    next();
 });
 // define the home page route
 router.get('/', function(req, res) {
   res.json({
        message: "Welcome to Letters API"
-   }) 
+   }) ;
 });
 
 
@@ -27,7 +37,7 @@ router.route('/users')
     .get(function(req, res) {
       User.find(function(err, users){
             if (err){
-                res.send(err)
+                res.send(err);
             }
             
             res.json(users);
@@ -45,7 +55,7 @@ router.route('/users')
         if (req.body.city) { user.city = req.body.city; }
         if (req.body.province) { user.province = req.body.province; }
         user.postalCode = req.body.postalCode;
-        user.ward = req.body.ward;
+        user.wardId = req.body.wardId;
         
         // save the User and check for errors
         user.save(function(err){
@@ -85,7 +95,7 @@ router.route('/users/:user_id')
            var city = req.body.city;
            var province = req.body.province;
            var postalCode = req.body.postalCode;
-           var ward = req.body.ward;
+           var wardId = req.body.wardId;
            
            // check if param exists, then update
            if (firstName)   { user.firstName = firstName; } // update user info 
@@ -95,7 +105,7 @@ router.route('/users/:user_id')
            if (city)        { user.city = city; }
            if (province)    { user.province = province; }
            if (postalCode)  { user.postalCode = postalCode; }
-           if (ward)        { user.ward = ward; }
+           if (wardId)        { user.wardId = wardId; }
            
            // save the user
            user.save(function(err, user){
@@ -105,7 +115,7 @@ router.route('/users/:user_id')
               res.json({
                   message: "User Updated: " + user.email
               });
-              console.log('User Updated: ' + user.email)
+              console.log('User Updated: ' + user.email);
            });
         });
     })
@@ -116,8 +126,6 @@ router.route('/users/:user_id')
             if (err){
                 res.send(err);
             }
-            var firstName = user.firstName;
-            var lastName = user.lastName;
             var email = user.email;
             user.remove(function(err, user){
                 if (err){
@@ -126,7 +134,7 @@ router.route('/users/:user_id')
                 res.json({
                     message: "Deleted User: " + email
                 });
-                console.log("Deleted User: " + email)
+                console.log("Deleted User: " + email);
             });
         });
     });
@@ -137,7 +145,7 @@ router.route('/reps')
     .get(function(req, res) {
         Rep.find(function(err, reps) {
             if (err){
-                res.send(err)
+                res.send(err);
             }
             
             res.json(reps);
@@ -219,7 +227,7 @@ router.route('/reps/:rep_id')
               res.json({
                   message: "Representative Updated: " + rep.email
               });
-              console.log('Representative Updated: ' + rep.email)
+              console.log('Representative Updated: ' + rep.email);
            });
         });
     })
@@ -230,8 +238,6 @@ router.route('/reps/:rep_id')
             if (err){
                 res.send(err);
             }
-            var firstName = rep.firstName;
-            var lastName = rep.lastName;
             var email = rep.email;
             rep.remove(function(err, rep){
                 if (err){
@@ -321,15 +327,15 @@ router.route('/wards/:ward_id')
             if (err){
                 res.send(err);
             }
-            var name = req.body.name;
-            ward.remove(function(err, rep){
+            var name = ward.name;
+            ward.remove(function(err, ward){
                 if (err){
                     res.send(err);
                 }
                 res.json({
-                    message: "Deleted Ward(s): " + name
+                    message: "Deleted Ward: " + name
                 });
-                console.log("Deleted Ward(s): " + name)
+                console.log("Deleted Ward: " + name)
             });
         });
     });
