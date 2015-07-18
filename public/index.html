@@ -16,7 +16,7 @@
 
       </div>
     </header>
-    <section ng-controller="letterController as letter">
+    <section ng-controller="letterController as letter" ng-init="letter.getData()">
       <!-- Ward Select -->
       <div class="container">
         <div class="col s12">
@@ -111,7 +111,6 @@
           <h5>{{ letter.info.firstName || "Joe" }} {{ letter.info.lastName || "Smith" }}</h5>
           <p>{{ letter.info.email || "email@email.com" }}</p>
         </div>
-        <button ng-click="letter.getData()">LOLOLO</button>
         {{ letter.testData }}
       </article>
 

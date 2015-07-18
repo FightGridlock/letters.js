@@ -56,7 +56,9 @@ angular.module('letterApp',[])
       }
     }
 
-    letter.testData = "";
+    letter.content = {
+
+    };
 
     letter.getData = function () {
       console.log("Starting HTTPGet");
@@ -64,7 +66,7 @@ angular.module('letterApp',[])
         .success(function(response){
           console.log("Success!")
           letter.testData = response;
-        })
+        });
     }
 
     letter.setWard = function (wardChosen) {
