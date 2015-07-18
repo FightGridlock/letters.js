@@ -22,6 +22,8 @@ router.use(function (req, res, next) {
         var password = creds[1];
         console.log("Username: " + username);
         console.log("Password: " + password);
+    } else {
+        
     }
     console.log('Time: ', Date.now());
     next();
