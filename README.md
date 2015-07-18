@@ -81,12 +81,12 @@ _Assignee_: Diogo Pinto
 ### Users
 
 #### Retrieving all Users
-- __URL__: http://example.com/users
+- __URL__: http://example.com/api/users
 - __Method__: GET
 
 #### Adding a User
 
-- __URL__: http://example.com/users
+- __URL__: http://example.com/api/users
 - __Method__: POST
 - Parameters:
 ```javascript
@@ -103,12 +103,12 @@ _Assignee_: Diogo Pinto
 ```
 
 #### Retrieving a User
-- __URL__: http://example.com/users/:user_id
+- __URL__: http://example.com/api/users/:user_id
 - __Method__: GET
 
 #### Updating a User
 
-- __URL__: http://example.com/users/:user_id
+- __URL__: http://example.com/api/users/:user_id
 - __Method__: PUT
 - Parameters:
 ```javascript
@@ -125,19 +125,19 @@ _Assignee_: Diogo Pinto
 ```
 
 #### Deleting a User
-- __URL__: http://example.com/users/:user_id
+- __URL__: http://example.com/api/users/:user_id
 - __Method__: DELETE
 
 
 ### Representatives
 
 #### Retrieving all Representatives
-- __URL__: http://example.com/reps
+- __URL__: http://example.com/api/reps
 - __Method__: GET
 
 #### Adding a Representative
 
-- __URL__: http://example.com/reps
+- __URL__: http://example.com/api/reps
 - __Method__: POST
 - Parameters:
 ```javascript
@@ -156,12 +156,12 @@ _Assignee_: Diogo Pinto
 ```
 
 #### Retrieving a Representative
-- __URL__: http://example.com/rep/:rep_id
+- __URL__: http://example.com/api/rep/:rep_id
 - __Method__: GET
 
 #### Updating a Representative
 
-- __URL__: http://example.com/rep/:rep_id
+- __URL__: http://example.com/api/rep/:rep_id
 - __Method__: PUT
 - Parameters:
 ```javascript
@@ -180,19 +180,19 @@ _Assignee_: Diogo Pinto
 ```
 
 #### Deleting a Representative
-- __URL__: http://example.com/rep/:rep_id
+- __URL__: http://example.com/api/rep/:rep_id
 - __Method__: DELETE
 
 
 ### Wards
 
 #### Retrieving all Wards
-- __URL__: http://example.com/wards
+- __URL__: http://example.com/api/wards
 - __Method__: GET
 
 #### Adding a Ward
 
-- __URL__: http://example.com/wards
+- __URL__: http://example.com/api/wards
 - __Method__: POST
 - Parameters:
 ```javascript
@@ -203,12 +203,12 @@ _Assignee_: Diogo Pinto
 ```
 
 #### Retrieving a Ward
-- __URL__: http://example.com/wards/:ward_id
+- __URL__: http://example.com/api/wards/:ward_id
 - __Method__: GET
 
 #### Updating a Ward
 
-- __URL__: http://example.com/wards/:ward_id
+- __URL__: http://example.com/api/wards/:ward_id
 - __Method__: PUT
 - Parameters:
 ```javascript
@@ -219,19 +219,19 @@ _Assignee_: Diogo Pinto
 ```
 
 #### Deleting a Ward
-- __URL__: http://example.com/wards/:ward_id
+- __URL__: http://example.com/api/wards/:ward_id
 - __Method__: DELETE
 
 
 ### Emails
 
 #### Retrieving all Emails
-- __URL__: http://example.com/emails
+- __URL__: http://example.com/api/emails
 - __Method__: GET
 
 #### Adding an Email
 
-- __URL__: http://example.com/emails
+- __URL__: http://example.com/api/emails
 - __Method__: POST
 - Parameters:
 ```javascript
@@ -245,12 +245,12 @@ _Assignee_: Diogo Pinto
 ```
 
 #### Retrieving an Email
-- __URL__: http://example.com/emails/:email_id
+- __URL__: http://example.com/api/emails/:email_id
 - __Method__: GET
 
 #### Updating an Email
 
-- __URL__: http://example.com/emails/:email_id
+- __URL__: http://example.com/api/emails/:email_id
 - __Method__: PUT
 - Parameters:
 ```javascript
@@ -264,13 +264,13 @@ _Assignee_: Diogo Pinto
 ```
 
 #### Deleting an Email
-- __URL__: http://example.com/emails/:email_id
+- __URL__: http://example.com/api/emails/:email_id
 - __Method__: DELETE
 
 
 #### Sending an Email
 
-- __URL__: http://example.com/send/:email_id
-- __Method__: POST
+- __URL__: http://example.com/api/send/:email_id
+- __Method__: GET
 
 __Note: Check to make sure the email has not been sent before sending it. This can be done by retrieving the email to send and checking the returned JSON object: "sent"__
