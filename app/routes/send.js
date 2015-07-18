@@ -3,7 +3,7 @@
 var express     = require('express');
 var router      = express.Router();
 var nodemailer  = require("nodemailer");
-var sg          = require("nodemailer-mailgun-transport");
+var mg          = require("nodemailer-mailgun-transport");
 
 var options = {
   auth: {
@@ -12,7 +12,7 @@ var options = {
   }
 };
 
-var mailer = nodemailer.createTransport(sg(options));
+var mailer = nodemailer.createTransport(mg(options));
 
 
 // require the model JS files
