@@ -111,6 +111,7 @@
           <h5>{{ letter.info.firstName || "Joe" }} {{ letter.info.lastName || "Smith" }}</h5>
           <p>{{ letter.info.email || "email@email.com" }}</p>
         </div>
+        <button class="waves-effect waves-light btn" ng-click="letter.postData()">Send Message</button>
         {{ letter.testData }}
       </article>
 

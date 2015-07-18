@@ -62,10 +62,36 @@ angular.module('letterApp',[])
 
     letter.getData = function () {
       console.log("Starting HTTPGet");
-      $http.get('http://localhost:3000/')
+      $http.get('/api/users')
         .success(function(response){
           console.log("Success!")
           letter.testData = response;
+        });
+    }
+    // Simple POST request example (passing data) :
+    letter.postData = function(){
+      $http({
+            method: 'POST',
+            url: '/api/users',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            data: {
+              firstName: letter.info.firstName,
+              lastName: letter.info.lastName,
+              email: letter.info.email,
+              address: letter.info.address,
+              postalCode: letter.info.postalCode,
+              wardId: letter.info.ward
+            }
+        })
+        .success(function(data, status, headers, config) {
+          // this callback will be called asynchronously
+          // when the response is available
+          console.log(data + " has been posted!");
+        })
+        .error(function(data, status, headers, config) {
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+          console.log("Data has not been posted to users: " + data);
         });
     }
 
