@@ -26,11 +26,8 @@ _Assignee_: Harpreet Zingh
 _Assignee_: Sushil Tailor
 
 * Build Clickable Ward Map. Clicking on your ward should fill in your form with the following information:
-    * ~~Ward Numbers (Ward 1 => Wards 1 & 5)~~ **DONE**
-    * ~~Name of City & Regional Councillors (Ward 2 => Doug Whillans & Michael Pallesci)~~ **DONE**
+    * Ward Map Design
     * Ward Map Functional
-* $http.get API requests to use for letter and councillor data
-* $http.post Requests should feed into API
 * "Thank You For Supporting the LRT" View
 * Splitting Sections into Partials
 * 3 Step Application: Pick Ward => Input Info => Click Send
@@ -68,6 +65,8 @@ _Assignee_: Diogo Pinto
 
 * Ward Numbers (Ward 1 => Wards 1 & 5) functional
 * Name of City & Regional Councillors (Ward 2 => Doug Whillans & Michael Pallesci) working
+* $http.get API requests to use for letter and councillor data
+* $http.post Requests should feed into API
 
 ### Back End
 
