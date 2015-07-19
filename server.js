@@ -43,7 +43,7 @@ app.use("/api/users", user);
 app.use("/api/wards", ward);
 app.use("/api/reps", rep);
 
-app.use("/api", api);
+// app.use("/api", api);
 app.use("/", router);
 
 // START THE SERVER
