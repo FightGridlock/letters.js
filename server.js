@@ -31,19 +31,19 @@ var port = process.env.PORT || 3000;
 // configure routes
 var api     = require("./app/routes/api");
 var router  = require("./app/routes/index");
-var email  = require("./app/routes/email");
+var email   = require("./app/routes/email");
 var send    = require("./app/routes/send");
-var user   = require("./app/routes/user");
-// var wards   = require("./app/routes/ward");
-// var reps    = require("./app/routes/rep");
+var user    = require("./app/routes/user");
+var ward    = require("./app/routes/ward");
+var rep     = require("./app/routes/rep");
 
 app.use("/api/send", send);
 app.use("/api/emails", email);
 app.use("/api/users", user);
-// app.use("/api/wards", ward);
-// app.use("/api/reps", rep);
+app.use("/api/wards", ward);
+app.use("/api/reps", rep);
 
-app.use("/api", api);
+// app.use("/api", api);
 app.use("/", router);
 
 // START THE SERVER
