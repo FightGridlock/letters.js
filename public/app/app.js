@@ -70,18 +70,13 @@ angular.module('letterApp',[])
     }
     // Simple POST request example (passing data) :
     letter.postData = function(){
-      $http({
-            method: 'POST',
-            url: '/api/users',
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            data: {
+      $http.post('/api/users', {
               firstName: letter.info.firstName,
               lastName: letter.info.lastName,
               email: letter.info.email,
               address: letter.info.address,
               postalCode: letter.info.postalCode,
               wardId: letter.info.ward
-            }
         })
         .success(function(data, status, headers, config) {
           // this callback will be called asynchronously
