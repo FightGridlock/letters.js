@@ -72,6 +72,12 @@ _Assignee_: Diogo Pinto
 
 - User schema and non-auth API
 - Basic routing ("/api", "/api/users", and "/")
+- Email service that checks for unsent emails and sends them
+- "/api/send/:email_id" **PUT, DELETE**   route requires admin login to use
+- "/api/wards/:ward_id" **PUT, DELETE**   route requires admin login to use
+- "/api/wards/"         **POST**          route requires admin login to use
+- "/api/reps/:rep_id"   **PUT, DELETE**   route requires admin login to use
+- "/api/reps/"          **POST**          route requires admin login to use
 
 
 ## API Documentation
