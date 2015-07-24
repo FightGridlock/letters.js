@@ -3,6 +3,9 @@
 var express     = require('express');
 var router      = express.Router();
 
+// Middlewares directory
+var middlewares = require("../middleware/middlewares");
+
 // require the model JS files
 var User        = require('../models/user');
 var Rep         = require('../models/rep');
@@ -10,11 +13,10 @@ var Ward        = require('../models/ward');
 var Email       = require('../models/email');
 
 // middleware specific to this router
-router.use(function timeLog(req, res, next) {
-  console.log('Time: ', Date.now());
-  next();
-});
-
+router.all("*", middlewares.timeLog);
+router.delete("*", middlewares.authorize);
+router.put("*", middlewares.authorize);
+router.get("/", middlewares.authorize);
 
 // Define the email route
 router.route('/')

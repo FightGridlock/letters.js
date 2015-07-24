@@ -28,6 +28,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.enable('trust proxy');
 
 // set port
 var port = process.env.PORT || 3000;
