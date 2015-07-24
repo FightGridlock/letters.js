@@ -80,6 +80,7 @@ router.route('/:email_id')
            if (from)        { email.from = from; }
            if (to)          { email.to = to; }
            if (bcc)         { email.bcc = bcc; }
+           if (email.sent)  { email.sent = false; } // Email has been changed - no longer marked as sent.
            
            // save the email
            email.save(function(err, email){
