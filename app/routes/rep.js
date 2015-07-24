@@ -1,7 +1,10 @@
-// api.js in /app/routes/
+// rep.js in /app/routes/
 
 var express     = require('express');
 var router      = express.Router();
+
+// Middlewares directory
+var middlewares = require("../middleware/middlewares");
 
 // require the model JS file for users
 var User        = require('../models/user');
@@ -9,25 +12,11 @@ var Rep         = require('../models/rep');
 var Ward        = require('../models/ward');
 
 // middleware specific to this router
-router.use(function (req, res, next) {
-    var auth = req.headers['authorization']; // auth is in base64(username:password)  so we need to decode the base64
-    if (auth)
-    {
-        console.log("Authorization Header is: ", auth);
-        var tmp = auth.split(' ');
-        var buf = new Buffer(tmp[1], 'base64'); // create a buffer and tell it the data coming in is base64
-        var plain_auth = buf.toString();        // read it back out as a string
-        var creds = plain_auth.split(':');      // split on a ':'
-        var username = creds[0];
-        var password = creds[1];
-        console.log("Username: " + username);
-        console.log("Password: " + password);
-    } else {
-        
-    }
-    console.log('Time: ', Date.now());
-    next();
-});
+router.all('*', middlewares.timeLog)
+router.delete('*', middlewares.authorize);
+router.put('*', middlewares.authorize);
+router.post('*', middlewares.authorize);
+
 // define the home page route
 router.route('/')
 
