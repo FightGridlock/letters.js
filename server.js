@@ -7,16 +7,17 @@ var mongoose = require('mongoose');
 var nodemailer = require("nodemailer");
 var mg = require("nodemailer-mailgun-transport");
 
-// Development Bool for Debug logs and DB
-var devel = true;
+var settings = require("./app/settings")
+
+// Development Bool for Debug logs and DB is: settings.devel
 
 var mongoURI;
 
-if (devel) {
-    mongoURI = "mongodb://writer:BramptonWriter@ds060977.mongolab.com:60977/letters";
+if (settings.devel) {
+    mongoURI = settings.mongoURI.development;
 }
 else {
-    mongoURI = "productionURI goes here";
+    mongoURI = settings.mongoURI.production;
 }
 
 mongoose.connect(mongoURI); // connect to our database
@@ -53,8 +54,8 @@ app.use("/", router);
 // Nodemailer and Mailgun setup
 var options = {
     auth: {
-        api_key: process.env.MG_API || "key-dcbd608a9ee026a1db30c148bca371ee",
-        domain: process.env.MG_DOMAIN || "fightgridlock.anxgroup.com"
+        api_key: process.env.MG_API || settings.emailService.apiKey,
+        domain: process.env.MG_DOMAIN || settings.emailService.domain
     }
 };
 
@@ -64,7 +65,7 @@ var mailer = nodemailer.createTransport(mg(options));
 var Email = require('./app/models/email');
 
 // Email Service
-var minutes = 10,
+var minutes = settings.emailService.interval,
     runtime = minutes * 60 * 1000;
 setInterval(function() {
     console.log("Checking for unsent emails...");

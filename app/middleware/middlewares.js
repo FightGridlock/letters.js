@@ -1,10 +1,12 @@
 // middlewares.js in /app/middleware/
 
+var settings = require("../settings");
+
 module.exports = {
 
     authorize: function(req, res, next) {
-        var auth_user = process.env.AUTH_USER || "fgl_user0001";
-        var auth_pass = process.env.AUTH_PASS || "TESTPASS1234";
+        var auth_user = process.env.AUTH_USER || settings.apiCredentials.username;
+        var auth_pass = process.env.AUTH_PASS || settings.apiCredentials.password;
         var auth = req.headers['authorization']; // auth is in base64(username:password)  so we need to decode the base64
         if (auth) {
             var tmp = auth.split(' ');
@@ -38,7 +40,7 @@ module.exports = {
         }
     },
     timeLog: function(req, res, next){
-        console.log('IP: ' + req.ip + ', Time: ', Date.now());
+        console.log('Request - IP: ' + req.ip + ', Time: ', Date.now());
         next();
     }
 };
