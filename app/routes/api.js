@@ -6,11 +6,6 @@ var router      = express.Router();
 // Middlewares directory
 var middlewares = require("../middleware/middlewares");
 
-// require the model JS file for users
-var User        = require('../models/user');
-var Rep         = require('../models/rep');
-var Ward        = require('../models/ward');
-
 // middleware specific to this router
 router.all("*", middlewares.timeLog);
 

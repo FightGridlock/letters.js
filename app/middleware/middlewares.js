@@ -15,14 +15,14 @@ module.exports = {
             var creds = plain_auth.split(':'); // split on a ':'
             var username = creds[0];
             var password = creds[1];
-            console.log("Attempted secure API entry by: " + username);
+            console.log("Attempted secure API access by: " + username);
             if (username === auth_user && password === auth_pass) {
-                console.log("Entry granted to: " + username);
+                console.log("Access granted to: " + username);
                 console.log("IP Logged: " + req.ip);
                 next();
             }
             else {
-                console.log("Entry denied to: " + username);
+                console.log("Access denied to: " + username);
                 console.log("IP Logged: " + req.ip);
                 res.json({
                     code: 401,
@@ -31,7 +31,7 @@ module.exports = {
             }
         }
         else {
-            console.log("Entry denied to secure API, no credentials provided");
+            console.log("Access denied to secure API, no credentials provided");
             console.log("IP logged: " + req.ip);
             res.json({
                 code: 401,
