@@ -38,7 +38,7 @@ router.route('/')
         email.from = req.body.from;
         email.to = req.body.to;
         email.bcc = req.body.bcc;
-        if(email.sent) { email.sent = req.body.sent; }
+        if(req.body.sent) { email.sent = req.body.sent; }
         
         email.save(function(err, email){
            if (err){

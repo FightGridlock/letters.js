@@ -34,19 +34,21 @@ app.enable('trust proxy');
 var port = process.env.PORT || 3000;
 
 // configure routes
-var api     = require("./app/routes/api");
-var router  = require("./app/routes/index");
-var email   = require("./app/routes/email");
-var send    = require("./app/routes/send");
-var user    = require("./app/routes/user");
-var ward    = require("./app/routes/ward");
-var rep     = require("./app/routes/rep");
+var api         = require("./app/routes/api");
+var router      = require("./app/routes/index");
+var email       = require("./app/routes/email");
+var send        = require("./app/routes/send");
+var user        = require("./app/routes/user");
+var ward        = require("./app/routes/ward");
+var rep         = require("./app/routes/rep");
+var template    = require("./app/routes/template");
 
 app.use("/api/send", send);
 app.use("/api/emails", email);
 app.use("/api/users", user);
 app.use("/api/wards", ward);
 app.use("/api/reps", rep);
+app.use("/api/templates", template);
 
 app.use("/api", api);
 app.use("/", router);

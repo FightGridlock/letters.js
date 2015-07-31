@@ -20,9 +20,7 @@ var Email = require('../models/email');
 
 var mailerDaemon = function(){
     console.log("Checking for unsent emails...");
-    Email.find({
-        sent: false
-    }, function(err, emails) {
+    Email.find({ sent: false }, function(err, emails) {
         if (err) {
             console.log(err);
         }
