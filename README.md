@@ -30,6 +30,8 @@ _Assignee_: Sushil Tailor
     2. Enter Address or Postal Code Data
     3. Google Maps Checks if address falls into drawn out ward
     4. Spits back "true" if address falls into ward.
+    5. Ward data gets registered into a service or a controller
+    6. Gets sent to server as part of ward data
 * "Thank You For Supporting the LRT" View
 * 3 Step Application: Pick Ward => Input Info => Click Send
     * Show which step user is on
