@@ -29,7 +29,6 @@ _Assignee_: Sushil Tailor
     * Ward Map Design
     * Ward Map Functional
 * "Thank You For Supporting the LRT" View
-* Splitting Sections into Partials
 * 3 Step Application: Pick Ward => Input Info => Click Send
     * Show which step user is on
 
@@ -67,6 +66,7 @@ _Assignee_: Diogo Pinto
 * Name of City & Regional Councillors (Ward 2 => Doug Whillans & Michael Pallesci) working
 * $http.get API requests to use for letter and councillor data
 * $http.post Requests should feed into API
+* Splitting Sections into Partials
 
 ### Back End
 
