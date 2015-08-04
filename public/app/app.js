@@ -100,4 +100,28 @@ angular.module('letterApp',[])
       letter.info.email = email;
     }
 
-  }]);
+  }])
+
+  .directive('contactData', function(){
+    return {
+      restrict: 'E',
+      transclude: true,
+      templateUrl: './app/partials/contact-data.html'
+    };
+  })
+
+  .directive('districtPicker', function(){
+    return {
+      restrict: 'E',
+      transclude: true,
+      templateUrl: './app/partials/district-picker.html'
+    };
+  })
+
+  .directive('letterBody', function(){
+    return {
+      restrict: 'E',
+      transclude: true,
+      templateUrl: './app/partials/letter-body.html'
+    };
+  })
