@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="letterApp">
+  <head>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="lib/materialize/js/bin/materialize.js"></script>
+    <script src="lib/materialize/js/forms.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/materialize.css"/>
+
+  </head>
+  <body>
+    <!--Heading-->
+    <header>
+      <div class="valign-demo valign-wrapper">
+        <h5 class="valign center" style="width: 100%;">CRASHING THIS VOTE</h5>
+
+      </div>
+    </header>
+    <section ng-controller="letterController as letter" ng-init="letter.getData()">
+      <!-- Ward Select -->
+      <district-picker></district-picker>
+
+      <!-- Input Fields -->
+      <contact-data></contact-data>
+
+      <!-- Letter Content -->
+      <letter-body></letter-body>
+
+      <!-- Submit Option -->
+    </section>
+
+    <!-- Other Content -->
+
+    <!-- Footer -->
+  </body>
+</html>
