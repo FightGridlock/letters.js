@@ -25,9 +25,11 @@ _Assignee_: Harpreet Zingh
 
 _Assignee_: Sushil Tailor
 
-* Build Clickable Ward Map. Clicking on your ward should fill in your form with the following information:
-    * Ward Map Design
-    * Ward Map Functional
+* Google Maps Integration:
+    1. Create Ward Maps on Google Maps
+    2. Enter Address or Postal Code Data
+    3. Google Maps Checks if address falls into drawn out ward
+    4. Spits back "true" if address falls into ward.
 * "Thank You For Supporting the LRT" View
 * 3 Step Application: Pick Ward => Input Info => Click Send
     * Show which step user is on
@@ -82,6 +84,13 @@ _Assignee_: Diogo Pinto
 - Created a separate settings.js file in /app/settings.js for ease of use
 - Modularized middleware for secure API routes
 
+## Trash Bin
+
+### Front End
+
+* ~~Build Clickable Ward Map. Clicking on your ward should fill in your form with the following information:~~ Replaced by google maps API.
+    * ~~Ward Map Design~~
+    * ~~Ward Map Functional~~
 
 ## API Documentation
 
