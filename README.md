@@ -96,7 +96,7 @@ _Assignee_: Diogo Pinto
 
 ## API Documentation
 
-__Requires Auth:__ Access to API restricted without admin credentials
+__(Requires Auth):__ Access to API restricted without admin credentials
 
 ### Users
 
@@ -122,11 +122,11 @@ __Requires Auth:__ Access to API restricted without admin credentials
 }
 ```
 
-#### Retrieving a User __Requires Auth__
+#### Retrieving a User (Requires Auth)
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: GET
 
-#### Updating a User __Requires Auth__
+#### Updating a User (Requires Auth)
 
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: PUT
@@ -144,7 +144,7 @@ __Requires Auth:__ Access to API restricted without admin credentials
 }
 ```
 
-#### Deleting a User __Requires Auth__
+#### Deleting a User (Requires Auth)
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: DELETE
 
@@ -155,7 +155,7 @@ __Requires Auth:__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/reps
 - __Method__: GET
 
-#### Adding a Representative __Requires Auth__
+#### Adding a Representative (Requires Auth)
 
 - __URL__: http://example.com/api/reps
 - __Method__: POST
@@ -179,7 +179,7 @@ __Requires Auth:__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: GET
 
-#### Updating a Representative __Requires Auth__
+#### Updating a Representative (Requires Auth)
 
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: PUT
@@ -199,7 +199,7 @@ __Requires Auth:__ Access to API restricted without admin credentials
 }
 ```
 
-#### Deleting a Representative __Requires Auth__
+#### Deleting a Representative (Requires Auth)
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: DELETE
 
@@ -210,7 +210,7 @@ __Requires Auth:__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/wards
 - __Method__: GET
 
-#### Adding a Ward __Requires Auth__
+#### Adding a Ward (Requires Auth)
 
 - __URL__: http://example.com/api/wards
 - __Method__: POST
@@ -226,7 +226,7 @@ __Requires Auth:__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: GET
 
-#### Updating a Ward __Requires Auth__
+#### Updating a Ward (Requires Auth)
 
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: PUT
@@ -238,14 +238,14 @@ __Requires Auth:__ Access to API restricted without admin credentials
 }
 ```
 
-#### Deleting a Ward __Requires Auth__
+#### Deleting a Ward (Requires Auth)
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: DELETE
 
 
 ### Emails
 
-#### Retrieving all Emails __Requires Auth__
+#### Retrieving all Emails (Requires Auth)
 - __URL__: http://example.com/api/emails
 - __Method__: GET
 
@@ -288,7 +288,7 @@ __Requires Auth:__ Access to API restricted without admin credentials
 - __Method__: DELETE
 
 
-#### Sending an Email __Requires Auth__
+#### Sending an Email (Requires Auth)
 
 - __URL__: http://example.com/api/send/:email_id
 - __Method__: GET
