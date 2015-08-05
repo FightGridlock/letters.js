@@ -96,10 +96,11 @@ _Assignee_: Diogo Pinto
 
 ## API Documentation
 
+__Requires Auth:__ Access to API restricted without admin credentials
 
 ### Users
 
-#### Retrieving all Users
+#### Retrieving all Users __Requires Auth__
 - __URL__: http://example.com/api/users
 - __Method__: GET
 
@@ -121,11 +122,11 @@ _Assignee_: Diogo Pinto
 }
 ```
 
-#### Retrieving a User
+#### Retrieving a User __Requires Auth__
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: GET
 
-#### Updating a User
+#### Updating a User __Requires Auth__
 
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: PUT
@@ -143,7 +144,7 @@ _Assignee_: Diogo Pinto
 }
 ```
 
-#### Deleting a User
+#### Deleting a User __Requires Auth__
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: DELETE
 
@@ -154,7 +155,7 @@ _Assignee_: Diogo Pinto
 - __URL__: http://example.com/api/reps
 - __Method__: GET
 
-#### Adding a Representative
+#### Adding a Representative __Requires Auth__
 
 - __URL__: http://example.com/api/reps
 - __Method__: POST
@@ -178,7 +179,7 @@ _Assignee_: Diogo Pinto
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: GET
 
-#### Updating a Representative
+#### Updating a Representative __Requires Auth__
 
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: PUT
@@ -198,7 +199,7 @@ _Assignee_: Diogo Pinto
 }
 ```
 
-#### Deleting a Representative
+#### Deleting a Representative __Requires Auth__
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: DELETE
 
@@ -209,7 +210,7 @@ _Assignee_: Diogo Pinto
 - __URL__: http://example.com/api/wards
 - __Method__: GET
 
-#### Adding a Ward
+#### Adding a Ward __Requires Auth__
 
 - __URL__: http://example.com/api/wards
 - __Method__: POST
@@ -225,7 +226,7 @@ _Assignee_: Diogo Pinto
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: GET
 
-#### Updating a Ward
+#### Updating a Ward __Requires Auth__
 
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: PUT
@@ -237,14 +238,14 @@ _Assignee_: Diogo Pinto
 }
 ```
 
-#### Deleting a Ward
+#### Deleting a Ward __Requires Auth__
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: DELETE
 
 
 ### Emails
 
-#### Retrieving all Emails
+#### Retrieving all Emails __Requires Auth__
 - __URL__: http://example.com/api/emails
 - __Method__: GET
 
@@ -287,7 +288,7 @@ _Assignee_: Diogo Pinto
 - __Method__: DELETE
 
 
-#### Sending an Email
+#### Sending an Email __Requires Auth__
 
 - __URL__: http://example.com/api/send/:email_id
 - __Method__: GET
