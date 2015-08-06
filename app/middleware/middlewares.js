@@ -42,5 +42,199 @@ module.exports = {
     timeLog: function(req, res, next){
         console.log('Request - IP: ' + req.ip + ', Time: ', Date.now());
         next();
+    },
+    validate: {
+        user: function(req, res, next) {
+            var method = req.route.stack[0].method;
+            var errors = [];
+            var warnings = 0;
+            switch( method ) {
+                case 'post':
+                    if (!req.body.firstName) {
+                        errors.push({message: "Missing firstName, required"});
+                    }
+                    if (!req.body.lastName) {
+                        errors.push({message: "Missing lastName, required"});
+                    }
+                    if (!req.body.email) {
+                        errors.push({message: "Missing email, required"});
+                    }
+                    if (!req.body.wardId) {
+                        errors.push({message: "Missing wardId, required"});
+                    }
+                    if (errors.length > 0) {
+                        res.json({ errors: errors });
+                    }
+                    else {
+                        next();
+                    }
+                    break;
+                case 'put':
+                    if (!req.body.firstName)    { warnings ++; }
+                    if (!req.body.lastName)     { warnings ++; }
+                    if (!req.body.email)        { warnings ++; }
+                    if (!req.body.address)      { warnings ++; }
+                    if (!req.body.city)         { warnings ++; }
+                    if (!req.body.province)     { warnings ++; }
+                    if (!req.body.postalCode)   { warnings ++; }
+                    if (!req.body.wardId)       { warnings ++; }
+                    if (warnings === 8) {
+                        res.json({
+                            code: 500,
+                            message: "No relevant parameters sent",
+                            acceptedParameters: ['firstName', 'lastName', 'email', 'address', 'city', 'province', 'postalCode', 'wardId'],
+                            recievedParameters: req.body
+                        });
+                    }
+                    else {
+                        next();
+                    }
+                    break;
+                default:
+                    next();
+            }
+        },
+        ward: function(req, res, next) {
+            var method = req.route.stack[0].method;
+            var errors = [];
+            var warnings = 0;
+            switch( method ) {
+                case 'post':
+                    if (!req.body.name) {
+                        errors.push({message: "Missing name, required"});
+                    }
+                    if (!req.body.numbers) {
+                        errors.push({message: "Missing numbers array, required"});
+                    }
+                    if (errors.length > 0) {
+                        res.json({ errors: errors });
+                    }
+                    else {
+                        next();
+                    }
+                    break;
+                case 'put':
+                    if (!req.body.name)     { warnings ++; }
+                    if (!req.body.numbers)  { warnings ++; }
+                    if (warnings === 2) {
+                        res.json({
+                            code: 500,
+                            message: "No relevant parameters sent",
+                            acceptedParameters: ['name', 'numbers'],
+                            recievedParameters: req.body
+                        });
+                    }
+                    else {
+                        next();
+                    }
+                    break;
+                default:
+                    next();
+            }
+        },
+        template: function(req, res, next) {
+            var method = req.route.stack[0].method;
+            var errors = [];
+            var warnings = 0;
+            switch( method ) {
+                case 'post':
+                    if (!req.body.body) {
+                        errors.push({message: "Missing body, required"});
+                    }
+                    if (!req.body.subject) {
+                        errors.push({message: "Missing subject, required"});
+                    }
+                    if (!req.body.fromEmail) {
+                        errors.push({message: "Missing fromEmail, required"});
+                    }
+                    if (errors.length > 0) {
+                        res.json({ errors: errors });
+                    }
+                    else {
+                        next();
+                    }
+                    break;
+                case 'put':
+                    if (!req.body.body)         { warnings ++; }
+                    if (!req.body.subject)      { warnings ++; }
+                    if (!req.body.fromEmail)    { warnings ++; }
+                    if (!req.body.bcc)          { warnings ++; }
+                    if (!req.body.active)       { warnings ++; }
+                    if (warnings === 5) {
+                        res.json({
+                            code: 500,
+                            message: "No relevant parameters sent",
+                            acceptedParameters: ['body', 'subject', 'fromEmail', 'bcc', 'active'],
+                            recievedParameters: req.body
+                        });
+                    }
+                    else {
+                        next();
+                    }
+                    break;
+                default:
+                    next();
+            }
+        },
+        rep: function(req, res, next) {
+            var method = req.route.stack[0].method;
+            var errors = [];
+            var warnings = 0;
+            switch( method ) {
+                case 'post':
+                    if (!req.body.firstName) {
+                        errors.push({message: "Missing firstName, required"});
+                    }
+                    if (!req.body.lastName) {
+                        errors.push({message: "Missing lastName, required"});
+                    }
+                    if (!req.body.email) {
+                        errors.push({message: "Missing email, required"});
+                    }
+                    if (!req.body.wardId) {
+                        errors.push({message: "Missing wardId, required"});
+                    }
+                    if (!req.body.regionalRep) {
+                        errors.push({message: "Missing regionalRep, required"});
+                    }
+                    if (!req.body.cityRep) {
+                        errors.push({message: "Missing cityRep, required"});
+                    }
+                    if (errors.length > 0) {
+                        res.json({ errors: errors });
+                    }
+                    else {
+                        next();
+                    }
+                    break;
+                case 'put':
+                    if (!req.body.firstName)    { warnings ++; }
+                    if (!req.body.lastName)     { warnings ++; }
+                    if (!req.body.email)        { warnings ++; }
+                    if (!req.body.address)      { warnings ++; }
+                    if (!req.body.city)         { warnings ++; }
+                    if (!req.body.province)     { warnings ++; }
+                    if (!req.body.postalCode)   { warnings ++; }
+                    if (!req.body.wardId)       { warnings ++; }
+                    // Boolean variables
+                    if (req.body.regionalRep !== 'undefined')   { warnings ++; }
+                    if (req.body.cityRep !== 'undefined')       { warnings ++; }
+                    
+                    if (warnings === 10) {
+                        res.json({
+                            code: 500,
+                            message: "No relevant parameters sent",
+                            acceptedParameters: ['firstName', 'lastName', 'email', 'address', 'city', 'province', 'postalCode', 'wardId', 'regionalRep', 'cityRep'],
+                            recievedParameters: req.body
+                        });
+                    }
+                    else {
+                        next();
+                    }
+                    break;
+                default:
+                    next();
+            }
+        }
     }
 };

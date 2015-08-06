@@ -48,33 +48,34 @@ router.route('/:email_id')
             if (err){
                 res.send(err);
             }
+            else {
 
-
-            var mailOptions = {
-                from: settings.emailService.user + "@" + settings.emailService.domain,
-                to: email.to,           // list of receivers
-                bcc: email.bcc,
-                subject: email.subject, // Subject line
-                text: email.body,        // plaintext body
-                'h:Reply-To': email.from
-            };
-            
-            mailer.sendMail(mailOptions, function(err, info){
-                if (err)
-                {
-                    res.send(err);
-                }
-                else {
-                    email.sent = true;
-                    email.save(function(err){
-                       if (err){
-                           res.send(err);
-                       }
-                       res.send(info.response);
-                    });
-                    res.send(info);
-                }
-            });
+                var mailOptions = {
+                    from: settings.emailService.user + "@" + settings.emailService.domain,
+                    to: email.to,           // list of receivers
+                    bcc: email.bcc,
+                    subject: email.subject, // Subject line
+                    text: email.body,        // plaintext body
+                    'h:Reply-To': email.from
+                };
+                
+                mailer.sendMail(mailOptions, function(err, info){
+                    if (err)
+                    {
+                        res.send(err);
+                    }
+                    else {
+                        email.sent = true;
+                        email.save(function(err){
+                           if (err){
+                               res.send(err);
+                           }
+                           res.send(info.response);
+                        });
+                        res.send(info);
+                    }
+                });
+            }
         });
     });
     

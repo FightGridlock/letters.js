@@ -18,5 +18,5 @@ module.exports = {
     apiCredentials: {
         username: "fgl_user0001",
         password: "testpass1234"
-    } // Master API Credentials requires to access some API routes
+    } // Master API Credentials required to access some API routes
 };

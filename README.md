@@ -8,6 +8,8 @@ A Letter Writing Campaign for the LRT Route in Brampton
    - [ExpressJS](expressjs.com/)
    - [MongoDB](https://www.mongodb.org/)
    - [Mongoose](mongoosejs.com/)
+   - [nodemailer](https://github.com/andris9/Nodemailer)
+   - [async](https://github.com/caolan/async)
 - Front End
    - [Materialize](materializecss.com/)
    - [AngularJS](https://angularjs.org/)
@@ -60,7 +62,6 @@ _Assignee_: Diogo Pinto
 
 ## In Progress
 
-- Authentication (API Key) __(Backburner until post-beta)__
 
 ## Done List
 
@@ -77,14 +78,9 @@ _Assignee_: Diogo Pinto
 - User schema and non-auth API
 - Basic routing ("/api", "/api/users", and "/")
 - Email service that checks for unsent emails and sends them
-- API Security:
-   - "/api/send/:email_id" **ALL**   route requires admin login to use
-   - "/api/wards/:ward_id" **PUT, DELETE**   route requires admin login to use
-   - "/api/wards/"         **POST**          route requires admin login to use
-   - "/api/reps/:rep_id"   **PUT, DELETE**   route requires admin login to use
-   - "/api/reps/"          **POST**          route requires admin login to use
 - Created a separate settings.js file in /app/settings.js for ease of use
 - Modularized middleware for secure API routes
+<<<<<<< HEAD
 
 ## Trash Bin
 
@@ -93,6 +89,30 @@ _Assignee_: Diogo Pinto
 * ~~Build Clickable Ward Map. Clicking on your ward should fill in your form with the following information:~~ Replaced by google maps API.
     * ~~Ward Map Design~~
     * ~~Ward Map Functional~~
+=======
+- Basic Authentication now required on the following routes and methods:
+   - POST
+      - /api/templates
+      - /api/reps
+      - /api/wards
+   - PUT
+      - /api/templates
+      - /api/reps
+      - /api/wards
+      - /api/users
+      - /api/emails
+   - GET (without ending /:user\_id or /:email\_id)
+      - /api/users
+      - /api/emails
+   - DELETE
+      - /api/templates
+      - /api/reps
+      - /api/wards
+      - /api/users
+      - /api/emails
+- Validation
+   - Currently only checks if expected parameters exist and responds with an error is not
+>>>>>>> backend-api
 
 ## API Documentation
 
@@ -100,12 +120,15 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 
 ### Users
 
+<<<<<<< HEAD
 #### Retrieving all Users __Requires Auth__
+=======
+#### Retrieving all Users **SECURE**
+>>>>>>> backend-api
 - __URL__: http://example.com/api/users
 - __Method__: GET
 
 #### Adding a User
-
 - __URL__: http://example.com/api/users
 - __Method__: POST
 - Parameters:
@@ -126,8 +149,12 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: GET
 
+<<<<<<< HEAD
 #### Updating a User (Requires Auth)
 
+=======
+#### Updating a User **SECURE**
+>>>>>>> backend-api
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: PUT
 - Parameters:
@@ -144,7 +171,11 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 }
 ```
 
+<<<<<<< HEAD
 #### Deleting a User (Requires Auth)
+=======
+#### Deleting a User **SECURE**
+>>>>>>> backend-api
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: DELETE
 
@@ -155,8 +186,12 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/reps
 - __Method__: GET
 
+<<<<<<< HEAD
 #### Adding a Representative (Requires Auth)
 
+=======
+#### Adding a Representative **SECURE**
+>>>>>>> backend-api
 - __URL__: http://example.com/api/reps
 - __Method__: POST
 - Parameters:
@@ -179,8 +214,12 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: GET
 
+<<<<<<< HEAD
 #### Updating a Representative (Requires Auth)
 
+=======
+#### Updating a Representative **SECURE**
+>>>>>>> backend-api
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: PUT
 - Parameters:
@@ -199,7 +238,11 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 }
 ```
 
+<<<<<<< HEAD
 #### Deleting a Representative (Requires Auth)
+=======
+#### Deleting a Representative **SECURE**
+>>>>>>> backend-api
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: DELETE
 
@@ -210,8 +253,12 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/wards
 - __Method__: GET
 
+<<<<<<< HEAD
 #### Adding a Ward (Requires Auth)
 
+=======
+#### Adding a Ward **SECURE**
+>>>>>>> backend-api
 - __URL__: http://example.com/api/wards
 - __Method__: POST
 - Parameters:
@@ -226,8 +273,12 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: GET
 
+<<<<<<< HEAD
 #### Updating a Ward (Requires Auth)
 
+=======
+#### Updating a Ward **SECURE**
+>>>>>>> backend-api
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: PUT
 - Parameters:
@@ -238,29 +289,34 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 }
 ```
 
+<<<<<<< HEAD
 #### Deleting a Ward (Requires Auth)
+=======
+#### Deleting a Ward **SECURE**
+>>>>>>> backend-api
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: DELETE
 
 
 ### Emails
 
+<<<<<<< HEAD
 #### Retrieving all Emails (Requires Auth)
+=======
+#### Retrieving all Emails **SECURE**
+>>>>>>> backend-api
 - __URL__: http://example.com/api/emails
 - __Method__: GET
 
 #### Adding an Email
-
 - __URL__: http://example.com/api/emails
 - __Method__: POST
 - Parameters:
 ```javascript
 {
-   from: String,     // Email address
-   to: [String],     // Array of email addresses
-   bcc: [String],    // Array of email addresses
-   body: String,     // Email body -> plaintext
-   sent: { type: Boolean, default: false } // Backend use only
+   userId: String,
+   wardId: String,
+   templateId: String
 }
 ```
 
@@ -268,8 +324,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/emails/:email_id
 - __Method__: GET
 
-#### Updating an Email
-
+#### Updating an Email **SECURE**
 - __URL__: http://example.com/api/emails/:email_id
 - __Method__: PUT
 - Parameters:
@@ -283,14 +338,61 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 }
 ```
 
-#### Deleting an Email
+#### Deleting an Email **SECURE**
 - __URL__: http://example.com/api/emails/:email_id
 - __Method__: DELETE
 
 
+<<<<<<< HEAD
 #### Sending an Email (Requires Auth)
 
+=======
+#### Sending an Email **SECURE**
+>>>>>>> backend-api
 - __URL__: http://example.com/api/send/:email_id
 - __Method__: GET
 
-__Note: Check to make sure the email has not been sent before sending it. This can be done by retrieving the email to send and checking the returned JSON object: "sent"__
+__Note: Check to make sure the email has not been sent before sending it. This can be done by retrieving the email to send and checking the returned JSON object: "sent". Note that use of this API route if for testing and administration purposes and the front-end should never attempt to use this route__
+
+
+### Templates (New!)
+
+#### Retrieving all Templates
+- __URL__: http://example.com/api/templates
+- __Method__: GET
+
+#### Adding a Template **SECURE**
+- __URL__: http://example.com/api/templates
+- __Method__: POST
+- Parameters:
+```javascript
+{
+   body: String,
+   subject: String,
+   fromEmail: String,
+   bcc: [String],
+   active: Boolean
+}
+```
+
+#### Retrieving a Template
+- __URL__: http://example.com/api/templates/:template_id
+- __Method__: GET
+
+#### Updating a Template **SECURE**
+- __URL__: http://example.com/api/templates/:template_id
+- __Method__: PUT
+- Parameters:
+```javascript
+{
+   body: String,
+   subject: String,
+   fromEmail: String,
+   bcc: [String],
+   active: Boolean
+}
+```
+
+#### Deleting a Template **SECURE**
+- __URL__: http://example.com/api/templates/:template_id
+- __Method__: DELETE

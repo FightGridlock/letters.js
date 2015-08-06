@@ -25,8 +25,9 @@ router.route('/')
             if (err){
                 res.send(err)
             }
-            
-            res.json(emails);
+            else {
+                res.json(emails);
+            }
         })
     })
     
@@ -49,7 +50,9 @@ router.route('/:email_id')
             if (err){
                 res.send(err);
             }
-            res.json(email);
+            else {
+                res.json(email);
+            }
         });
     })
     
@@ -61,30 +64,35 @@ router.route('/:email_id')
            if (err){
                res.send(err);
            }
-            // place params into variables
-            var body = req.body.body;
-            var from = req.body.from;
-            var to = req.body.to;
-            var bcc = req.body.bcc;
-            var sent = req.body.sent;
-           
-           // check if param exists, then update
-           if (body)        { email.body = body; } // update email info 
-           if (from)        { email.from = from; }
-           if (to)          { email.to = to; }
-           if (bcc)         { email.bcc = bcc; }
-           if (email.sent)  { email.sent = false; } // Email has been changed - no longer marked as sent.
-           
-           // save the email
-           email.save(function(err, email){
-              if (err){
-                  res.send(err);
-              } 
-              res.json({
-                  message: "Email Updated: " + email._id
-              });
-              console.log('Email Updated: ' + email._id)
-           });
+           else {
+               // place params into variables
+                var body = req.body.body;
+                var from = req.body.from;
+                var to = req.body.to;
+                var bcc = req.body.bcc;
+                var sent = req.body.sent;
+               
+               // check if param exists, then update
+               if (body)        { email.body = body; } // update email info 
+               if (from)        { email.from = from; }
+               if (to)          { email.to = to; }
+               if (bcc)         { email.bcc = bcc; }
+               if (email.sent)  { email.sent = false; } // Email has been changed - no longer marked as sent.
+               
+               // save the email
+               email.save(function(err, email){
+                  if (err){
+                      res.send(err);
+                  }
+                  else{
+                    res.json({
+                        message: "Email Updated: " + email._id
+                    });
+                    console.log('Email Updated: ' + email._id)
+                  }
+                  
+               });
+           }
         });
     })
     
@@ -99,10 +107,12 @@ router.route('/:email_id')
                 if (err){
                     res.send(err);
                 }
-                res.json({
-                    message: "Deleted Email: " + email_id
-                });
-                console.log("Deleted Email: " + email_id)
+                else {
+                    res.json({
+                        message: "Deleted Email: " + email_id
+                    });
+                    console.log("Deleted Email: " + email_id);
+                }
             });
         });
     });
