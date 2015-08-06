@@ -74,7 +74,7 @@ _Assignee_: Diogo Pinto
 - Basic routing ("/api", "/api/users", and "/")
 - Email service that checks for unsent emails and sends them
 - API Security:
-   - "/api/send/:email_id" **PUT, DELETE**   route requires admin login to use
+   - "/api/send/:email_id" **ALL**   route requires admin login to use
    - "/api/wards/:ward_id" **PUT, DELETE**   route requires admin login to use
    - "/api/wards/"         **POST**          route requires admin login to use
    - "/api/reps/:rep_id"   **PUT, DELETE**   route requires admin login to use

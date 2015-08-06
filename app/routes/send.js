@@ -5,10 +5,16 @@ var router      = express.Router();
 var nodemailer  = require("nodemailer");
 var mg          = require("nodemailer-mailgun-transport");
 
+// Middlewares
+var middlewares = require("../middleware/middlewares");
+
+// Settings file
+var settings = require("../settings")
+
 var options = {
   auth: {
-    api_key: process.env.MG_API || "55a73537240bfd4648000001",
-    domain: process.env.MG_DOMAIN || "fightgridlock.anxgroup.com"
+    api_key: process.env.MG_API || settings.emailService.apiKey,
+    domain: process.env.MG_DOMAIN || settings.emailService.domain
   }
 };
 
@@ -19,12 +25,7 @@ var mailer = nodemailer.createTransport(mg(options));
 var Email       = require('../models/email');
 
 // middleware specific to this router
-router.use(function timeLog(req, res, next) {
-    var auth = req.headers['authorization'];  // auth is in base64(username:password)  so we need to decode the base64
-    console.log("Authorization Header is: ", auth);
-    console.log('Time: ', Date.now());
-  next();
-});
+router.all("*", middlewares.timeLog, middlewares.authorize);
 
 
 // Define the root
@@ -50,11 +51,12 @@ router.route('/:email_id')
 
 
             var mailOptions = {
-                from: 'noreply@fightgridlock.anxgroup.com',
+                from: settings.emailService.user + "@" + settings.emailService.domain,
                 to: email.to,           // list of receivers
                 bcc: email.bcc,
                 subject: email.subject, // Subject line
-                text: email.body        // plaintext body
+                text: email.body,        // plaintext body
+                'h:Reply-To': email.from
             };
             
             mailer.sendMail(mailOptions, function(err, info){

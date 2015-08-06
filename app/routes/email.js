@@ -3,18 +3,19 @@
 var express     = require('express');
 var router      = express.Router();
 
+// Middlewares
+var middlewares = require("../middleware/middlewares");
+// Controllers
+var emailManager = require("../controllers/emailManager")
+
 // require the model JS files
-var User        = require('../models/user');
-var Rep         = require('../models/rep');
-var Ward        = require('../models/ward');
 var Email       = require('../models/email');
 
 // middleware specific to this router
-router.use(function timeLog(req, res, next) {
-  console.log('Time: ', Date.now());
-  next();
-});
-
+router.all("*", middlewares.timeLog);
+router.delete("*", middlewares.authorize);
+router.put("*", middlewares.authorize);
+router.get("/", middlewares.authorize);
 
 // Define the email route
 router.route('/')
@@ -30,22 +31,14 @@ router.route('/')
     })
     
     .post(function(req, res) {
-        
-        var email = new Email();
-        email.body = req.body.body;
-        email.from = req.body.from;
-        email.to = req.body.to;
-        email.bcc = req.body.bcc;
-        if(email.sent) { email.sent = req.body.sent; }
-        
-        email.save(function(err, email){
-           if (err){
-               res.send(err);
-           }
-           res.json({
-               message: 'Email Saved.',
-               email_id: email._id
-           });
+        emailManager.createEmail(req.body.wardId, req.body.userId, req.body.templateId, function(err, status){
+            if (err)
+            {
+                res.json(err);
+            }
+            else {
+                res.json(status);
+            }
         });
     });
 

@@ -9,10 +9,11 @@ module.exports = {
     emailService:{
         name: "MailGun", // Does not affect operation of email service, write whatever you want here
         apiKey: "key-dcbd608a9ee026a1db30c148bca371ee",
-        username: "",
-        password: "",
-        domain: "fightgridlock.anxgroup.com",
-        interval: 5 // Send emails every "interval" in minutes
+        username: "",   // SMTP/Account User
+        password: "",   // SMTP/Account Pass
+        domain: "fightgridlock.anxgroup.com", // Domain to send emails from
+        emailUser: "noreply",                   // the "user" in "user"@domain.com
+        interval: 1 // Send emails every "interval" in minutes
     },        // Email Service Settings
     apiCredentials: {
         username: "fgl_user0001",
