@@ -24,8 +24,9 @@ router.route('/')
             if (err){
                 res.send(err)
             }
-            
-            res.json(wards);
+            else {
+                res.json(wards);
+            }
         })
     })
     
@@ -39,9 +40,11 @@ router.route('/')
            if (err){
                res.send(err);
            }
-           res.json({
-               message: 'Ward Added.'
-           });
+           else {
+               res.json({
+                   message: 'Ward Added.'
+               });
+            }
         });
     });
 
@@ -54,7 +57,9 @@ router.route('/:ward_id')
             if (err){
                 res.send(err);
             }
-            res.json(ward);
+            else {
+                res.json(ward);
+            }
         });
     })
     
@@ -63,28 +68,32 @@ router.route('/:ward_id')
         
         // use the user model to find our user
         Ward.findById(req.params.ward_id, function(err, ward){
-           if (err){
-               res.send(err);
-           }
-           // place params into variables
-           var name = req.body.name; 
-           var numbers = req.body.numbers;
-           
-           
-           // check if param exists, then update
-           if (name)        { ward.name = name; } // update user info 
-           if (numbers)     { ward.numbers = numbers; }
-           
-           // save the user
-           ward.save(function(err, ward){
-              if (err){
-                  res.send(err);
-              } 
-              res.json({
-                  message: "Ward Updated: " + ward.name
-              });
-              console.log('Ward Updated: ' + ward.name)
-           });
+            if (err){
+                res.send(err);
+            }
+            else {
+                // place params into variables
+                var name = req.body.name; 
+                var numbers = req.body.numbers;
+               
+               
+                // check if param exists, then update
+                if (name)        { ward.name = name; } // update user info 
+                if (numbers)     { ward.numbers = numbers; }
+               
+                // save the user
+                ward.save(function(err, ward){
+                    if (err){
+                        res.send(err);
+                    }
+                    else {
+                        res.json({
+                            message: "Ward Updated: " + ward.name
+                        });
+                        console.log('Ward Updated: ' + ward.name)
+                    }
+               });
+            }
         });
     })
     
@@ -94,16 +103,18 @@ router.route('/:ward_id')
             if (err){
                 res.send(err);
             }
-            var name = ward.name;
-            ward.remove(function(err, ward){
-                if (err){
-                    res.send(err);
-                }
-                res.json({
-                    message: "Deleted Ward: " + name
+            else {
+                var name = ward.name;
+                ward.remove(function(err, ward){
+                    if (err){
+                        res.send(err);
+                    }
+                    res.json({
+                        message: "Deleted Ward: " + name
+                    });
+                    console.log("Deleted Ward: " + name)
                 });
-                console.log("Deleted Ward: " + name)
-            });
+            }
         });
     });
 

@@ -25,8 +25,10 @@ router.route('/')
             if (err){
                 res.send(err);
             }
-            
-            res.json(reps);
+            else {
+                res.json(reps);
+            }
+
         })
     })
     
@@ -47,10 +49,12 @@ router.route('/')
         rep.save(function(err){
            if (err){
                res.send(err);
-           }
-           res.json({
-               message: 'Representative Added.'
-           });
+            }
+            else {
+                res.json({
+                    message: 'Representative Added.'
+                });
+            }
         });
     });
 
@@ -61,7 +65,9 @@ router.route('/:rep_id')
             if (err){
                 res.send(err);
             }
-            res.json(rep);
+            else {
+                res.json(rep);
+            }
         });
     })
     
@@ -73,40 +79,42 @@ router.route('/:rep_id')
            if (err){
                res.send(err);
            }
-           // place params into variables
-           var firstName = req.body.firstName; 
-           var lastName = req.body.lastName;
-           var email = req.body.email;
-           var address = req.body.address;
-           var city = req.body.city;
-           var province = req.body.province;
-           var postalCode = req.body.postalCode;
-           var wardId = req.body.wardId;
-           var regionalRep = req.body.regionalRep;
-           var cityRep = req.body.cityRep;
-           
-           // check if param exists, then update
-           if (firstName)   { rep.firstName = firstName; } // update user info 
-           if (lastName)    { rep.lastName = lastName; }
-           if (email)       { rep.email = email; }
-           if (address)     { rep.address = address; }
-           if (city)        { rep.city = city; }
-           if (province)    { rep.province = province; }
-           if (postalCode)  { rep.postalCode = postalCode; }
-           if (wardId)      { rep.wardId = wardId; }
-           if (cityRep)     { rep.cityRep = cityRep; }
-           if (regionalRep) { rep.regionalRep = regionalRep; }
-           
-           // save the user
-           rep.save(function(err, rep){
-              if (err){
-                  res.send(err);
-              } 
-              res.json({
-                  message: "Representative Updated: " + rep.email
-              });
-              console.log('Representative Updated: ' + rep.email);
-           });
+           else {
+               // place params into variables
+               var firstName = req.body.firstName; 
+               var lastName = req.body.lastName;
+               var email = req.body.email;
+               var address = req.body.address;
+               var city = req.body.city;
+               var province = req.body.province;
+               var postalCode = req.body.postalCode;
+               var wardId = req.body.wardId;
+               var regionalRep = req.body.regionalRep;
+               var cityRep = req.body.cityRep;
+               
+               // check if param exists, then update
+               if (firstName)   { rep.firstName = firstName; } // update user info 
+               if (lastName)    { rep.lastName = lastName; }
+               if (email)       { rep.email = email; }
+               if (address)     { rep.address = address; }
+               if (city)        { rep.city = city; }
+               if (province)    { rep.province = province; }
+               if (postalCode)  { rep.postalCode = postalCode; }
+               if (wardId)      { rep.wardId = wardId; }
+               if (cityRep)     { rep.cityRep = cityRep; }
+               if (regionalRep) { rep.regionalRep = regionalRep; }
+               
+               // save the user
+               rep.save(function(err, rep){
+                  if (err){
+                      res.send(err);
+                  } 
+                  res.json({
+                      message: "Representative Updated: " + rep.email
+                  });
+                  console.log('Representative Updated: ' + rep.email);
+               });
+            }
         });
     })
     
@@ -116,16 +124,18 @@ router.route('/:rep_id')
             if (err){
                 res.send(err);
             }
+            else {
             var email = rep.email;
-            rep.remove(function(err, rep){
-                if (err){
-                    res.send(err);
-                }
-                res.json({
-                    message: "Deleted Representative: " + email
+                rep.remove(function(err, rep){
+                    if (err){
+                        res.send(err);
+                    }
+                    res.json({
+                        message: "Deleted Representative: " + email
+                    });
+                    console.log("Deleted Representative: " + email)
                 });
-                console.log("Deleted Representative: " + email)
-            });
+            }
         });
     });
 

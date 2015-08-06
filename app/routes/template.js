@@ -23,8 +23,9 @@ router.route('/')
             if (err){
                 res.send(err);
             }
-            
-            res.json(templates);
+            else {
+                res.json(templates);                
+            }
         });
     })
     
@@ -43,10 +44,12 @@ router.route('/')
            if (err){
                res.send(err);
            }
-           res.json({
-               message: 'Template Saved.',
-               email_id: template._id
-           });
+           else {
+               res.json({
+                   message: 'Template Saved.',
+                   email_id: template._id
+               });
+           }
         });
     });
 
@@ -57,7 +60,9 @@ router.route('/:email_id')
             if (err){
                 res.send(err);
             }
-            res.json(template);
+            else {
+                res.json(template);
+            }
         });
     })
     
@@ -69,30 +74,34 @@ router.route('/:email_id')
            if (err){
                res.send(err);
            }
-            // place params into variables
-            var body = req.body.body;
-            var fromEmail = req.body.fromEmail;
-            var subject = req.body.subject;
-            var bcc = req.body.bcc;
-            var active = req.body.active;
-           
-           // check if param was sent, then update
-           if (body)        { template.body = body; }
-           if (fromEmail)   { template.from = fromEmail; }
-           if (subject)     { template.to = subject; }
-           if (bcc)         { template.bcc = bcc; }
-           if (active)      { template.active = active; }
-           
-           // save the template
-           template.save(function(err, template){
-              if (err){
-                  res.send(err);
-              } 
-              res.json({
-                  message: "Template Updated: " + template._id
-              });
-              console.log('Template Updated: ' + template._id)
-           });
+           else {
+                // place params into variables
+                var body = req.body.body;
+                var fromEmail = req.body.fromEmail;
+                var subject = req.body.subject;
+                var bcc = req.body.bcc;
+                var active = req.body.active;
+                
+                // check if param was sent, then update
+                if (body)        { template.body = body; }
+                if (fromEmail)   { template.from = fromEmail; }
+                if (subject)     { template.to = subject; }
+                if (bcc)         { template.bcc = bcc; }
+                if (active)      { template.active = active; }
+                
+                // save the template
+                template.save(function(err, template){
+                    if (err){
+                        res.send(err);
+                    }
+                    else{
+                        res.json({
+                            message: "Template Updated: " + template._id
+                        });
+                        console.log('Template Updated: ' + template._id)
+                    }
+                });
+            }
         });
     })
     
@@ -102,16 +111,20 @@ router.route('/:email_id')
             if (err){
                 res.send(err);
             }
-            var email_id = req.params.email_id;
-            template.remove(function(err, template){
-                if (err){
-                    res.send(err);
-                }
-                res.json({
-                    message: "Deleted Template: " + email_id
+            else {
+                var email_id = req.params.email_id;
+                template.remove(function(err, template){
+                    if (err){
+                        res.send(err);
+                    }
+                    else {
+                        res.json({
+                            message: "Deleted Template: " + email_id
+                        });
+                        console.log("Deleted Template: " + email_id);
+                    }
                 });
-                console.log("Deleted Template: " + email_id);
-            });
+            }
         });
     });
 

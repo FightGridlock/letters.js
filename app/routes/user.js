@@ -85,14 +85,14 @@ router.route('/:user_id')
         }
         else {
             // place params into variables
-            var firstName = req.body.firstName;
-            var lastName = req.body.lastName;
-            var email = req.body.email;
-            var address = req.body.address;
-            var city = req.body.city;
-            var province = req.body.province;
-            var postalCode = req.body.postalCode;
-            var wardId = req.body.wardId;
+            var firstName   = req.body.firstName;
+            var lastName    = req.body.lastName;
+            var email       = req.body.email;
+            var address     = req.body.address;
+            var city        = req.body.city;
+            var province    = req.body.province;
+            var postalCode  = req.body.postalCode;
+            var wardId      = req.body.wardId;
     
             // check if param exists, then update
             if (firstName)  { user.firstName = firstName; }
