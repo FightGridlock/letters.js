@@ -9,14 +9,15 @@ var Ward        = require('../models/ward');
 var Email       = require('../models/email');
 var Template    = require('../models/template');
 
+var settings = require("../settings");
 
 module.exports = {
-    createEmail: function(wardId, userId, templateId, callback){
+    createEmail: function(wardId, userId, templateId, cb){
         
         // Make sure params aren't empty or null
         if ( !(wardId && userId && templateId) ) {
             console.log("createEmail() function inside emailManager module was called without correct parameters.");
-            callback( { code: 1, message: "Missing or Invalid Parameters: wardId, userId, and/or templateId" } );
+            cb( { code: 500, message: "Missing or invalid parameters: wardId, userId, and/or templateId" } );
             return;
         }
         
@@ -24,7 +25,6 @@ module.exports = {
                 selectedWard: function(callback) {
                     Ward.findById(wardId, function(err, ward){
                         if (err){
-                            console.log(err);
                             callback (err);
                         }
                         else {
@@ -35,7 +35,6 @@ module.exports = {
                 selectedUser: function(callback) {
                     User.findById(userId, function(err, user){
                        if (err){
-                           console.log(err);
                            callback(err);
                        }
                        else {
@@ -46,7 +45,6 @@ module.exports = {
                 selectedTemplate: function(callback) {
                     Template.findById(templateId, function(err, template) {
                         if (err) {
-                            console.log(err);
                             callback(err);
                         }
                         else {
@@ -57,7 +55,6 @@ module.exports = {
                 selectedReps: function(callback) {
                     Rep.find({ wardId: wardId}, function(err, reps){
                         if (err) {
-                            console.log(err);
                             callback(err);
                         }
                         else {
@@ -68,7 +65,10 @@ module.exports = {
             },
             function(err, queries) {
                 if (err) {
-                    callback(err);
+                    cb(err, {
+                                code: 500,
+                                message: "Something went wrong when trying to search for given parameters, see err for details."
+                            });
                 }
                 else {
                     
@@ -81,25 +81,30 @@ module.exports = {
                     });
                     
                     
-                    email.replyTo = queries.selectedUser.email
-                    email.body = queries.selectedTemplate.body;
-                    email.subject = queries.selectedTemplate.subject;
-                    email.from = "" + queries.selectedUser.firstName + " " + queries.selectedUser.lastName + " <" + queries.selectedTemplate.fromEmail + ">";
-                    email.to = to;
-                    email.bcc = queries.selectedTemplate.bcc;
-                    email.sent = false;
+                    email.replyTo   = queries.selectedUser.email
+                    email.body      = queries.selectedTemplate.body;
+                    email.subject   = queries.selectedTemplate.subject;
+                    email.from      = "" + queries.selectedUser.firstName + " " + queries.selectedUser.lastName + " <" + queries.selectedTemplate.fromEmail + ">";
+                    email.to        = to;
+                    email.bcc       = queries.selectedTemplate.bcc;
+                    email.sent      = false;
                     
                     email.save(function(err, email){
                         if (err) {
-                            console.log(err);
-                            return err;
+                            cb(err, {
+                                code: 500,
+                                message: "Something went wrong when trying to add email to the database queue."
+                            });
                         }
                         else {
-                            
+                            cb(null, {
+                                code: 200,
+                                message: "Email queued for sending. Approximate wait time: " + settings.emailService.interval + " minute(s)."
+                            });
                         }
                     });
                     
-                    callback(queries);
+                    
                 }
         });
     }
