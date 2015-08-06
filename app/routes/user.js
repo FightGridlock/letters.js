@@ -14,7 +14,7 @@ var Ward = require('../models/ward');
 router.all("*", middlewares.timeLog);
 router.post("*", middlewares.validateUser)
 router.get('/', middlewares.authorize)
-router.put('*', middlewares.authorize, middlewares.validateUser);
+router.put('*', middlewares.authorize, middlewares.validate.user);
 router.delete('*', middlewares.authorize);
 
 // define the root route

@@ -14,8 +14,8 @@ var Ward        = require('../models/ward');
 // middleware specific to this router
 router.all('*', middlewares.timeLog)
 router.delete('*', middlewares.authorize);
-router.put('*', middlewares.authorize);
-router.post('*', middlewares.authorize);
+router.put('*', middlewares.authorize, middlewares.validate.rep);
+router.post('*', middlewares.authorize, middlewares.validate.rep);
 
 // define the home page route
 router.route('/')

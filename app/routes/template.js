@@ -11,9 +11,9 @@ var Template    = require('../models/template');
 
 // middleware specific to this router
 router.all("*", middlewares.timeLog);
-router.post("*", middlewares.authorize);
+router.post("*", middlewares.authorize, middlewares.validate.template);
 router.delete("*", middlewares.authorize);
-router.put("*", middlewares.authorize);
+router.put("*", middlewares.authorize, middlewares.validate.template);
 
 // Define the template route
 router.route('/')
