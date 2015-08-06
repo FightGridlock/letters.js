@@ -13,7 +13,7 @@ module.exports = {
         password: "",   // SMTP/Account Pass
         domain: "fightgridlock.anxgroup.com", // Domain to send emails from
         emailUser: "noreply",                   // the "user" in "user"@domain.com
-        interval: 5 // Send emails every "interval" in minutes
+        interval: 1 // Send emails every "interval" in minutes
     },        // Email Service Settings
     apiCredentials: {
         username: "fgl_user0001",
