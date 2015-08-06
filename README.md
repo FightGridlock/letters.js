@@ -117,11 +117,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 
 ### Users
 
-<<<<<<< HEAD
-#### Retrieving all Users __Requires Auth__
-=======
-#### Retrieving all Users **SECURE**
->>>>>>> backend-api
+#### Retrieving all Users **(SECURE)**
 - __URL__: http://example.com/api/users
 - __Method__: GET
 
@@ -146,7 +142,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: GET
 
-#### Updating a User **SECURE**
+#### Updating a User **(SECURE)**
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: PUT
 - Parameters:
@@ -164,7 +160,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 ```
 
 
-#### Deleting a User **SECURE**
+#### Deleting a User **(SECURE)**
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: DELETE
 
@@ -176,8 +172,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __Method__: GET
 
 
-#### Adding a Representative **SECURE**
->>>>>>> backend-api
+#### Adding a Representative **(SECURE)**
 - __URL__: http://example.com/api/reps
 - __Method__: POST
 - Parameters:
@@ -200,7 +195,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: GET
 
-#### Updating a Representative **SECURE**
+#### Updating a Representative **(SECURE)**
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: PUT
 - Parameters:
@@ -219,7 +214,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 }
 ```
 
-#### Deleting a Representative **SECURE**
+#### Deleting a Representative **(SECURE)**
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: DELETE
 
@@ -230,7 +225,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/wards
 - __Method__: GET
 
-#### Adding a Ward **SECURE**
+#### Adding a Ward **(SECURE)**
 - __URL__: http://example.com/api/wards
 - __Method__: POST
 - Parameters:
@@ -245,7 +240,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: GET
 
-#### Updating a Ward **SECURE**
+#### Updating a Ward **(SECURE)**
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: PUT
 - Parameters:
@@ -256,14 +251,14 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 }
 ```
 
-#### Deleting a Ward **SECURE**
+#### Deleting a Ward **(SECURE)**
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: DELETE
 
 
 ### Emails
 
-#### Retrieving all Emails **SECURE**
+#### Retrieving all Emails **(SECURE)**
 - __URL__: http://example.com/api/emails
 - __Method__: GET
 
@@ -283,7 +278,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/emails/:email_id
 - __Method__: GET
 
-#### Updating an Email **SECURE**
+#### Updating an Email **(SECURE)**
 - __URL__: http://example.com/api/emails/:email_id
 - __Method__: PUT
 - Parameters:
@@ -297,11 +292,11 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 }
 ```
 
-#### Deleting an Email **SECURE**
+#### Deleting an Email **(SECURE)**
 - __URL__: http://example.com/api/emails/:email_id
 - __Method__: DELETE
 
-#### Sending an Email **SECURE**
+#### Sending an Email **(SECURE)**
 - __URL__: http://example.com/api/send/:email_id
 - __Method__: GET
 
@@ -332,7 +327,7 @@ __Note: Check to make sure the email has not been sent before sending it. This c
 - __URL__: http://example.com/api/templates/:template_id
 - __Method__: GET
 
-#### Updating a Template **SECURE**
+#### Updating a Template **(SECURE)**
 - __URL__: http://example.com/api/templates/:template_id
 - __Method__: PUT
 - Parameters:
@@ -346,6 +341,6 @@ __Note: Check to make sure the email has not been sent before sending it. This c
 }
 ```
 
-#### Deleting a Template **SECURE**
+#### Deleting a Template **(SECURE)**
 - __URL__: http://example.com/api/templates/:template_id
 - __Method__: DELETE
