@@ -42,5 +42,55 @@ module.exports = {
     timeLog: function(req, res, next){
         console.log('Request - IP: ' + req.ip + ', Time: ', Date.now());
         next();
+    },
+    validateUser: function(req, res, next){
+        var method = req.route.stack[0].method;
+        var errors = [];
+        var warnings = 0;
+        switch( method ){
+            case 'post':
+                if (!req.body.firstName) {
+                    errors.push({message: "Missing firstName, required"});
+                }
+                if (!req.body.lastName) {
+                    errors.push({message: "Missing lastName, required"});
+                }
+                if (!req.body.email) {
+                    errors.push({message: "Missing email, required"});
+                }
+                if (!req.body.wardId) {
+                    errors.push({message: "Missing wardId, required"});
+                }
+                if (errors.length > 0) {
+                    res.json({ errors: errors });
+                }
+                else {
+                    next();
+                }
+                break;
+            case 'put':
+                if (!req.body.firstName)    { warnings ++; }
+                if (!req.body.lastName)     { warnings ++; }
+                if (!req.body.email)        { warnings ++; }
+                if (!req.body.address)      { warnings ++; }
+                if (!req.body.city)         { warnings ++; }
+                if (!req.body.province)     { warnings ++; }
+                if (!req.body.postalCode)   { warnings ++; }
+                if (!req.body.wardId)       { warnings ++; }
+                if (warnings === 8) {
+                    res.json({
+                        code: 500,
+                        message: "No relevant parameters sent",
+                        acceptedParameters: ['firstName', 'lastName', 'email', 'address', 'city', 'province', 'postalCode', 'wardId'],
+                        recievedParameters: req.body
+                    });
+                }
+                else {
+                    next();
+                }
+                break;
+            default:
+                next();
+        }
     }
 };

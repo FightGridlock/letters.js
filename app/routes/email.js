@@ -49,7 +49,9 @@ router.route('/:email_id')
             if (err){
                 res.send(err);
             }
-            res.json(email);
+            else {
+                res.json(email);
+            }
         });
     })
     
