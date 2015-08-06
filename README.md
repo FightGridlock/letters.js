@@ -75,21 +75,11 @@ _Assignee_: Diogo Pinto
 
 ### Back End
 
-- User schema and non-auth API
-- Basic routing ("/api", "/api/users", and "/")
+- All schemas
+- Complete routing
 - Email service that checks for unsent emails and sends them
 - Created a separate settings.js file in /app/settings.js for ease of use
 - Modularized middleware for secure API routes
-<<<<<<< HEAD
-
-## Trash Bin
-
-### Front End
-
-* ~~Build Clickable Ward Map. Clicking on your ward should fill in your form with the following information:~~ Replaced by google maps API.
-    * ~~Ward Map Design~~
-    * ~~Ward Map Functional~~
-=======
 - Basic Authentication now required on the following routes and methods:
    - POST
       - /api/templates
@@ -111,8 +101,15 @@ _Assignee_: Diogo Pinto
       - /api/users
       - /api/emails
 - Validation
-   - Currently only checks if expected parameters exist and responds with an error is not
->>>>>>> backend-api
+   - Currently only checks if expected parameters exist and responds with an error if not
+
+## Trash Bin
+
+### Front End
+
+* ~~Build Clickable Ward Map. Clicking on your ward should fill in your form with the following information:~~ Replaced by google maps API.
+    * ~~Ward Map Design~~
+    * ~~Ward Map Functional~~
 
 ## API Documentation
 
@@ -145,16 +142,11 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 }
 ```
 
-#### Retrieving a User (Requires Auth)
+#### Retrieving a User
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: GET
 
-<<<<<<< HEAD
-#### Updating a User (Requires Auth)
-
-=======
 #### Updating a User **SECURE**
->>>>>>> backend-api
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: PUT
 - Parameters:
@@ -171,11 +163,8 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 }
 ```
 
-<<<<<<< HEAD
-#### Deleting a User (Requires Auth)
-=======
+
 #### Deleting a User **SECURE**
->>>>>>> backend-api
 - __URL__: http://example.com/api/users/:user_id
 - __Method__: DELETE
 
@@ -186,10 +175,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/reps
 - __Method__: GET
 
-<<<<<<< HEAD
-#### Adding a Representative (Requires Auth)
 
-=======
 #### Adding a Representative **SECURE**
 >>>>>>> backend-api
 - __URL__: http://example.com/api/reps
@@ -214,12 +200,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: GET
 
-<<<<<<< HEAD
-#### Updating a Representative (Requires Auth)
-
-=======
 #### Updating a Representative **SECURE**
->>>>>>> backend-api
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: PUT
 - Parameters:
@@ -238,11 +219,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 }
 ```
 
-<<<<<<< HEAD
-#### Deleting a Representative (Requires Auth)
-=======
 #### Deleting a Representative **SECURE**
->>>>>>> backend-api
 - __URL__: http://example.com/api/rep/:rep_id
 - __Method__: DELETE
 
@@ -253,12 +230,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/wards
 - __Method__: GET
 
-<<<<<<< HEAD
-#### Adding a Ward (Requires Auth)
-
-=======
 #### Adding a Ward **SECURE**
->>>>>>> backend-api
 - __URL__: http://example.com/api/wards
 - __Method__: POST
 - Parameters:
@@ -273,12 +245,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: GET
 
-<<<<<<< HEAD
-#### Updating a Ward (Requires Auth)
-
-=======
 #### Updating a Ward **SECURE**
->>>>>>> backend-api
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: PUT
 - Parameters:
@@ -289,22 +256,14 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 }
 ```
 
-<<<<<<< HEAD
-#### Deleting a Ward (Requires Auth)
-=======
 #### Deleting a Ward **SECURE**
->>>>>>> backend-api
 - __URL__: http://example.com/api/wards/:ward_id
 - __Method__: DELETE
 
 
 ### Emails
 
-<<<<<<< HEAD
-#### Retrieving all Emails (Requires Auth)
-=======
 #### Retrieving all Emails **SECURE**
->>>>>>> backend-api
 - __URL__: http://example.com/api/emails
 - __Method__: GET
 
@@ -342,13 +301,7 @@ __(Requires Auth):__ Access to API restricted without admin credentials
 - __URL__: http://example.com/api/emails/:email_id
 - __Method__: DELETE
 
-
-<<<<<<< HEAD
-#### Sending an Email (Requires Auth)
-
-=======
 #### Sending an Email **SECURE**
->>>>>>> backend-api
 - __URL__: http://example.com/api/send/:email_id
 - __Method__: GET
 
