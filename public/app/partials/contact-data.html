@@ -2,16 +2,15 @@
   <form class="col s12">
     <div class="row">
       <div class="input-field col s12 m12 l4">
-        <input id="first_name" type="text" class="validate" placeholder="First Name" ng-model="fName">
+        <input id="first_name" type="text" class="validate" placeholder="First Name" ng-model="user.firstName">
       </div>
       <div class="input-field col s12 m12 l4">
-        <input id="last_name" type="text" class="validate" placeholder="Last Name" ng-model="lName">
+        <input id="last_name" type="text" class="validate" placeholder="Last Name" ng-model="user.lastName">
       </div>
       <div class="input-field col s12 m12 l4">
-        <input id="email" type="email" class="validate" placeholder="Email" ng-model="email">
+        <input id="email" type="email" class="validate" placeholder="Email" ng-model="user.email">
       </div>
     </div>
   </form>
-  <button class="waves-effect waves-light btn" ng-click="letter.saveUser(fName,lName, email)">Save</button>
   <hr />
 </div>

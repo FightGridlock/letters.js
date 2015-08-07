@@ -24,7 +24,7 @@ module.exports = {
             else {
                 console.log("Access denied to: " + username);
                 console.log("IP Logged: " + req.ip);
-                res.json({
+                res.json(401, {
                     code: 401,
                     message: "Not authorized, credentials incorrect. IP logged: " + req.ip
                 });
@@ -33,7 +33,7 @@ module.exports = {
         else {
             console.log("Access denied to secure API, no credentials provided");
             console.log("IP logged: " + req.ip);
-            res.json({
+            res.json(401, {
                 code: 401,
                 message: "Not authorized, credentials not provided. IP logged: " + req.ip
             });
@@ -63,7 +63,7 @@ module.exports = {
                         errors.push({message: "Missing wardId, required"});
                     }
                     if (errors.length > 0) {
-                        res.json({ errors: errors });
+                        res.json(400, { errors: errors });
                     }
                     else {
                         next();
@@ -79,8 +79,8 @@ module.exports = {
                     if (!req.body.postalCode)   { warnings ++; }
                     if (!req.body.wardId)       { warnings ++; }
                     if (warnings === 8) {
-                        res.json({
-                            code: 500,
+                        res.json(400, {
+                            code: 400,
                             message: "No relevant parameters sent",
                             acceptedParameters: ['firstName', 'lastName', 'email', 'address', 'city', 'province', 'postalCode', 'wardId'],
                             recievedParameters: req.body
@@ -107,7 +107,7 @@ module.exports = {
                         errors.push({message: "Missing numbers array, required"});
                     }
                     if (errors.length > 0) {
-                        res.json({ errors: errors });
+                        res.json(400, { errors: errors });
                     }
                     else {
                         next();
@@ -117,8 +117,8 @@ module.exports = {
                     if (!req.body.name)     { warnings ++; }
                     if (!req.body.numbers)  { warnings ++; }
                     if (warnings === 2) {
-                        res.json({
-                            code: 500,
+                        res.json(400, {
+                            code: 400,
                             message: "No relevant parameters sent",
                             acceptedParameters: ['name', 'numbers'],
                             recievedParameters: req.body
@@ -148,7 +148,7 @@ module.exports = {
                         errors.push({message: "Missing fromEmail, required"});
                     }
                     if (errors.length > 0) {
-                        res.json({ errors: errors });
+                        res.json(400, { errors: errors });
                     }
                     else {
                         next();
@@ -161,8 +161,8 @@ module.exports = {
                     if (!req.body.bcc)          { warnings ++; }
                     if (!req.body.active)       { warnings ++; }
                     if (warnings === 5) {
-                        res.json({
-                            code: 500,
+                        res.json(400, {
+                            code: 400,
                             message: "No relevant parameters sent",
                             acceptedParameters: ['body', 'subject', 'fromEmail', 'bcc', 'active'],
                             recievedParameters: req.body
@@ -201,7 +201,7 @@ module.exports = {
                         errors.push({message: "Missing cityRep, required"});
                     }
                     if (errors.length > 0) {
-                        res.json({ errors: errors });
+                        res.json(400, { errors: errors });
                     }
                     else {
                         next();
@@ -221,8 +221,8 @@ module.exports = {
                     if ( !(typeof req.body.cityRep !== 'undefined') )       { warnings ++; }
                     
                     if (warnings === 10) {
-                        res.json({
-                            code: 500,
+                        res.json(400, {
+                            code: 400,
                             message: "No relevant parameters sent",
                             acceptedParameters: ['firstName', 'lastName', 'email', 'address', 'city', 'province', 'postalCode', 'wardId', 'regionalRep', 'cityRep'],
                             recievedParameters: req.body

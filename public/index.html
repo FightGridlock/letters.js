@@ -2,8 +2,7 @@
 <html ng-app="letterApp">
   <head>
     <script src="lib/angular/angular.min.js"></script>
-    <script src="app/app.js"></script>
-    <script src="lib/materialize/js/bin/materialize.js"></script>
+    <script src="lib/materialize/bin/materialize.js"></script>
     <script src="lib/materialize/js/forms.js"></script>
     <link rel="stylesheet" type="text/css" href="css/materialize.css"/>
 
@@ -16,7 +15,7 @@
 
       </div>
     </header>
-    <section ng-controller="letterController as letter" ng-init="letter.getData()">
+    <section ng-controller="letterController as letter" ng-init="getData()">
       <!-- Ward Select -->
       <district-picker></district-picker>
 
@@ -32,5 +31,19 @@
     <!-- Other Content -->
 
     <!-- Footer -->
+    <br /><br /><br />
+    
+    <!-- Angular Includes -->
+    <!-- Main File -->
+    <script src="/app/letters.js"></script>
+    
+    <!-- Directives -->
+    <script type="text/javascript" src="/app/directives/contactData.js"></script>
+    <script type="text/javascript" src="/app/directives/districtPicker.js"></script>
+    <script type="text/javascript" src="/app/directives/letterBody.js"></script>
+    
+    <!-- Controllers -->
+    <script type="text/javascript" src="/app/controllers/letterController.js"></script>
+    
   </body>
 </html>

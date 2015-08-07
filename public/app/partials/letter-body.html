@@ -1,22 +1,19 @@
 <article>
+  
+  
+  
   <div class="container">
-    <h4>Dear {{ letter.councillors[letter.wardList[letter.info.ward][0]].regional.name }} & {{ letter.councillors[letter.wardList[letter.info.ward][0]].city.name }}</h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <h4>Sincerely,</h4>
-    <h5>{{ letter.info.firstName || "Joe" }} {{ letter.info.lastName || "Smith" }}</h5>
-    <p>{{ letter.info.email || "email@email.com" }}</p>
-    <button class="waves-effect waves-light btn" ng-click="letter.postData()">Send Message</button>
+    <h3>Dear <span ng-repeat="rep in selectedReps">{{ rep.firstName }} {{ rep.lastName }}{{ $last ? '' : ($index==selectedReps.length-2) ? ' and ' : ', '}}</span></h3>  
+    <div>
+      <p>{{ templates[0].body }}</p>
+    </div>
+    <div>
+      <h3>Sincerely,</h3>
+      <h4>{{ user.firstName || "Janice" }} {{ user.lastName || "Singh" }}</h4>
+      <p>{{ user.email || "janice.singh@example.com" }}</p>
+    </div>
+    
+    
+    <button class="waves-effect waves-light btn" ng-click="postData()">Send Message</button>
   </div>
-  {{ letter.testData }}
 </article>
