@@ -7,13 +7,11 @@ var middlewares = require("../middleware/middlewares");
 
 // require the model JS file for users
 var User = require('../models/user');
-var Rep = require('../models/rep');
-var Ward = require('../models/ward');
 
 // middleware specific to this router
 router.all("*", middlewares.timeLog);
-router.post("*", middlewares.validateUser)
-router.get('/', middlewares.authorize)
+router.post("*", middlewares.validate.user);
+router.get('/', middlewares.authorize);
 router.put('*', middlewares.authorize, middlewares.validate.user);
 router.delete('*', middlewares.authorize);
 
