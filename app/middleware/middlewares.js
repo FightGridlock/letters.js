@@ -217,8 +217,8 @@ module.exports = {
                     if (!req.body.postalCode)   { warnings ++; }
                     if (!req.body.wardId)       { warnings ++; }
                     // Boolean variables
-                    if (req.body.regionalRep !== 'undefined')   { warnings ++; }
-                    if (req.body.cityRep !== 'undefined')       { warnings ++; }
+                    if ( !(typeof req.body.regionalRep !== 'undefined') )   { warnings ++; }
+                    if ( !(typeof req.body.cityRep !== 'undefined') )       { warnings ++; }
                     
                     if (warnings === 10) {
                         res.json({
