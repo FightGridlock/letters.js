@@ -44,9 +44,6 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
     }];
     $scope.user = {};
 
-
-    var letter = this;
-
     $scope.getData = function() {
         console.log("Starting HTTPGet");
         $scope.loadReps();
