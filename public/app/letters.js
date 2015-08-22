@@ -1,8 +1,8 @@
 //letters.js Angular App
 'use strict';
 
-var app = angular.module('letterApp', ['ngAnimate', 'ui.router'])
-
+var app = angular.module('letterApp', [])
+/*
 .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
         .state('form', {
@@ -28,3 +28,4 @@ var app = angular.module('letterApp', ['ngAnimate', 'ui.router'])
         
         $urlRouterProvider.otherwise('/form/ward');
 });
+*/

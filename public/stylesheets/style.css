@@ -12576,3 +12576,44 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   text-align: justify;
   text-justify: inter-word;
 }
+
+/* line 13, ../sass/custom/_diogo.scss */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* line 19, ../sass/custom/_diogo.scss */
+main {
+  flex: 1 0 auto;
+}
+
+/* line 23, ../sass/custom/_diogo.scss */
+.accordion-body {
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/* line 30, ../sass/custom/_diogo.scss */
+.ward-radio {
+  display: block;
+  margin-bottom: 1.5em;
+}
+
+/* line 35, ../sass/custom/_diogo.scss */
+#letter-body {
+  background-image: url(http://www.webtexture.net/wp-content/gallery/20-seamless-paper-texture/papar_texture_thumb15.jpg);
+  background-repeat: repeat;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin: 10px;
+  -webkit-box-shadow: 0px 7px 17px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 7px 17px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 7px 17px -5px rgba(0, 0, 0, 0.75);
+  text-align: justify;
+}
