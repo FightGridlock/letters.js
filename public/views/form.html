@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col s8 offset-s2">
+        <div id="form-container">
+            <div class="center-align">
+                <h3>{{ currentStep }}</h3>
+                <div id="status-buttons" class="center-align">
+                    <div class="row">
+                        <div class="col s4 m2 offset-m3"><a class="btn-floating btn-large waves-effect" ui-sref-active="active" ui-sref=".ward"><span>1</span> Wards</a></div>
+                        <div class="col s4 m2"><a class="btn-floating btn-large waves-effect" ui-sref-active="active" ui-sref=".info"><span>2</span> About You</a></div>
+                        <div class="col s4 m2"><a class="btn-floating btn-large waves-effect" ui-sref-active="active" ui-sref=".letter"><span>3</span> Letter</a></div>
+                    </div>
+                </div>
+            </div>
+            <form id="signup-form" ng-submit="postData()">
+
+                <!-- our nested state views will be injected here -->
+                <div id="form-views" ui-view></div>
+            </form>
+        </div>
+        <pre>
+            {{ ward }}
+        </pre>
+    </div>
+</div>

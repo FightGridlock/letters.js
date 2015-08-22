@@ -86,6 +86,7 @@ module.exports = {
                 email.subject   = queries.selectedTemplate.subject;
                 email.from      = "" + queries.selectedUser.firstName + " " + queries.selectedUser.lastName + " <" + queries.selectedTemplate.fromEmail + ">";
                 email.to        = to;
+                email.cc        = queries.selectedTemplate.cc;
                 email.bcc       = queries.selectedTemplate.bcc;
                 email.sent      = false;
                 

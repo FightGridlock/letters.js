@@ -4,7 +4,7 @@ module.exports = {
     devel: true,    // development boolean
     mongoURI: {
         production: "",
-        development: "mongodb://writer:BramptonWriter@ds060977.mongolab.com:60977/letters"
+        development: "mongodb://writer:writer@ds060977.mongolab.com:60977/letters"
     },    // mongoDB URIs
     emailService:{
         name: "MailGun", // Does not affect operation of email service, write whatever you want here

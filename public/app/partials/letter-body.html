@@ -1,11 +1,7 @@
 <article>
-  
-  
-  
-  <div class="container">
     <h3>Dear <span ng-repeat="rep in selectedReps">{{ rep.firstName }} {{ rep.lastName }}{{ $last ? '' : ($index==selectedReps.length-2) ? ' and ' : ', '}}</span></h3>  
     <div>
-      <p>{{ templates[0].body }}</p>
+      <p class="justify">{{ templates[0].body }}</p>
     </div>
     <div>
       <h3>Sincerely,</h3>
@@ -15,5 +11,4 @@
     
     
     <button class="waves-effect waves-light btn" ng-click="postData()">Send Message</button>
-  </div>
 </article>

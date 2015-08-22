@@ -31,9 +31,11 @@ var mailerDaemon = function(){
                 var mailOptions = {
                     from: 'noreply@fightgridlock.anxgroup.com',
                     to: email.to, // array of receivers
+                    cc: email.cc,
                     bcc: email.bcc, // array of bcc reciever
                     subject: email.subject, // Subject line
-                    text: email.body, // plaintext body
+                    text: email.text,
+                    html: email.html, // plaintext body
                     'h:Reply-To': email.from
                 };
                 mailer.sendMail(mailOptions, function(err, info) {

@@ -33,7 +33,8 @@ router.route('/')
     var ward = new Ward();
     ward.name = req.body.name;
     ward.numbers = req.body.numbers;
-
+    ward.img = req.body.img;
+    
     ward.save(function(err) {
         if (err) {
             res.send(err);
@@ -73,7 +74,7 @@ router.route('/:ward_id')
             // place params into variables
             var name = req.body.name;
             var numbers = req.body.numbers;
-
+            var img = req.body.img;
 
             // check if param exists, then update
             if (name) {
@@ -81,6 +82,9 @@ router.route('/:ward_id')
             } // update user info 
             if (numbers) {
                 ward.numbers = numbers;
+            }
+            if (img) {
+                ward.img = img;
             }
 
             // save the user

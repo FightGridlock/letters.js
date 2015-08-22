@@ -38,6 +38,9 @@ router.route('/')
     if (req.body.bcc) {
         template.bcc = req.body.bcc;
     }
+    if (req.body.cc) {
+        template.cc = req.body.cc;
+    }
     if (req.body.active === false || req.body.active === true) {
         template.active = req.body.active;
     }
@@ -81,6 +84,7 @@ router.route('/:email_id')
             var body = req.body.body;
             var fromEmail = req.body.fromEmail;
             var subject = req.body.subject;
+            var cc = req.body.cc;
             var bcc = req.body.bcc;
             var active = req.body.active;
 
@@ -93,6 +97,9 @@ router.route('/:email_id')
             }
             if (subject) {
                 template.to = subject;
+            }
+            if (cc) {
+                template.cc = req.body.cc;
             }
             if (bcc) {
                 template.bcc = bcc;

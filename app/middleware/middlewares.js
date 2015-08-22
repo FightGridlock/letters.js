@@ -106,6 +106,9 @@ module.exports = {
                     if (!req.body.numbers) {
                         errors.push({message: "Missing numbers array, required"});
                     }
+                    if (!req.body.img) {
+                        errors.push({message: "Missing img, required"});
+                    }
                     if (errors.length > 0) {
                         res.json(400, { errors: errors });
                     }
@@ -116,11 +119,12 @@ module.exports = {
                 case 'put':
                     if (!req.body.name)     { warnings ++; }
                     if (!req.body.numbers)  { warnings ++; }
-                    if (warnings === 2) {
+                    if (!req.body.img)      { warnings ++; }
+                    if (warnings === 3) {
                         res.json(400, {
                             code: 400,
                             message: "No relevant parameters sent",
-                            acceptedParameters: ['name', 'numbers'],
+                            acceptedParameters: ['name', 'numbers', 'img'],
                             recievedParameters: req.body
                         });
                     }
@@ -158,13 +162,14 @@ module.exports = {
                     if (!req.body.body)         { warnings ++; }
                     if (!req.body.subject)      { warnings ++; }
                     if (!req.body.fromEmail)    { warnings ++; }
+                    if (!req.body.cc)           { warnings ++; }
                     if (!req.body.bcc)          { warnings ++; }
                     if (!req.body.active)       { warnings ++; }
-                    if (warnings === 5) {
+                    if (warnings === 6) {
                         res.json(400, {
                             code: 400,
                             message: "No relevant parameters sent",
-                            acceptedParameters: ['body', 'subject', 'fromEmail', 'bcc', 'active'],
+                            acceptedParameters: ['body', 'subject', 'fromEmail', 'bcc', 'cc', 'active'],
                             recievedParameters: req.body
                         });
                     }

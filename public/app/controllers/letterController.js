@@ -85,31 +85,29 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
             .success(function(data, status, headers, config) {
                 // this callback will be called asynchronously
                 // when the response is available
-                console.log(data + " has been posted!");
+                $http.post('/api/emails', {
+                    userId: data.user._id,
+                    templateId: $scope.templates[0]._id,
+                    wardId: data.user.wardId
+                }).success(function(data, status, headers, config) {
+                    console.log(data, " has been posted!");
+                })
+                .error(function(data, status, headers, config){
+                    $scope.alerts.push({
+                        code: 400,
+                        message: "Something went wrong. Reload the page and try again."
+                    });
+                });
+                console.log(data, " has been posted!");
             })
             .error(function(data, status, headers, config) {
                 // called asynchronously if an error occurs
                 $scope.alerts.push({
-                    code: 404,
+                    code: 400,
                     message: "Something went wrong. Reload the page and try again."
-                })
+                });
                 console.log("Data has not been posted to users: ", data);
             });
     };
-
-
-/*  letter.setWard = function(wardChosen) {
-        letter.info.ward = wardChosen.toString();
-        selectedWard = letter.wardList[letter.info.ward][0];
-    };
-    letter.saveUser = function(fName, lName, email) {
-        console.log((!fName && !lName && !email))
-        if ((!fName && !lName && !email)) {
-            Materialize.toast('Missing data', 4000);
-        }
-        letter.info.firstName = fName;
-        letter.info.lastName = lName;
-        letter.info.email = email;
-    };*/
     
 }]);
