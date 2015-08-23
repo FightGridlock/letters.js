@@ -2,7 +2,7 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
 
     $scope.alerts = [];
 
-    $scope.loadTemplates = function() {
+    var loadTemplates = function() {
         $http.get("/api/templates").success(function(data) {
             $scope.templates = data;
         }).error(function() {
@@ -11,9 +11,9 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
                 message: "Unable to load templates, check your network connectivity."
             });
         });
-    }
+    };
 
-    $scope.loadWards = function() {
+    var loadWards = function() {
         $http.get("/api/wards").success(function(data) {
             $scope.wards = data;
         }).error(function() {
@@ -24,7 +24,7 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
         });
     };
 
-    $scope.loadReps = function() {
+    var loadReps = function() {
         $http.get("/api/reps").success(function(data) {
             $scope.reps = data;
         }).error(function() {
@@ -46,16 +46,16 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
 
     $scope.getData = function() {
         console.log("Starting HTTPGet");
-        $scope.loadReps();
-        $scope.loadTemplates();
-        $scope.loadWards();
+        loadReps();
+        loadTemplates();
+        loadWards();
     };
-    
-    $scope.setWard = function(w){
+
+    $scope.setWard = function(w) {
         $scope.user.wardId = w._id;
         $scope.ward = w;
     };
-    
+
     $scope.findReps = function(wardId) {
         $scope.selectedReps = [];
         var length = $scope.reps.length;
@@ -73,41 +73,98 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
         }
     };
 
-    // Simple POST request (passing data) :
+    // Alerts Watcher
+    $scope.$watch('alerts.length', function() {
+        console.log('Watching...');
+        while ($scope.alerts.length > 0) {
+            Materialize.toast($scope.alerts[0].message, 8000);
+            $scope.alerts.shift();
+        }
+    });
+
     $scope.postData = function() {
-        $http.post('/api/users', {
-                firstName: $scope.user.firstName,
-                lastName: $scope.user.lastName,
-                email: $scope.user.email,
-                postalCode: $scope.user.postalCode,
-                wardId: $scope.ward._id
-            })
-            .success(function(data, status, headers, config) {
-                // this callback will be called asynchronously
-                // when the response is available
+        if ($scope.user.firstName && $scope.user.lastName && $scope.user.email && $scope.ward._id) {
+            if ($scope.user._id) {
                 $http.post('/api/emails', {
-                    userId: data.user._id,
+                    userId: $scope.user._id,
                     templateId: $scope.templates[0]._id,
-                    wardId: data.user.wardId
-                }).success(function(data, status, headers, config) {
+                    wardId: $scope.user.wardId
+                })
+                .success(function(data, status, headers, config) {
                     console.log(data, " has been posted!");
                 })
-                .error(function(data, status, headers, config){
+                .error(function(data, status, headers, config) {
                     $scope.alerts.push({
                         code: 400,
-                        message: "Something went wrong. Reload the page and try again."
+                        message: "Something went wrong sending the email... Please try again later."
                     });
                 });
-                console.log(data, " has been posted!");
-            })
-            .error(function(data, status, headers, config) {
-                // called asynchronously if an error occurs
+            }
+            else {
+                $http.post('/api/users', {
+                        firstName: $scope.user.firstName,
+                        lastName: $scope.user.lastName,
+                        email: $scope.user.email,
+                        postalCode: $scope.user.postalCode,
+                        wardId: $scope.ward._id
+                    })
+                    .success(function(data, status, headers, config) {
+                        // this callback will be called asynchronously
+                        // when the response is available
+                        $http.post('/api/emails', {
+                                userId: data.user._id,
+                                templateId: $scope.templates[0]._id,
+                                wardId: data.user.wardId
+                            })
+                            .success(function(data, status, headers, config) {
+                                console.log(data, " has been posted!");
+                            })
+                            .error(function(data, status, headers, config) {
+                                $scope.alerts.push({
+                                    code: 400,
+                                    message: "Something went wrong sending the email... Please try again later."
+                                });
+                            });
+                        $scope.user._id = data.user._id;
+                        $scope.user.wardId = data.user.wardId;
+                    })
+                    .error(function(data, status, headers, config) {
+                        // called asynchronously if an error occurs
+                        $scope.alerts.push({
+                            code: 400,
+                            message: "Something went wrong... Please try again later."
+                        });
+                        console.log("Data has not been posted to users: ", data);
+                    });
+            }
+        }
+        else {
+            if (!$scope.ward._id) {
                 $scope.alerts.push({
                     code: 400,
-                    message: "Something went wrong. Reload the page and try again."
+                    message: "Oops! You forgot to <strong>&nbsp;select a Ward in Step 1</strong>"
                 });
-                console.log("Data has not been posted to users: ", data);
-            });
+            }
+            if (!$scope.user.firstName) {
+                $scope.alerts.push({
+                    code: 400,
+                    message: "Oops! You forgot to <strong>&nbsp;fill in your first name in Step 2</strong>"
+                });
+            }
+            if (!$scope.user.lastName) {
+                $scope.alerts.push({
+                    code: 400,
+                    message: "Oops! You forgot to <strong>&nbsp;fill in your last name in Step 2</strong>"
+                });
+            }
+            if (!$scope.user.email) {
+                $scope.alerts.push({
+                    code: 400,
+                    message: "Oops! You forgot to <strong>&nbsp;fill in your email in Step 2</strong>"
+                });
+            }
+        }
+
     };
-    
+
 }]);
