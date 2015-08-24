@@ -29,7 +29,7 @@ var mailerDaemon = function(){
             // Run through array of email objects, send each one, then update the "sent" field
             emails.forEach(function(email) {
                 var mailOptions = {
-                    from: 'noreply@fightgridlock.anxgroup.com',
+                    from: settings.emailService.user + '@' + settings.emailService.domain,
                     to: email.to, // array of receivers
                     cc: email.cc,
                     bcc: email.bcc, // array of bcc reciever

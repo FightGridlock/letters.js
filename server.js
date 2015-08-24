@@ -18,7 +18,6 @@ if (settings.devel) {
 else {
     mongoURI = settings.mongoURI.production;
 }
-
 mongoose.connect(mongoURI); // connect to our database
 
 
@@ -64,4 +63,4 @@ setInterval(mailerDaemon, runtime);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Magic happens on port ' + port);
+console.log('Letters App running on Port ' + port);

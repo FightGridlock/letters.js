@@ -28,11 +28,37 @@ $materialize-red: (
 );
 
 $red: (
-  "base":       #8EDD31,
+  "lighten-5":  #FFEBEE,
+  "lighten-4":  #FFCDD2,
+  "lighten-3":  #EF9A9A,
+  "lighten-2":  #E57373,
+  "lighten-1":  #EF5350,
+  "base":       #F44336,
+  "darken-1":   #E53935,
+  "darken-2":   #D32F2F,
+  "darken-3":   #C62828,
+  "darken-4":   #B71C1C,
+  "accent-1":    #FF8A80,
+  "accent-2":    #FF5252,
+  "accent-3":    #FF1744,
+  "accent-4":    #D50000
 );
 
 $pink: (
-  "base":       #717171,
+  "lighten-5":  #fce4ec,
+  "lighten-4":  #f8bbd0,
+  "lighten-3":  #f48fb1,
+  "lighten-2":  #f06292,
+  "lighten-1":  #ec407a,
+  "base":       #8EDD31,
+  "darken-1":   #d81b60,
+  "darken-2":   #c2185b,
+  "darken-3":   #ad1457,
+  "darken-4":   #880e4f,
+  "accent-1":    #ff80ab,
+  "accent-2":    #ff4081,
+  "accent-3":    #f50057,
+  "accent-4":    #c51162
 );
 
 $purple: (
@@ -41,7 +67,7 @@ $purple: (
   "lighten-3":  #ce93d8,
   "lighten-2":  #ba68c8,
   "lighten-1":  #ab47bc,
-  "base":       #9c27b0,
+  "base":       #717171,
   "darken-1":   #8e24aa,
   "darken-2":   #7b1fa2,
   "darken-3":   #6a1b9a,

@@ -81,9 +81,8 @@ module.exports = {
                 });
                 
                 
-                email.replyTo   = queries.selectedUser.email
-                email.text      = queries.selectedTemplate.text;
-                email.html      = queries.selectedTemplate.html;
+                email.replyTo   = queries.selectedUser.email;
+                email.text      = "Dear Councillors of Wards " + queries.selectedWard.name + ",\n\n" + queries.selectedTemplate.text + "\n\nSincerely,\n" + queries.selectedUser.firstName + " " + queries.selectedUser.lastName + "\n" + queries.selectedUser.email + "\n";
                 email.subject   = queries.selectedTemplate.subject;
                 email.from      = "" + queries.selectedUser.firstName + " " + queries.selectedUser.lastName + " <" + queries.selectedTemplate.fromEmail + ">";
                 email.to        = to;
