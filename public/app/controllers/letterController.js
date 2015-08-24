@@ -1,4 +1,4 @@
-app.controller('letterController', ['$scope', '$http', function($scope, $http) {
+app.controller('letterController', ['$scope', '$http', '$location', function($scope, $http, $location) {
 
     $scope.alerts = [];
 
@@ -75,7 +75,6 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
 
     // Alerts Watcher
     $scope.$watch('alerts.length', function() {
-        console.log('Watching...');
         while ($scope.alerts.length > 0) {
             Materialize.toast($scope.alerts[0].message, 8000);
             $scope.alerts.shift();
@@ -118,6 +117,7 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
                             })
                             .success(function(data, status, headers, config) {
                                 console.log(data, " has been posted!");
+                                window.location.href = "/next/";
                             })
                             .error(function(data, status, headers, config) {
                                 $scope.alerts.push({

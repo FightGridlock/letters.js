@@ -1,0 +1,81 @@
+<!doctype html>
+<html ng-app="letterApp">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script type="text/javascript" src="/lib/modernizr/modernizr.js"></script>
+    <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/lib/angular-animate/angular-animate.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Contact Your Councillors | One Brampton</title>
+  </head>
+  <body>
+    <header>
+      <!--Heading-->
+      <nav class="valign-wrapper">
+          <h5 class="valign center" style="width: 100%;">Contact Your Councillors</h5>
+      </nav>
+    </header>
+    
+    <main>
+      <div class="container">
+        <section ng-controller="letterController as letter" ng-init="getData()">
+            <ul class="collapsible popout" data-collapsible="accordion">
+              <li>
+                <div class="collapsible-header active"><i class="material-icons">location_on</i>Step 1: Select your Ward</div>
+                <div class="collapsible-body">
+                  <div class="row accordion-body">
+                    <district-picker></district-picker>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="material-icons">perm_identity</i>Step 2: Your Name and Email</div>
+                <div class="collapsible-body">
+                  <div class="row accordion-body">
+                    <contact-data></contact-data>                    
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="material-icons">email</i>Step 3: Verify and Send</div>
+                <div class="collapsible-body">
+                  <div class="row accordion-body">
+                    <letter-body></letter-body>                    
+                  </div>
+                </div>
+              </li>
+            </ul>
+        </section>
+    
+        <!-- Other Content -->        
+      </div>
+
+    </main>
+
+    <footer class="page-footer">
+      <!-- Footer -->
+      <footer-content></footer-content>
+    </footer>
+    
+    <!-- JS Includes -->
+    <script src="/lib/materialize/bin/materialize.js"></script>
+    <script src="/lib/materialize/js/forms.js"></script>
+    
+    <!-- Angular Includes -->
+    <!-- Main File -->
+    <script src="/app/letters.js"></script>
+    
+    <!-- Directives -->
+    <script type="text/javascript" src="/app/directives/contactData.js"></script>
+    <script type="text/javascript" src="/app/directives/districtPicker.js"></script>
+    <script type="text/javascript" src="/app/directives/letterBody.js"></script>
+    <script type="text/javascript" src="/app/directives/footerContent.js"></script>
+    
+    <!-- Controllers -->
+    <script type="text/javascript" src="/app/controllers/letterController.js"></script>
+    
+  </body>
+</html>

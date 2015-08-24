@@ -1,0 +1,113 @@
+<!doctype html>
+<html ng-app="letterApp">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script type="text/javascript" src="/lib/modernizr/modernizr.js"></script>
+    <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/lib/angular-animate/angular-animate.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Be Heard | One Brampton</title>
+  </head>
+  <body>
+    <header>
+      <!--Heading-->
+      <nav class="valign-wrapper">
+          <h5 class="valign center" style="width: 100%;">Be Heard</h5>
+      </nav>
+    </header>
+    
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m12 l12 center-align">
+            <h3>Video Contest</h3> <br />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6 l4">
+            <div class="card panel medium">
+              <div class="panel-body">
+                <hr class="heading">
+                <div class="center-align">
+                  <span class="btn-floating center-align number">1</span>
+                </div>
+                <hr class="heading">
+                <h5>Create Your Video</h5>
+                <p>Create a video showing or telling people <strong>“Why the LRT on Main Street is important for you?"</strong></p>
+                <p>Please Include in your Video:</p>
+                <ol class="list">
+                  <li>The ward you live in (find out <a href="http://www.brampton.ca/en/City-Hall/CouncilOffice/Pages/FindYourCouncillor.aspx" target="_blank">here</a>)</li>
+                  <li>Your Name</li>
+                  <li>Your Councillor (find out <a href="http://www.brampton.ca/en/City-Hall/CouncilOffice/Pages/FindYourCouncillor.aspx" target="_blank">here</a>)</li>
+                  <li>Why you support the LRT</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l4">
+            <div class="card panel medium">
+              <div class="panel-body">
+                <hr class="heading">
+                <div class="center-align">
+                  <span class="btn-floating center-align number">2</span>
+                </div>
+                <hr class="heading">
+                <h5>Share it on Social Media</h5>
+                <p>Share your video on social media using:</p><br />
+                <div class="center-align">
+                  <p></p><strong><a href="https://twitter.com/search?q=%23LRTonMain" target="_blank">#LRTonMain</a></strong><br /> and<br /> <strong><a href="https://twitter.com/search?q=%23BramptonsRoute" target="_blank">#BramptonsRoute</a></strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m12 l4">
+            <div class="card panel medium">
+              <div class="panel-body">
+                <hr class="heading">
+                <div class="center-align">
+                  <span class="btn-floating center-align number">3</span>
+                </div>
+                <hr class="heading">
+                <h5>Win $500</h5>
+                <p>One winner will be selected and $500 will be donated on your behalf to any registered charity of your choice.</p>
+                <p>Note:</p>
+                <p><em>By entering the contest, you agree that OneBrampton may upload your video on its Youtube channel and use it to produce other videos.</em></p>
+                <p><strong>The campaign runs until 09/14/2015.</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l6">
+            
+          </div>
+        </div>   
+      </div>
+
+    </main>
+
+    <footer class="page-footer">
+      <!-- Footer -->
+      <footer-content></footer-content>
+    </footer>
+    
+    <!-- JS Includes -->
+    <script src="/lib/materialize/bin/materialize.js"></script>
+    <script src="/lib/materialize/js/forms.js"></script>
+    
+    <!-- Angular Includes -->
+    <!-- Main File -->
+    <script src="/app/letters.js"></script>
+    
+    <!-- Directives -->
+    <script type="text/javascript" src="/app/directives/contactData.js"></script>
+    <script type="text/javascript" src="/app/directives/districtPicker.js"></script>
+    <script type="text/javascript" src="/app/directives/letterBody.js"></script>
+    <script type="text/javascript" src="/app/directives/footerContent.js"></script>
+    
+    <!-- Controllers -->
+    <script type="text/javascript" src="/app/controllers/letterController.js"></script>
+    
+  </body>
+</html>

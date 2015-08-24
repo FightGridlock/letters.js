@@ -2,6 +2,12 @@
 'use strict';
 
 var app = angular.module('letterApp', [])
+
+app.filter('newlines', ['$sce', function ($sce) {
+    return function(input) {
+        return $sce.trustAsHtml(input.replace(/\\n/g, "<br />"));
+    };
+}]);
 /*
 .config(function($stateProvider, $urlRouterProvider){
     $stateProvider

@@ -32,7 +32,8 @@ router.route('/')
 .post(function(req, res) {
 
     var template = new Template();
-    template.body = req.body.body;
+    template.text = req.body.text;
+    template.html = req.body.html;
     template.subject = req.body.subject;
     template.fromEmail = req.body.fromEmail;
     if (req.body.bcc) {
@@ -81,7 +82,8 @@ router.route('/:email_id')
         }
         else {
             // place params into variables
-            var body = req.body.body;
+            var text = req.body.text;
+            var html = req.body.html;
             var fromEmail = req.body.fromEmail;
             var subject = req.body.subject;
             var cc = req.body.cc;
@@ -89,8 +91,11 @@ router.route('/:email_id')
             var active = req.body.active;
 
             // check if param was sent, then update
-            if (body) {
-                template.body = body;
+            if (text) {
+                template.text = text;
+            }
+            if (html) {
+                template.html = html;
             }
             if (fromEmail) {
                 template.from = fromEmail;

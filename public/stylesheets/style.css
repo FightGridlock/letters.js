@@ -12617,3 +12617,46 @@ main {
   box-shadow: 0px 7px 17px -5px rgba(0, 0, 0, 0.75);
   text-align: justify;
 }
+
+/* line 50, ../sass/custom/_diogo.scss */
+main .container {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+/* line 56, ../sass/custom/_diogo.scss */
+.center-btn {
+  text-align: center;
+}
+
+/* line 60, ../sass/custom/_diogo.scss */
+.preformatted {
+  white-space: pre-wrap;
+}
+
+/* line 63, ../sass/custom/_diogo.scss */
+.match {
+  height: 400px;
+}
+
+/* line 66, ../sass/custom/_diogo.scss */
+.panel-body {
+  margin: 20px;
+}
+
+/* line 69, ../sass/custom/_diogo.scss */
+.list {
+  list-style-type: decimal;
+}
+
+/* line 72, ../sass/custom/_diogo.scss */
+.number {
+  cursor: default !important;
+}
+
+/* line 75, ../sass/custom/_diogo.scss */
+hr.heading {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.75), transparent);
+}

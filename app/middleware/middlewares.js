@@ -142,8 +142,8 @@ module.exports = {
             var warnings = 0;
             switch( method ) {
                 case 'post':
-                    if (!req.body.body) {
-                        errors.push({message: "Missing body, required"});
+                    if (!req.body.html) {
+                        errors.push({message: "Missing html body, required"});
                     }
                     if (!req.body.subject) {
                         errors.push({message: "Missing subject, required"});
@@ -159,17 +159,18 @@ module.exports = {
                     }
                     break;
                 case 'put':
-                    if (!req.body.body)         { warnings ++; }
+                    if (!req.body.html)         { warnings ++; }
+                    if (!req.body.text)         { warnings ++; }
                     if (!req.body.subject)      { warnings ++; }
                     if (!req.body.fromEmail)    { warnings ++; }
                     if (!req.body.cc)           { warnings ++; }
                     if (!req.body.bcc)          { warnings ++; }
                     if (!req.body.active)       { warnings ++; }
-                    if (warnings === 6) {
+                    if (warnings === 7) {
                         res.json(400, {
                             code: 400,
                             message: "No relevant parameters sent",
-                            acceptedParameters: ['body', 'subject', 'fromEmail', 'bcc', 'cc', 'active'],
+                            acceptedParameters: ['text', 'html', 'subject', 'fromEmail', 'bcc', 'cc', 'active'],
                             recievedParameters: req.body
                         });
                     }

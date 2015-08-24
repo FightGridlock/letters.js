@@ -82,7 +82,8 @@ module.exports = {
                 
                 
                 email.replyTo   = queries.selectedUser.email
-                email.body      = queries.selectedTemplate.body;
+                email.text      = queries.selectedTemplate.text;
+                email.html      = queries.selectedTemplate.html;
                 email.subject   = queries.selectedTemplate.subject;
                 email.from      = "" + queries.selectedUser.firstName + " " + queries.selectedUser.lastName + " <" + queries.selectedTemplate.fromEmail + ">";
                 email.to        = to;

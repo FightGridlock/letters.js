@@ -9,7 +9,8 @@ var EmailSchema      = new Schema({
     to:         [String],
     cc:         { type: [String], default: [] },
     bcc:        { type: [String], default: [] },
-    body:       String,
+    text:       String,
+    html:       String,
     subject:    { type: String, default: "Approve the Hurontario-Main LRT" },
     sent:       { type: Boolean, default: false }
 });

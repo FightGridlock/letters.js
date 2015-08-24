@@ -9,50 +9,33 @@
     <script src="/lib/angular-animate/angular-animate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Contact Your Councillors | One Brampton</title>
+    <title>Save the Brampton LRT | One Brampton</title>
   </head>
   <body>
     <header>
       <!--Heading-->
       <nav class="valign-wrapper">
-          <h5 class="valign center" style="width: 100%;">Contact Your Councillors</h5>
+          <h5 class="valign center" style="width: 100%;">One Brampton</h5>
       </nav>
     </header>
     
     <main>
       <div class="container">
-        <section ng-controller="letterController as letter" ng-init="getData()">
-            <ul class="collapsible popout" data-collapsible="accordion">
-              <li>
-                <div class="collapsible-header active"><i class="material-icons">location_on</i>Step 1: Select your Ward</div>
-                <div class="collapsible-body">
-                  <div class="row accordion-body">
-                    <district-picker></district-picker>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="material-icons">perm_identity</i>Step 2: Your Name and Email</div>
-                <div class="collapsible-body">
-                  <div class="row accordion-body">
-                    <contact-data></contact-data>                    
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="material-icons">email</i>Step 3: Verify and Send</div>
-                <div class="collapsible-body">
-                  <div class="row accordion-body">
-                    <letter-body></letter-body>                    
-                  </div>
-                </div>
-              </li>
-            </ul>
-        </section>
-    
-        <!-- Other Content -->        
+        <div class="video-container">
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/QYGdLMf9hzM" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col s12 m12 l12">
+            <div class="card">
+              <div class="card-content center-btn justify">
+                <p>The future of Brampton's transportation is a stake! Please let your Councillor know you support the Hurontario-Main LRT!</p> <br /> <br />
+                <a class="btn" href="/contact">Contact your Councillor Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
     </main>
 
     <footer class="page-footer">
@@ -69,9 +52,6 @@
     <script src="/app/letters.js"></script>
     
     <!-- Directives -->
-    <script type="text/javascript" src="/app/directives/contactData.js"></script>
-    <script type="text/javascript" src="/app/directives/districtPicker.js"></script>
-    <script type="text/javascript" src="/app/directives/letterBody.js"></script>
     <script type="text/javascript" src="/app/directives/footerContent.js"></script>
     
     <!-- Controllers -->
