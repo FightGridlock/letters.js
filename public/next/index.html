@@ -20,11 +20,9 @@
       js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=215618798565877";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    <header>
+    <header ng-controller="navController">
       <!--Heading-->
-      <nav class="valign-wrapper">
-          <h5 class="valign center" style="width: 100%;">Next Steps</h5>
-      </nav>
+      <nav-content></nav-content>
     </header>
     
     <main>
@@ -89,13 +87,11 @@
     <script src="/app/letters.js"></script>
     
     <!-- Directives -->
-    <script type="text/javascript" src="/app/directives/contactData.js"></script>
-    <script type="text/javascript" src="/app/directives/districtPicker.js"></script>
-    <script type="text/javascript" src="/app/directives/letterBody.js"></script>
     <script type="text/javascript" src="/app/directives/footerContent.js"></script>
+    <script type="text/javascript" src="/app/directives/navContent.js"></script>
     
     <!-- Controllers -->
-    <script type="text/javascript" src="/app/controllers/letterController.js"></script>
+    <script type="text/javascript" src="/app/controllers/navController.js"></script>
     
   </body>
 </html>

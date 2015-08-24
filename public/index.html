@@ -12,25 +12,42 @@
     <title>Save the Brampton LRT | One Brampton</title>
   </head>
   <body>
-    <header>
+    <header ng-controller="navController">
       <!--Heading-->
-      <nav class="valign-wrapper">
-          <h5 class="valign center" style="width: 100%;">One Brampton</h5>
-      </nav>
+      <nav-content></nav-content>
     </header>
     
     <main>
       <div class="container">
         <div class="video-container">
-          <iframe width="853" height="480" src="https://www.youtube.com/embed/QYGdLMf9hzM" frameborder="0" allowfullscreen></iframe>
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/_ArZ-Dc7T9c?vq=hd720" frameborder="0" allowfullscreen></iframe>
         </div>
         <br />
         <div class="row">
           <div class="col s12 m12 l12">
             <div class="card">
               <div class="card-content center-btn justify">
-                <p>The future of Brampton's transportation is a stake! Please let your Councillor know you support the Hurontario-Main LRT!</p> <br /> <br />
+                <p><strong>The future of Brampton's transportation is a stake! Please let your Councillor know you support the Hurontario-Main LRT!</strong></p> <br /> <br />
                 <a class="btn" href="/contact">Contact your Councillor Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="heading">
+        <br />
+        <div class="row center-align">
+          <h3>Video Contest</h3>
+        </div>
+        <div class="video-container">
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/59SnWp5rf0s?vq=hd720" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col s12 m12 l12">
+            <div class="card">
+              <div class="card-content center-btn justify">
+                <p><strong>Submit your video for a chance to win $500 for a charity of your choice!</strong></p> <br /> <br />
+                <a class="btn" href="/video">See How</a>
               </div>
             </div>
           </div>
@@ -53,9 +70,10 @@
     
     <!-- Directives -->
     <script type="text/javascript" src="/app/directives/footerContent.js"></script>
+    <script type="text/javascript" src="/app/directives/navContent.js"></script>
     
     <!-- Controllers -->
-    <script type="text/javascript" src="/app/controllers/letterController.js"></script>
+    <script type="text/javascript" src="/app/controllers/navController.js"></script>
     
   </body>
 </html>

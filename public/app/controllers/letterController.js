@@ -1,4 +1,4 @@
-app.controller('letterController', ['$scope', '$http', '$location', function($scope, $http, $location) {
+app.controller('letterController', ['$scope', '$http', function($scope, $http) {
 
     $scope.alerts = [];
 

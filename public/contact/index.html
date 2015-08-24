@@ -12,11 +12,9 @@
     <title>Contact Your Councillors | One Brampton</title>
   </head>
   <body>
-    <header>
+    <header ng-controller="navController">
       <!--Heading-->
-      <nav class="valign-wrapper">
-          <h5 class="valign center" style="width: 100%;">Contact Your Councillors</h5>
-      </nav>
+      <nav-content></nav-content>
     </header>
     
     <main>
@@ -73,9 +71,11 @@
     <script type="text/javascript" src="/app/directives/districtPicker.js"></script>
     <script type="text/javascript" src="/app/directives/letterBody.js"></script>
     <script type="text/javascript" src="/app/directives/footerContent.js"></script>
+    <script type="text/javascript" src="/app/directives/navContent.js"></script>
     
     <!-- Controllers -->
     <script type="text/javascript" src="/app/controllers/letterController.js"></script>
+    <script type="text/javascript" src="/app/controllers/navController.js"></script>
     
   </body>
 </html>

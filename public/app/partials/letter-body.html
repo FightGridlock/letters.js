@@ -2,7 +2,7 @@
   <div id="letter-body">
     <h3>Dear,</h3><h4><span ng-repeat="rep in selectedReps">{{ rep.firstName }} {{ rep.lastName }}{{ $last ? '' : ($index==selectedReps.length-2) ? ' and ' : ', '}}</span></h4>  
     <div>
-      <span class="justify preformatted" ng-bind-html="templates[0].text | newlines"></span>
+      <span class="justify preformatted" ng-bind-html="  templates[0].text || ' ' | newlines"></span>
     </div>
     <div>
       <h4>Sincerely,</h4>
