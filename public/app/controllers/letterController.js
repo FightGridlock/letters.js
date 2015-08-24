@@ -38,10 +38,7 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
 
     $scope.ward = {};
     $scope.template = {};
-    $scope.selectedReps = [{
-        firstName: "John",
-        lastName: "Smith",
-    }];
+    $scope.selectedReps = [{}];
     $scope.user = {};
 
     $scope.getData = function() {
@@ -62,13 +59,6 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
         for (var i = 0; i < length; i++) {
             if ($scope.reps[i].wardId === wardId) {
                 $scope.selectedReps.push($scope.reps[i]);
-            }
-
-            if (!($scope.selectedReps.length)) {
-                $scope.selectedReps.push({
-                    firstName: "John",
-                    lastName: "Smith",
-                });
             }
         }
     };
@@ -142,25 +132,25 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
             if (!$scope.ward._id) {
                 $scope.alerts.push({
                     code: 400,
-                    message: "Oops! You forgot to <strong>&nbsp;select a Ward in Step 1</strong>"
+                    message: "<strong>Select a Ward in Step 1</strong>"
                 });
             }
             if (!$scope.user.firstName) {
                 $scope.alerts.push({
                     code: 400,
-                    message: "Oops! You forgot to <strong>&nbsp;fill in your first name in Step 2</strong>"
+                    message: "<strong>Fill in your first name in Step 2</strong>"
                 });
             }
             if (!$scope.user.lastName) {
                 $scope.alerts.push({
                     code: 400,
-                    message: "Oops! You forgot to <strong>&nbsp;fill in your last name in Step 2</strong>"
+                    message: "<strong>Fill in your last name in Step 2</strong>"
                 });
             }
             if (!$scope.user.email) {
                 $scope.alerts.push({
                     code: 400,
-                    message: "Oops! You forgot to <strong>&nbsp;fill in your email in Step 2</strong>"
+                    message: "<strong>Fill in your email in Step 2</strong>"
                 });
             }
         }

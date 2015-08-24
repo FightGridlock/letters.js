@@ -142,8 +142,8 @@ module.exports = {
             var warnings = 0;
             switch( method ) {
                 case 'post':
-                    if (!req.body.html) {
-                        errors.push({message: "Missing html body, required"});
+                    if (!req.body.text) {
+                        errors.push({message: "Missing text body, required"});
                     }
                     if (!req.body.subject) {
                         errors.push({message: "Missing subject, required"});

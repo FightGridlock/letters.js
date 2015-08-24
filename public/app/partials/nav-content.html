@@ -1,7 +1,14 @@
 <nav>
     <div class="nav-wrapper">
-        <a href="/" class="brand-logo">One Brampton</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <a href="/" class="brand-logo"><img class="header-logo" src="/img/ob-logo-black.png" alt="One Brampton" /></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse grey-text text-darken-4"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li ng-class="{ active: isActive('') }" ><a class="grey-text text-darken-4" href="/">Home</a></li>
+            <li ng-class="{ active: isActive('contact') }" ><a class="grey-text text-darken-4" href="/contact">Contact your Councillor</a></li>
+            <li ng-class="{ active: isActive('video') }" ><a class="grey-text text-darken-4" href="/video">Video Contest</a></li>
+            <!--<li ng-class="{ active: isActive('/social') }" ><a class="grey-text text-darken-4" href="/social/">How to Help</a></li>-->
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
             <li ng-class="{ active: isActive('') }" ><a href="/">Home</a></li>
             <li ng-class="{ active: isActive('contact') }" ><a href="/contact">Contact your Councillor</a></li>
             <li ng-class="{ active: isActive('video') }" ><a href="/video">Video Contest</a></li>
@@ -9,3 +16,8 @@
         </ul>
     </div>
 </nav>
+<script type="text/javascript">
+  $( document ).ready(function(){
+    $(".button-collapse").sideNav();
+  })
+</script>

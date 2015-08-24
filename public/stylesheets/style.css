@@ -12605,7 +12605,7 @@ main {
 
 /* line 35, ../sass/custom/_diogo.scss */
 #letter-body {
-  background-image: url(http://www.webtexture.net/wp-content/gallery/20-seamless-paper-texture/papar_texture_thumb15.jpg);
+  background-image: url(/img/paper-texture.jpg);
   background-repeat: repeat;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -12665,4 +12665,11 @@ hr.heading {
 .brand-logo {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+/* line 85, ../sass/custom/_diogo.scss */
+.header-logo {
+  height: 64px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }

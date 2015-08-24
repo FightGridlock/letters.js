@@ -4,7 +4,7 @@
     "version": "0.0.1",
     "main": "server.js",
     "scripts": {
-        "start": "node ./server.js > nodelog.txt"
+        "start": "node ./server.js >> nodelog.txt 2>> nodeerr.txt"
   },
     "dependencies": {
         "express": "~4.0.0",

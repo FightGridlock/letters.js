@@ -35,7 +35,7 @@ var mailerDaemon = function(){
                     bcc: email.bcc, // array of bcc reciever
                     subject: email.subject, // Subject line
                     text: email.text,
-                    html: email.html, // plaintext body
+//                  html: email.html, //not in use right now
                     'h:Reply-To': email.from
                 };
                 mailer.sendMail(mailOptions, function(err, info) {
