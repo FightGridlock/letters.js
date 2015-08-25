@@ -32,11 +32,15 @@ router.route('/')
 .post(function(req, res) {
 
     var template = new Template();
-    template.body = req.body.body;
+    template.text = req.body.text;
+    template.html = req.body.html;
     template.subject = req.body.subject;
     template.fromEmail = req.body.fromEmail;
     if (req.body.bcc) {
         template.bcc = req.body.bcc;
+    }
+    if (req.body.cc) {
+        template.cc = req.body.cc;
     }
     if (req.body.active === false || req.body.active === true) {
         template.active = req.body.active;
@@ -78,21 +82,29 @@ router.route('/:email_id')
         }
         else {
             // place params into variables
-            var body = req.body.body;
+            var text = req.body.text;
+            var html = req.body.html;
             var fromEmail = req.body.fromEmail;
             var subject = req.body.subject;
+            var cc = req.body.cc;
             var bcc = req.body.bcc;
             var active = req.body.active;
 
             // check if param was sent, then update
-            if (body) {
-                template.body = body;
+            if (text) {
+                template.text = text;
+            }
+            if (html) {
+                template.html = html;
             }
             if (fromEmail) {
                 template.from = fromEmail;
             }
             if (subject) {
                 template.to = subject;
+            }
+            if (cc) {
+                template.cc = req.body.cc;
             }
             if (bcc) {
                 template.bcc = bcc;

@@ -5,7 +5,8 @@ var Schema          = mongoose.Schema;
 
 var WardSchema      = new Schema({
     name: String,
-    numbers: [String]
+    numbers: [String],
+    img: String
 });
 
 module.exports = mongoose.model('Ward', WardSchema);

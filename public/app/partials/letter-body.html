@@ -1,19 +1,15 @@
 <article>
-  
-  
-  
-  <div class="container">
-    <h3>Dear <span ng-repeat="rep in selectedReps">{{ rep.firstName }} {{ rep.lastName }}{{ $last ? '' : ($index==selectedReps.length-2) ? ' and ' : ', '}}</span></h3>  
+  <div id="letter-body">
+    <h3>Dear,</h3><h4><span ng-repeat="rep in selectedReps">{{ rep.firstName }} {{ rep.lastName }}{{ $last ? '' : ($index==selectedReps.length-2) ? ' and ' : ', '}}</span></h4>  
     <div>
-      <p>{{ templates[0].body }}</p>
+      <span class="justify preformatted" ng-bind-html="  templates[0].text || ' ' | newlines"></span>
     </div>
     <div>
-      <h3>Sincerely,</h3>
-      <h4>{{ user.firstName || "Janice" }} {{ user.lastName || "Singh" }}</h4>
-      <p>{{ user.email || "janice.singh@example.com" }}</p>
+      <h4>Sincerely,</h4>
+      <h5>{{ user.firstName || "Janice" }} {{ user.lastName || "Singh" }}</h5>
+      <span>{{ user.email || "janice.singh@example.com" }}</span><br /><br />
     </div>
-    
-    
-    <button class="waves-effect waves-light btn" ng-click="postData()">Send Message</button>
   </div>
+  <br />
+    <button class="col s8 m6 l4 offset-s2 offset-m3 offset-l4 waves-effect waves-light btn" ng-click="postData()"><i class="material-icons left">send</i>Send Message</button>
 </article>

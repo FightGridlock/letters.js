@@ -1,0 +1,96 @@
+<!doctype html>
+<html ng-app="letterApp">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script type="text/javascript" src="/lib/modernizr/modernizr.js"></script>
+    <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/lib/angular-animate/angular-animate.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Next Steps | One Brampton</title>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=215618798565877";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <header ng-controller="navController">
+      <!--Heading-->
+      <nav-content></nav-content>
+    </header>
+    
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m12 l12 center-align">
+            <h3>Your Email is On Its Way!</h3> <br />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6 l4">
+            <div class="card">
+              <div class="card-content center-align">
+                <h5>Like us on Facebook</h5><br />
+                <div class="fb-page" data-href="https://www.facebook.com/onebrampton" data-width="300" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/onebrampton"><a href="https://www.facebook.com/onebrampton">One Brampton</a></blockquote></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l4">
+            <div class="card">
+              <div class="card-content center-align">
+                <h5>Follow Us on Twitter</h5><br />
+                <a class="twitter-timeline" href="https://twitter.com/OneBrampton" data-widget-id="635596892072611840">Tweets by @OneBrampton</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m12 l4">
+            <div class="card">
+              <div class="card-content center-align">
+                <h5>Enter the Video Contest</h5><br />
+                <div class="match hide-on-med-and-down">
+                  <p>Create a video showing or telling people “Why the LRT on Main Street is important for you?", then share your video on social media using <a href="https://twitter.com/search?q=%23LRTonMainStreet" target="_blank">#LRTonMainStreet</a> and <a href="https://twitter.com/search?q=%23BramptonsRoute" target="_blank">#BramptonsRoute</a></p>
+                  <br /><br /><a class="btn" href="/video/">Details Here</a>
+                </div>
+                <div class="hide-on-large-only">
+                  <p>Create a video showing or telling people “Why the LRT on Main Street is important for you?", then share your video on social media using <a href="https://twitter.com/search?q=%23LRTonMainStreet" target="_blank">#LRTonMainStreet</a> and <a href="https://twitter.com/search?q=%23BramptonsRoute" target="_blank">#BramptonsRoute</a></p>
+                  <br /><br /><a class="btn" href="/video/">Details Here</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l6">
+            
+          </div>
+        </div>   
+      </div>
+
+    </main>
+
+    <footer class="page-footer">
+      <!-- Footer -->
+      <footer-content></footer-content>
+    </footer>
+    
+    <!-- JS Includes -->
+    <script src="/lib/materialize/bin/materialize.js"></script>
+    <script src="/lib/materialize/js/forms.js"></script>
+    
+    <!-- Angular Includes -->
+    <!-- Main File -->
+    <script src="/app/letters.js"></script>
+    
+    <!-- Directives -->
+    <script type="text/javascript" src="/app/directives/footerContent.js"></script>
+    <script type="text/javascript" src="/app/directives/navContent.js"></script>
+    
+    <!-- Controllers -->
+    <script type="text/javascript" src="/app/controllers/navController.js"></script>
+  </body>
+</html>

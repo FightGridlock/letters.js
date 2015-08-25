@@ -1,0 +1,89 @@
+.wardImg {
+    width: 100%;
+    height: auto;
+}
+.radio-middle {
+    vertical-align: middle;
+}
+.justify {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.accordion-body {
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.ward-radio {
+    display: block;
+    margin-bottom: 1.5em;
+}
+
+#letter-body {
+    background-image: url(/img/paper-texture.jpg);
+    background-repeat: repeat;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin: 5px;
+    -webkit-box-shadow: 0px 7px 17px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 17px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 17px -5px rgba(0,0,0,0.75);
+    text-align: justify;
+}
+
+main {
+    .container {
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+}
+
+.center-btn {
+    text-align: center;
+}
+
+.preformatted {
+    white-space: pre-wrap;
+}
+.match {
+    height: 400px;
+}
+.panel-body {
+    margin: 20px;
+}
+.list {
+    list-style-type: decimal;
+}
+.number {
+    cursor: default !important;
+}
+hr.heading {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+.brand-logo {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header-logo {
+    height: 64px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

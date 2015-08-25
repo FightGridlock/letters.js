@@ -65,16 +65,20 @@ router.route('/:email_id')
         }
         else {
             // place params into variables
-            var body = req.body.body;
+            var text = req.body.text;
+            var html = req.body.html;
             var from = req.body.from;
             var to = req.body.to;
             var bcc = req.body.bcc;
             var sent = req.body.sent;
 
             // check if param exists, then update
-            if (body) {
-                email.body = body;
-            } // update email info 
+            if (text) {
+                email.text = text;
+            }
+            if (html) {
+                email.html = html;
+            }
             if (from) {
                 email.from = from;
             }

@@ -46,12 +46,13 @@ router.route('/')
     user.wardId = req.body.wardId;
 
     // save the User and check for errors
-    user.save(function(err) {
+    user.save(function(err, user) {
         if (err) {
             res.send(err);
         }
         else {
-            res.json({
+            res.json({ 
+                user: user,
                 message: 'User Added.'
             });
         }
