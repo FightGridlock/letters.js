@@ -95,7 +95,8 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
                         lastName: $scope.user.lastName,
                         email: $scope.user.email,
                         postalCode: $scope.user.postalCode,
-                        wardId: $scope.ward._id
+                        wardId: $scope.ward._id,
+                        sub: $scope.user.sub
                     })
                     .success(function(data, status, headers, config) {
                         // this callback will be called asynchronously

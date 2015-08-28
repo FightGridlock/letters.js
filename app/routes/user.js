@@ -37,6 +37,7 @@ router.route('/')
     user.email = req.body.email;
     user.address = req.body.address;
     user.ip = req.ip;
+    user.sub = req.body.sub;
     
     if (req.body.city) {
         user.city = req.body.city;
@@ -138,6 +139,60 @@ router.route('/:user_id')
                 });
                 console.log("Deleted User: " + email);
             });
+        }
+    });
+});
+
+router.route('/:user_email/subscribe')
+
+.get(function(req, res) {
+    User.findOne({ email: req.params.user_email}, function(err, user){
+        if (err) {
+            res.send(err);
+        }
+        else {
+            if (user.sub !== true) {
+                user.sub = true;
+                user.save(function(err, user) {
+                    if (err) {
+                        res.send(err);
+                    }
+                    else {
+                        res.json({code: 200, message: "Subscription Updated: you are now subscribed to recieve messages from us. Thank you!"});
+                    }
+                });
+            }
+            else {
+                res.json({code: 200, message: "Already Subscribed. Thank you!"});
+            }
+                
+        }
+    });
+});
+
+
+router.route('/:user_email/unsubscribe')
+
+.get(function(req, res) {
+    User.findOne({ email: req.params.user_email}, function(err, user){
+        if (err) {
+            res.send(err);
+        }
+        else {
+            if (user.sub !== false) {
+                user.sub = false;
+                user.save(function(err, user) {
+                    if (err) {
+                        res.send(err);
+                    }
+                    else {
+                        res.json({code: 200, message: "Subscription Updated: you are no longer subscribed to recieve messages from us. Sorry to see you go!"});
+                    }
+                });
+            }
+            else {
+                res.json({code: 200, message: "Already Unsubscribed. Please wait for up to 5 bunsiness days for our system to update."});
+            }
         }
     });
 });

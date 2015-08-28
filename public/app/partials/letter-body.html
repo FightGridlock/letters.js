@@ -10,6 +10,10 @@
       <span>{{ user.email || "janice.singh@example.com" }}</span><br /><br />
     </div>
   </div>
+  <p>
+    <input type="checkbox" id="subscribe" ng-model="user.sub" />
+    <label for="subscribe">I want to recieve email correspondence from One Brampton about this and future campaigns.</label>
+  </p>
   <br />
     <button class="col s8 m6 l4 offset-s2 offset-m3 offset-l4 waves-effect waves-light btn" ng-click="postData()"><i class="material-icons left">send</i>Send Message</button>
 </article>
