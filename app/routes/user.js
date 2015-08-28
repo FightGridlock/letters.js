@@ -36,6 +36,8 @@ router.route('/')
     user.lastName = req.body.lastName; // set the user's last name
     user.email = req.body.email;
     user.address = req.body.address;
+    user.ip = req.ip;
+    
     if (req.body.city) {
         user.city = req.body.city;
     }

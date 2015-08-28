@@ -1,5 +1,0 @@
-Error: Requested Range Not Satisfiable
-    at SendStream.error (/home/ubuntu/workspace/node_modules/express/node_modules/serve-static/node_modules/send/lib/send.js:145:16)
-    at SendStream.send (/home/ubuntu/workspace/node_modules/express/node_modules/serve-static/node_modules/send/lib/send.js:371:19)
-    at /home/ubuntu/workspace/node_modules/express/node_modules/serve-static/node_modules/send/lib/send.js:323:10
-    at Object.oncomplete (fs.js:108:15)

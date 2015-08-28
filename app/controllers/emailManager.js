@@ -89,6 +89,8 @@ module.exports = {
                 email.cc        = queries.selectedTemplate.cc;
                 email.bcc       = queries.selectedTemplate.bcc;
                 email.sent      = false;
+                email.confirmed = 100; // 100: not confirmed, 200: request sent, 300: confirmed, 400: fraudulent email
+                email.userId    = queries.selectedUser._id;
                 
                 email.save(function(err, email){
                     if (err) {

@@ -41,6 +41,8 @@ var user        = require("./app/routes/user");
 var ward        = require("./app/routes/ward");
 var rep         = require("./app/routes/rep");
 var template    = require("./app/routes/template");
+var confirm     = require("./app/routes/confirm");
+var fraud       = require("./app/routes/fraud");
 
 app.use("/api/send", send);
 app.use("/api/emails", email);
@@ -48,6 +50,8 @@ app.use("/api/users", user);
 app.use("/api/wards", ward);
 app.use("/api/reps", rep);
 app.use("/api/templates", template);
+app.use("/api/confirm", confirm);
+app.use("/api/fraud", fraud);
 
 app.use("/api", api);
 app.use("/", router);
