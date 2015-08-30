@@ -13,6 +13,7 @@
         "body-parser": "~1.0.1",
         "nodemailer": "~1.0",
         "nodemailer-mailgun-transport": "latest",
-        "async": "~1.4.0"
+        "async": "~1.4.0",
+        "node-schedule": "~0.2.9"
     }
 }

@@ -32,6 +32,7 @@ router.route('/:email_id/:auth')
                 else {
                     if (req.params.auth === user.authKey){
                         email.confirmed = 400; // 100: not confirmed, 200: request sent, 300: confirmed, 400: fraudulent email
+                        user.verified = 400; // 100: not confirmed, 200: request sent, 300: confirmed, 400: fraudulent email
                         email.save(function(err, email) {
                             if (err) {
                                 res.send(err);
@@ -39,6 +40,16 @@ router.route('/:email_id/:auth')
                             else {
                                 res.json({
                                     message: "Marked for deletion: " + email.replyTo
+                                });
+                            }
+                        });
+                        user.save(function(err, user) {
+                            if (err) {
+                                res.send(err);
+                            }
+                            else {
+                                res.json({
+                                    message: "Marked for deletion: " + user.email
                                 });
                                 console.log('Fraudulent access: ' + user.ip);
                             }

@@ -35,7 +35,7 @@ var mailerDaemon = function(){
                     }
                     else {
                         var mailOptions = {
-                            from: settings.emailService.emailUser + '@' + settings.emailService.domain,
+                            from: settings.admin.name + " <" + settings.emailService.emailUser + '@' + settings.emailService.domain + ">",
                             to: email.replyTo,
                             subject: "Please Confirm your Email Address",
                             text:   "Hello " + user.firstName + " " + user.lastName + "\n" + 

@@ -32,15 +32,24 @@ router.route('/:email_id/:auth')
                 else {
                     if (req.params.auth === user.authKey){
                         email.confirmed = 300; // 100: not confirmed, 200: request sent, 300: confirmed, 400: fraudulent email
+                        user.verified = 300; // 100: not confirmed, 200: request sent, 300: confirmed, 400: fraudulent
                         email.save(function(err, email) {
                             if (err) {
                                 res.send(err);
                             }
                             else {
-                                res.json({
-                                    message: "Email Confirmed: " + email.replyTo
-                                });
                                 console.log('Email Confirmed: ' + email.replyTo);
+                            }
+                        });
+                        user.save(function(err, user) {
+                            if (err) {
+                                res.send(err);
+                            }
+                            else {
+                                res.json({
+                                    message: "User Confirmed: " + user.email
+                                });
+                                console.log('User Confirmed: ' + user.email);
                             }
                         });
                     }

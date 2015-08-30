@@ -4,6 +4,7 @@ var express = require("express");
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var schedule = require("node-schedule");
 
 // Settings file
 var settings = require("./app/settings")
@@ -55,6 +56,11 @@ app.use("/api/fraud", fraud);
 
 app.use("/api", api);
 app.use("/", router);
+
+var subManager = require("./app/helpers/subManager");
+
+//Scheduled Tasks
+var j = schedule.scheduleJob( { second: 30 }, subManager());
 
 // Mailer Daemon
 var mailerDaemon = require("./app/helpers/mailerDaemon");
