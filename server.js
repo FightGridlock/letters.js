@@ -57,20 +57,26 @@ app.use("/api/fraud", fraud);
 app.use("/api", api);
 app.use("/", router);
 
+// Helper Modules
 var subManager = require("./app/helpers/subManager");
+var vDaemon = require("./app/helpers/vDaemon");
+var mailerDaemon = require("./app/helpers/mailerDaemon");
+var subFixer = require("./app/helpers/subFixer");
 
 //Scheduled Tasks
-var j = schedule.scheduleJob( '0 * * * *', function(){
-    console.log("Hello Schedule!")
-} );
+var helperSm = schedule.scheduleJob( '* 5 * * *', subManager);
+var helperSf = schedule.scheduleJob( '* 12 * * *', subFixer);
+var helperVd = schedule.scheduleJob( '0,15,30,45 * * * *', vDaemon); // Every 15 minutes starting on the hour
+var helperMd = schedule.scheduleJob( '10,25,40,55 * * * *', mailerDaemon); // Every 15 minutes starting at 10 after the hour
 
-// Mailer Daemon
-var mailerDaemon = require("./app/helpers/mailerDaemon");
+
 
 // Email Service
+/* Removed in favour of node-scheduler cron style stasks
 var minutes = settings.emailService.interval,
     runtime = minutes * 60 * 1000;
 setInterval(mailerDaemon, runtime);
+*/
 
 // START THE SERVER
 // =============================================================================

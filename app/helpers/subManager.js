@@ -19,17 +19,6 @@ var User = require('../models/user');
 var subManager = function() {
     var mailOptions = {};
     var subbedEmails = "";
-
-    User.find( { sub: { $exists: false }, verified: 300 }, function(err, users) {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            users.forEach(function(user){
-                console.log("User no sub pref set: " + user.email);
-            });
-        }
-    });
     
     User.find( { sub: true, verified: 300 }).select('email').exec(function(err, users) {
         if (err) {

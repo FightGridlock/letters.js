@@ -33,8 +33,8 @@ var mailerDaemon = function(){
             // Run through array of email objects, send each one, then update the "sent" field
             emails.forEach(function(email) {
                 
-                User.findOne({ email: email.replyTo /* /FLAG/ change this to email.userId  */})
-                .select('firstName lastName verified email')
+                User.findOne({ email: email.replyTo /* /FLAG/ change this to '_id: email.userId'  */})
+                .select('verified email')
                 .exec(function(err, user) {
                     if(err) {
                         console.log(err);

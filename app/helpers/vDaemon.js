@@ -41,7 +41,7 @@ var vDaemon = function(){
         }
     });
     
-    User.find({ verified: 100}, function(err, users) {
+    User.find({ verified: 100 }, function(err, users) {
         if (err) {
             console.log(err);
         }
@@ -54,7 +54,7 @@ var vDaemon = function(){
                     subject: "Please Confirm your Email Address",
                     text:   "Hello " + user.firstName + " " + user.lastName + "\n" + 
                             "Thank you for joining the campaign to save the Hurontatio-Main LRT (HMLRT)\n\n" + 
-                            "Because of a request by the City of Brampton's Clerk's Office, we now need to verify every email before we send it. We understand that you are a busy person and have a life ( We do too :-) ), thats why this will only take a sigle click!\n\n" + 
+                            "Because of a request by the City of Brampton's Clerk's Office, we now need to verify every email before we send it. We understand that you are a busy person and have a life ( We do too :-) ), this is why this will only take a single click!\n\n" + 
                             "This is the secure link to verify your address: \n" +
                             process.env.SITEURL + "/api/confirm/" + user._id + "/" + user.authKey + "\n\n" +
                             "If you did not send your councillor a letter using http://onebrampton.com/contact/ please let us know of the unauthorized use of your email using this link:\n\n" +
@@ -67,10 +67,10 @@ var vDaemon = function(){
                             "onebrampton@gmail.com",
                     html:   "<p>Hello " + user.firstName + " " + user.lastName + "" + 
                             "<p>Thank you for joining the campaign to save the Hurontatio-Main LRT (HMLRT)</p><br />" + 
-                            "<p>Because of a request by the City of Brampton's Clerk's Office, we now need to verify every email before we send it. We understand that you are a busy person and have a life ( We do too :-) ), thats why this will only take a sigle click!</p>" +
+                            "<p>Because of a request by the City of Brampton's Clerk's Office, we now need to verify every email before we send it. We understand that you are a busy person and have a life ( We do too :-) ), this is why this will only take a single click!</p>" +
                             "<p>This is the secure link to verify your email address: <br />" +
                             "<a href=\'" + process.env.SITEURL + "/api/confirm/" + user._id + "/" + user.authKey + "\'>" + process.env.SITEURL + "/api/confirm/" + user._id + "/" + user.authKey + "</a></p><br />" +
-                            "<p>If you did not send your councillor a letter using http://onebrampton.com/contact/ please let us know of the unauthorized use of your email using this link:" +
+                            "<p>If you did not send your councillor a letter using http://onebrampton.com/contact/ please let us know of the unauthorized use of your email using this link:<br />" +
                             "<a href=\'" + process.env.SITEURL + "/api/fraud/" + user._id + "/" + user.authKey + "\'>" + process.env.SITEURL + "/api/fraud/" + user._id + "/" + user.authKey + "</a></p><br />" +
                             "<p>We will not send any message until your email is confirmed, and if you report fraudulent activity we will delete the email message outright. By confirming your email" + 
                             "&nbsp;you also confirm that your message will become part of the City of Bramption public record and may be read during the special council meeting on September 16, 2015 with all personal details such as your email erased.</p>" +

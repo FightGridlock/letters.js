@@ -18,7 +18,6 @@ module.exports = {
         password: "",   // SMTP/Account Pass
         domain: process.env.MGDOMAIN, // Domain to send emails from
         emailUser: "noreply",                   // the "user" in "user"@domain.com
-        interval: 1 // Send emails every "interval" in minutes
     },        // Email Service Settings
     apiCredentials: {
         username: process.env.APIMASTER,
