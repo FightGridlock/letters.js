@@ -60,7 +60,9 @@ app.use("/", router);
 var subManager = require("./app/helpers/subManager");
 
 //Scheduled Tasks
-var j = schedule.scheduleJob( { second: 30 }, subManager());
+var j = schedule.scheduleJob( '0 * * * *', function(){
+    console.log("Hello Schedule!")
+} );
 
 // Mailer Daemon
 var mailerDaemon = require("./app/helpers/mailerDaemon");
@@ -73,4 +75,4 @@ setInterval(mailerDaemon, runtime);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Letters App running on Port ' + port);
+console.log('=== ' + Date.now() + ' ===\n' + 'Letters App running on Port ' + port);

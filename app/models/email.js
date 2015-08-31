@@ -12,7 +12,6 @@ var EmailSchema      = new Schema({
     text:       String,
     html:       String,
     subject:    { type: String, default: "Approve the Hurontario-Main LRT" },
-    confirmed:  { type: Number, default: 100 },
     sent:       { type: Boolean, default: false },
     userId:     String
 });

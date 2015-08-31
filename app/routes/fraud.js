@@ -17,49 +17,31 @@ router.put("*", middlewares.authorize);
 
 // Define the email route
 
-router.route('/:email_id/:auth')
+router.route('/:user_id/:auth')
 
 .get(function(req, res) {
-    Email.findById(req.params.email_id, function(err, email) {
+    User.findById(req.params.user_id, function(err, user) {
         if (err) {
             res.send(err);
         }
         else {
-            User.findById(email.userId, function(err, user) {
-                if (err) {
-                    res.send(err);
-                }
-                else {
-                    if (req.params.auth === user.authKey){
-                        email.confirmed = 400; // 100: not confirmed, 200: request sent, 300: confirmed, 400: fraudulent email
-                        user.verified = 400; // 100: not confirmed, 200: request sent, 300: confirmed, 400: fraudulent email
-                        email.save(function(err, email) {
-                            if (err) {
-                                res.send(err);
-                            }
-                            else {
-                                res.json({
-                                    message: "Marked for deletion: " + email.replyTo
-                                });
-                            }
-                        });
-                        user.save(function(err, user) {
-                            if (err) {
-                                res.send(err);
-                            }
-                            else {
-                                res.json({
-                                    message: "Marked for deletion: " + user.email
-                                });
-                                console.log('Fraudulent access: ' + user.ip);
-                            }
-                        });
+            if (req.params.auth === user.authKey){
+                user.verified = 400; // 100: not confirmed, 200: request sent, 300: confirmed, 400: fraudulent email
+                user.save(function(err, user) {
+                    if (err) {
+                        res.send(err);
                     }
                     else {
-                        res.json(401, { message: "Invalid key provided, not authorized" });
+                        res.json({
+                            message: "Marked for inspection: " + user.email
+                        });
+                        console.log('Fraudulent access: ' + user.ip);
                     }
-                }
-            });
+                });
+            }
+            else {
+                res.json(401, { message: "Invalid key provided, not authorized" });
+            }
         }
     });
 });

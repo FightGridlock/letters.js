@@ -31,22 +31,6 @@ var subManager = function() {
         }
     });
     
-    User.find( { verified: { $exists: false } }, function(err, users) {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            users.forEach(function(user){
-                /*mailOptions = {
-                    to: user.email,
-                    from: settings.admin.name + " <" + settings.emailService.emailUser + "@" + settings.emailService.domain + ">",
-                    text: ""
-                }*/
-                console.log("User Unverified: " + user.email);
-            });
-        }
-    });
-    
     User.find( { sub: true, verified: 300 }).select('email').exec(function(err, users) {
         if (err) {
             console.log(err);
@@ -62,6 +46,7 @@ var subManager = function() {
                 text: "Here is your daily list of subscribed users, new line delimited: \n\n" + subbedEmails,
                 bcc: settings.admin.bcc
             };
+            console.log("Sending sub email", subbedEmails);
             mailer.sendMail(mailOptions, function(err, info) {
                 if (err) {
                     console.log(err);
