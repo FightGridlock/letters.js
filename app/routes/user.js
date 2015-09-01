@@ -31,33 +31,45 @@ router.route('/')
 
 .post(function(req, res) {
 
-    var user = new User(); // create new instance of the User model
-    user.firstName = req.body.firstName; // set the user's first name
-    user.lastName = req.body.lastName; // set the user's last name
-    user.email = req.body.email;
-    user.address = req.body.address;
-    user.ip = req.ip;
-    user.sub = req.body.sub;
-    
-    if (req.body.city) {
-        user.city = req.body.city;
-    }
-    if (req.body.province) {
-        user.province = req.body.province;
-    }
-    user.postalCode = req.body.postalCode;
-    user.wardId = req.body.wardId;
-
-    // save the User and check for errors
-    user.save(function(err, user) {
+    User.find({ email: req.body.email }, function(err, users){
         if (err) {
-            res.send(err);
+            res.json(400, { message: "Something went wrong..." });
         }
         else {
-            res.json({ 
-                user: user,
-                message: 'User Added.'
-            });
+            if (users.length > 0) {
+                res.json(400, { message: "Email has already been used." });
+            }
+            else {
+                var user = new User(); 
+                user.firstName = req.body.firstName; 
+                user.lastName = req.body.lastName; 
+                user.email = req.body.email;
+                user.address = req.body.address;
+                user.ip = req.ip;
+                user.sub = req.body.sub;
+                
+                if (req.body.city) {
+                    user.city = req.body.city;
+                }
+                if (req.body.province) {
+                    user.province = req.body.province;
+                }
+                user.postalCode = req.body.postalCode;
+                user.wardId = req.body.wardId;
+            
+                // save the User and check for errors
+                user.save(function(err, user) {
+                    if (err) {
+                        res.send(err);
+                    }
+                    else {
+                        res.json({ 
+                            user: user,
+                            message: 'User Added.'
+                        });
+                    }
+                });
+            }
         }
     });
 });

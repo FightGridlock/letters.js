@@ -123,7 +123,7 @@ app.controller('letterController', ['$scope', '$http', function($scope, $http) {
                         // called asynchronously if an error occurs
                         $scope.alerts.push({
                             code: 400,
-                            message: "Something went wrong... Please try again later."
+                            message: data.message || "Something went wrong..."
                         });
                         console.log("Data has not been posted to users: ", data);
                     });
