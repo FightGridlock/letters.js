@@ -18,7 +18,7 @@ var mailer = nodemailer.createTransport(mg(options));
 // Email model required for email service
 var User = require('../models/user');
 
-var vDaemon = function(){
+var verifyDaemon = function(){
     
     // Make sure all users have initialized 'verified' parameter, and initialize if not
     User.find( { verified: { $exists: false } }, function(err, users) {
@@ -101,4 +101,4 @@ var vDaemon = function(){
     });
 };
 
-module.exports = vDaemon;
+module.exports = verifyDaemon;

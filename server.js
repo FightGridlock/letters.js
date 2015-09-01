@@ -58,16 +58,16 @@ app.use("/api", api);
 app.use("/", router);
 
 // Helper Modules
-var subManager = require("./app/helpers/subManager");
-var vDaemon = require("./app/helpers/vDaemon");
-var mailerDaemon = require("./app/helpers/mailerDaemon");
-var subFixer = require("./app/helpers/subFixer");
+var subManager      = require("./app/helpers/subManager");
+var verifyDaemon    = require("./app/helpers/verifyDaemon");
+var mailerDaemon    = require("./app/helpers/mailerDaemon");
+var subFixer        = require("./app/helpers/subFixer");
 
 //Scheduled Tasks
 var helperSm = schedule.scheduleJob( '* 5 * * *', subManager);
-var helperSf = schedule.scheduleJob( '* 12 * * *', subFixer);
-var helperVd = schedule.scheduleJob( '0,15,30,45 * * * *', vDaemon); // Every 15 minutes starting on the hour
-var helperMd = schedule.scheduleJob( '10,25,40,55 * * * *', mailerDaemon); // Every 15 minutes starting at 10 after the hour
+var helperSf = schedule.scheduleJob( '* 6,12,18 * * *', subFixer); 
+var helperVd = schedule.scheduleJob( '0,15,30,45 * * * *', verifyDaemon); // Every 15 minutes starting on the hour
+var helperMd = schedule.scheduleJob( '*/5 * * * *', mailerDaemon); // Every 5 minutes
 
 
 

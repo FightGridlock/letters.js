@@ -29,7 +29,7 @@ var subFixer = function() {
                 mailOptions = {
                     from: settings.admin.name + " <" + settings.emailService.emailUser + '@' + settings.emailService.domain + ">",
                     to: user.email,
-                    subject: "Can we Keep You Up To Date?",
+                    subject: "Can We Keep You Up To Date?",
                     text:   "Hello " + user.firstName + " " + user.lastName + "\n" + 
                             "Thank you for joining the campaign to save the Hurontatio-Main LRT (HMLRT)\n\n" + 
                             "When you signed up, you did not set your communication preferences. By law we cannot send you updates and newsletters unless you give us permission, so please use the following links to subscribe or unsubscribe at any time:\n\n" + 
