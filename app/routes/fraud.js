@@ -22,7 +22,7 @@ router.route('/:user_id/:auth')
 .get(function(req, res) {
     User.findById(req.params.user_id, function(err, user) {
         if (err) {
-            res.send(err);
+            res.json(400, { message: "400, Bad Request" });
         }
         else {
             if (req.params.auth === user.authKey){

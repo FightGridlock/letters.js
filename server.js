@@ -81,4 +81,4 @@ setInterval(mailerDaemon, runtime);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('=== ' + Date.now() + ' ===\n' + 'Letters App running on Port ' + port);
+console.log('==== ' + Date.now() + ' ====\n' + 'Letters App running on Port ' + port);
