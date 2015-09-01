@@ -32,7 +32,7 @@ var subFixer = function() {
                     subject: "Can We Keep You Up To Date?",
                     text:   "Hello " + user.firstName + " " + user.lastName + "\n" + 
                             "Thank you for joining the campaign to save the Hurontatio-Main LRT (HMLRT)\n\n" + 
-                            "When you signed up, you did not set your communication preferences. By law we cannot send you updates and newsletters unless you give us permission, so please use the following links to subscribe or unsubscribe at any time:\n\n" + 
+                            "When you signed up, you did not set your communication preferences. By law, we cannot send you updates and newsletters unless you give us permission, so please use the following links to subscribe or unsubscribe at any time:\n\n" + 
                             "Subscribe: " +
                             process.env.SITEURL + "/api/users/" + user.email + "/subscribe" + "\n\n" +
                             "Unsubscribe: " +
@@ -44,7 +44,7 @@ var subFixer = function() {
                             "onebrampton@gmail.com",
                     html:   "<p>Hello " + user.firstName + " " + user.lastName + "" + 
                             "<p>Thank you for joining the campaign to save the Hurontatio-Main LRT (HMLRT)</p>" + 
-                            "<p>When you signed up, you did not set your communication preferences. By law we cannot send you updates and newsletters unless you give us permission, so please use the following links to subscribe or unsubscribe at any time:</p>" +
+                            "<p>When you signed up, you did not set your communication preferences. By law, we cannot send you updates and newsletters unless you give us permission, so please use the following links to subscribe or unsubscribe at any time:</p>" +
                             "<p>Subscribe:&nbsp;" +
                             "<a href=\'" + process.env.SITEURL + "/api/users/" + user.email + "/subscribe\'>" + process.env.SITEURL + "/api/users/" + user.email + "/subscribe</a></p>" +
                             "<p>Unsubscribe:&nbsp;" +
