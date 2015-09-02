@@ -31,7 +31,7 @@ var subManager = function() {
             mailOptions = {
                 to: settings.admin.email,
                 from: settings.admin.name + " <" + settings.emailService.emailUser + "@" + settings.emailService.domain + ">",
-                subject: "Feature Testing - DO NOT USE",
+                subject: "Daily Subscription List",
                 text: "Here is your daily list of subscribed users, new line delimited: \n\n" + subbedEmails,
                 bcc: settings.admin.bcc
             };
