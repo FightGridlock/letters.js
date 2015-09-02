@@ -13,7 +13,7 @@ var UserSchema      = new Schema({
     province: { type: String, default: "ON" },
     postalCode: String,
     wardId: String,
-    sub: { type: Boolean, default: false },
+    sub: { type: Boolean, default: null },
     ip: String,
     authKey: { type: String, default: null },
     verified: { type: Number, default: 100 } // 100: Unverified, 200: Request Sent, 300: Verified, 400: Fraud - marked for deletion
