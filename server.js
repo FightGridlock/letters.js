@@ -69,7 +69,7 @@ var helperSm = schedule.scheduleJob( '* 5 * * *', subManager);
 var helperSf = schedule.scheduleJob( '* 6,12,18 * * *', subFixer); 
 var helperVd = schedule.scheduleJob( '0,15,30,45 * * * *', verifyDaemon); // Every 15 minutes starting on the hour
 var helperMd = schedule.scheduleJob( '*/5 * * * *', mailerDaemon); // Every 5 minutes
-authFix();
+// authFix(); Fixed authkey issues - onetime run
 
 
 // Email Service
