@@ -6,7 +6,7 @@ module.exports = {
         name: "One Brampton",
         bcc: ["onebrampton@outlook.com"]
     },
-    devel: true,    // development boolean
+    devel: false,    // development boolean
     mongoURI: {
         production: "mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + "@ds042188-a0.mongolab.com:42188,ds042188-a1.mongolab.com:42186/onebrampton?replicaSet=rs-ds042188",
         development: "mongodb://writer:writer@ds060977.mongolab.com:60977/letters"
