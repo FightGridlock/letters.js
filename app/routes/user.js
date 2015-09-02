@@ -4,6 +4,7 @@ var express = require('express');
 var router = express.Router();
 
 var middlewares = require("../middleware/middlewares");
+var keyGenerator = require("../helpers/keyGenerator");
 
 // require the model JS file for users
 var User = require('../models/user');
@@ -48,6 +49,7 @@ router.route('/')
                 user.ip = req.ip;
                 user.sub = req.body.sub;
                 
+                
                 if (req.body.city) {
                     user.city = req.body.city;
                 }
@@ -56,16 +58,25 @@ router.route('/')
                 }
                 user.postalCode = req.body.postalCode;
                 user.wardId = req.body.wardId;
-            
-                // save the User and check for errors
-                user.save(function(err, user) {
+                
+                keyGenerator(20, function(err, key) {
                     if (err) {
-                        res.send(err);
+                        console.log(err);
+                        res.json(500, { message: "Internal Server Error" });
                     }
                     else {
-                        res.json({ 
-                            user: user,
-                            message: 'User Added.'
+                        user.authKey = key;
+                        // save the User and check for errors
+                        user.save(function(err, user) {
+                            if (err) {
+                                res.json(500, {message: "Internal Server Error"});
+                            }
+                            else {
+                                res.json({ 
+                                    user: user,
+                                    message: 'User Added.'
+                                });
+                            }
                         });
                     }
                 });

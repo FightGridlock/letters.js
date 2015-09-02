@@ -2,8 +2,10 @@
 
 var nodemailer = require("nodemailer");
 var mg = require("nodemailer-mailgun-transport");
+var async = require("async");
 
 var settings = require("../settings");
+var keyGenerator = require("../helpers/keyGenerator");
 
 // Nodemailer and Mailgun setup
 var options = {
