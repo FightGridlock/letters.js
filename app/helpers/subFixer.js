@@ -19,7 +19,7 @@ var User = require('../models/user');
 var subFixer = function() {
     var mailOptions = {};
 
-    User.find( { sub: { $exists: false }, verified: 300 }, function(err, users) {
+    User.find({ sub: null, verified: 300 }, function(err, users) {
         if (err) {
             console.log(err);
         }
