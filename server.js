@@ -65,7 +65,7 @@ var subFixer        = require("./app/helpers/subFixer");
 var authFix         = require("./app/helpers/authFix");
 
 //Scheduled Tasks
-var helperSm = schedule.scheduleJob( '* 5 * * *', subManager);
+var helperSm = schedule.scheduleJob( '0 5 * * *', subManager);
 var helperSf = schedule.scheduleJob( '*/15 * * * *', subFixer);
 var helperVd = schedule.scheduleJob( '0,15,30,45 * * * *', verifyDaemon); // Every 15 minutes starting on the hour
 var helperMd = schedule.scheduleJob( '*/5 * * * *', mailerDaemon); // Every 5 minutes
