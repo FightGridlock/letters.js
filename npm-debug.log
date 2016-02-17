@@ -19,7 +19,7 @@
 10 error You can get their info via:
 10 error     npm owner ls letters
 10 error There is likely additional logging output above.
-11 error System Linux 3.14.13-c9
+11 error System Linux 4.2.0-c9
 12 error command "/home/ubuntu/.nvm/v0.10.35/bin/node" "/home/ubuntu/.nvm/v0.10.35/bin/npm" "start"
 13 error cwd /home/ubuntu/workspace
 14 error node -v v0.10.35
